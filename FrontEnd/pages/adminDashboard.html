@@ -1,0 +1,320 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+
+    <title>Admin Dashboard</title>
+</head>
+<style>
+    body{
+        overflow-x: hidden;
+        z-index: 0;
+        color: #191919;
+    }
+.card{
+    margin-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.card:hover{
+    cursor: pointer;
+}
+#adminContainer{
+    padding:10px 110px 110px 110px;
+}
+.cards{
+    padding: 10px 50px 10px 50px;
+}
+</style>
+<body>
+<!--navbar start-->
+<!--navbar start-->
+<!-- Services Section Begin -->
+<div class="container text-center" id="adminContainer">
+    <h1>Admin</h1>
+    <div class="row">
+        <div class="col" >
+            <div class="card" style="width: 18rem;">
+                <img src="../assest/img/istockphoto-1341141923-612x612.jpg" class="card-img-top" alt="..." >
+                <div class="card-body">
+                    <h5 class="card-title">Registered User</h5>
+                    <h1 class="card-title" style="color: #263e60">105+</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col" >
+            <div class="card" style="width: 18rem;">
+                <img src="../assest/img/123.jpg" class="card-img-top" alt="..." style="width: 70%; height: 20%">
+                <div class="card-body">
+                    <h5 class="card-title">Available   Cars</h5>
+                    <h1 class="card-title" style="color: #263e60">10+</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="../assest/img/driver.jpg" class="card-img-top" alt="..." style="width: 89% ; height: 20%">
+                <div class="card-body">
+                    <h5 class="card-title">Available   Driver</h5>
+                    <h1 class="card-title" style="color: #263e60">20+</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" >
+            <div class="card" style="width: 18rem;">
+                <img src="../assest/img/maintance.jpg" class="card-img-top" alt="..." style="height: 50%;width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">Registered User</h5>
+                    <h1 class="card-title" style="color: #263e60">105+</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col" >
+            <div class="card" style="width: 18rem;">
+                <img src="../assest/img/booking-flights.jpg" class="card-img-top" alt="..." style="width: 90% ; height: 20%">
+                <div class="card-body">
+                    <h5 class="card-title">Booking Active</h5>
+                    <h1 class="card-title" style="color: #263e60">10+</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="../assest/img/Project_1-07.jpg" class="card-img-top" alt="..." style="width: 75% ; height: 20%">
+                <div class="card-body">
+                    <h5 class="card-title">Bookings for the day</h5>
+                    <h1 class="card-title" style="color: #263e60">20+</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Services Section End -->
+
+<!--tabs start-->
+<div class="cards">
+<div class="row">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Customer Manage</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <button class="btn btn-danger" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button" id="CustomerManage">
+                    Go Customer ->
+                </button>
+
+                <form class="col-2 " id="CustomerForms" >
+                    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" tabindex="-1" id="Customerform" >
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header" style="background-color: #46b2ff;">
+                                    <h5 class="modal-title" id="exampleModalLabel1">Customer </h5>
+                                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <section>
+                                        <div class="mb-3">
+
+                                            <input class="form-control" id="txtCustomerId" type="text" name="cusID" placeholder="Nic">
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <input class="form-control" id="txtCustomerName" multiple type="text" name="name" placeholder="Name">
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <input class="form-control" id="txtCustomerAddress" type="text" name="address" placeholder="Address">
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <input class="form-control form-control-sm" id="txtCustomerPassword" type="text" name="password" placeholder="Password">
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <input class="form-control form-control-sm" id="txtCustomerContactNum" type="number" name="contactnom" placeholder="ContactNum">
+                                        </div>
+
+                                        <div class="mb-3">
+
+                                            <input class="form-control form-control-sm" id="txtCustomerLicence" type="text" name="LicenceNum" placeholder="Licence">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <input class="form-control" type="file" id="formFiles23" placeholder="Please insert nic picture ">
+                                        </div>
+
+                                        <div aria-label="Basic mixed styles example" class="btn-group" role="group">
+                                            <button class="btn btn-danger" type="button" id="CustomerDelete"  > Delete</button>
+                                            <button class="btn btn-warning" type="button" id="CustomerUpdate"   > Update</button>
+                                            <button class="btn btn-success " type="button" id="save-customer" > Save</button>
+                                            <button class="btn btn-info " type="button" id="getAll-Customer"  >Get-All </button>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" type="button">Close</button>
+                                    <button class="btn btn-primary" type="button">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Manage Driver</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <button class="btn btn-danger" data-bs-target="#exampleModal1" data-bs-toggle="modal" type="button" id="DrivrManage">
+                    Go Driver ->
+                </button>
+                <form class="col-2 " id="driverForm" >
+                    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal1" tabindex="-1" id="driverForms" >
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header" style="background-color: #46b2ff;">
+                                    <h5 class="modal-title" id="exampleModalLabel3">Driver</h5>
+                                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <section>
+                                        <div class="mb-3">
+
+                                            <input class="form-control" id="txtDriverId" type="text" name="driverID" placeholder="licence No">
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <input class="form-control" id="txtDriverName" multiple type="text" name="drivername" placeholder="Name">
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <input class="form-control" id="txtDriverAddress" type="text" name="driveraddress" placeholder="Address">
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <input class="form-control" id="txtDriverContact" type="text" name="driverContact" placeholder="Contact No">
+                                        </div>
+
+                                        <div aria-label="Basic mixed styles example" class="btn-group" role="group">
+                                            <button class="btn btn-danger" type="button" id="DriverDelete"  > Delete</button>
+                                            <button class="btn btn-warning" type="button" id="DriverUpdate"   > Update</button>
+                                            <button class="btn btn-success " type="button" id="save-Driver" > Save</button>
+                                            <button class="btn btn-info " type="button" id="getAll-Driver"  >Get-All </button>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" type="button">Close</button>
+                                    <button class="btn btn-primary" type="button">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Manage Car</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <button class="btn btn-danger" data-bs-target="#exampleModal2" data-bs-toggle="modal" type="button" id="addnewCustomer">
+                    Go Car ->
+                </button>
+
+                <!-- new customer -->
+                <form class="col-2 " id="carForms" >
+                    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal2" tabindex="-1" id="CarForm" >
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header" style="background-color: #46b2ff;">
+                                    <h5 class="modal-title" id="exampleModalLabel">Car Manage</h5>
+                                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <section>
+                                        <div class="mb-3">
+
+                                            <input class="form-control" id="txtcarNom" type="text" name="vehicleNum" placeholder="vehicle Num">
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <input class="form-control" id="txtcarColor" multiple type="text" name="Color" placeholder="Colour">
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <input class="form-control form-control-sm" id="txtcarMonthlyPrice" type="number" name="CarMonthlyprice" placeholder="Monthly-Price">
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <input class="form-control form-control-sm" id="txtcarDailyPrice" type="number" name="CarDailyprice" placeholder="Daily-Price">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input class="form-control" type="file" id="formFile" placeholder="Please insert four picture ">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input class="form-control" type="text" id="passenger" placeholder="Is Available " name="available">
+                                        </div>
+
+                                        <div class="mb-3">
+
+                                            <input class="form-control form-control-sm" id="txtcarPriceperKm" type="number" name="CarpricePerKm" placeholder="Price-Per-Km">
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <input class="form-control form-control-sm" id="txtcarTransmitionType" type="number" name="CarTransmitionType" placeholder="Transmition-Type">
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <input class="form-control form-control-sm" id="txtcarFuelType" type="text" name="CarFuelType" placeholder="Fuel-Type">
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="checkboxGeneral">
+                                            <label class="form-check-label" for="checkboxGeneral">General</label>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="checkboxPremium" checked>
+                                            <label class="form-check-label" for="checkboxPremium">Premium</label>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="checkboxLuxury" checked>
+                                        <label class="form-check-label" for="checkboxLuxury">Luxury</label>
+                                    </div>
+
+                                        <div aria-label="Basic mixed styles example" class="btn-group" role="group">
+                                            <button class="btn btn-danger" type="button" id="carDelete"  > Delete</button>
+                                            <button class="btn btn-warning" type="button" id="carrUpdate"   > Update</button>
+                                            <button class="btn btn-success " type="button" id="save-car" >Save</button>
+                                            <button class="btn btn-info " type="button" id="getAll-car"  >Get-All</button>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" type="button">Close</button>
+                                    <button class="btn btn-primary" type="button">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--tabs end-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
