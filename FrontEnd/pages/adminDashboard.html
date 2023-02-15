@@ -103,8 +103,11 @@
             <div class="card-body">
                 <h5 class="card-title">Customer Manage</h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <button class="btn btn-danger" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button" id="CustomerManage">
+                <button class="btn btn-danger" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button" id="CustomerManager">
                     Go Customer ->
+                </button>
+                <button class="btn btn-secondary" data-bs-target="#allCustomer" data-bs-toggle="modal" type="button" id="getAllCustomer">
+                    Get All Customer ->
                 </button>
 
                 <form class="col-2 " id="CustomerForms" >
@@ -115,53 +118,108 @@
                                     <h5 class="modal-title" id="exampleModalLabel1">Customer </h5>
                                     <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
                                 </div>
-                                <div class="modal-body">
-                                    <section>
-                                        <div class="mb-3">
 
-                                            <input class="form-control" id="txtCustomerId" type="text" name="cusID" placeholder="Nic">
+                                <div class="container text-center">
+
+                                        <div class="col">
+                                            <div class="modal-body">
+                                                <section>
+                                                    <div class="mb-3">
+
+                                                        <input class="form-control" id="txtCustomerId" type="text" name="cusID" placeholder="Nic">
+                                                    </div>
+                                                    <div class="mb-3">
+
+                                                        <input class="form-control" id="txtCustomerName" multiple type="text" name="name" placeholder="Name">
+                                                    </div>
+                                                    <div class="mb-3">
+
+                                                        <input class="form-control" id="txtCustomerAddress" type="text" name="address" placeholder="Address">
+                                                    </div>
+                                                    <div class="mb-3">
+
+                                                        <input class="form-control form-control-sm" id="txtCustomerPassword" type="text" name="password" placeholder="Password">
+                                                    </div>
+                                                    <div class="mb-3">
+
+                                                        <input class="form-control form-control-sm" id="txtCustomerContactNum" type="number" name="contactnom" placeholder="ContactNum">
+                                                    </div>
+
+                                                    <div class="mb-3">
+
+                                                        <input class="form-control form-control-sm" id="txtCustomerLicence" type="text" name="LicenceNum" placeholder="Licence">
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <input class="form-control" type="file" id="formFiles23" placeholder="Please insert nic picture ">
+                                                    </div>
+
+                                                    <div aria-label="Basic mixed styles example" class="btn-group" role="group">
+                                                        <button class="btn btn-danger" type="button" id="CustomerDelete"  > Delete</button>
+                                                        <button class="btn btn-warning" type="button" id="CustomerUpdate"   > Update</button>
+                                                        <button class="btn btn-success " type="button" id="save-customer" > Save</button>
+                                                        <button class="btn btn-info " type="button" id="getAll-Customer"  >Get-All </button>
+                                                    </div>
+                                                </section>
+                                            </div>
                                         </div>
-                                        <div class="mb-3">
-
-                                            <input class="form-control" id="txtCustomerName" multiple type="text" name="name" placeholder="Name">
-                                        </div>
-                                        <div class="mb-3">
-
-                                            <input class="form-control" id="txtCustomerAddress" type="text" name="address" placeholder="Address">
-                                        </div>
-                                        <div class="mb-3">
-
-                                            <input class="form-control form-control-sm" id="txtCustomerPassword" type="text" name="password" placeholder="Password">
-                                        </div>
-                                        <div class="mb-3">
-
-                                            <input class="form-control form-control-sm" id="txtCustomerContactNum" type="number" name="contactnom" placeholder="ContactNum">
-                                        </div>
-
-                                        <div class="mb-3">
-
-                                            <input class="form-control form-control-sm" id="txtCustomerLicence" type="text" name="LicenceNum" placeholder="Licence">
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <input class="form-control" type="file" id="formFiles23" placeholder="Please insert nic picture ">
-                                        </div>
-
-                                        <div aria-label="Basic mixed styles example" class="btn-group" role="group">
-                                            <button class="btn btn-danger" type="button" id="CustomerDelete"  > Delete</button>
-                                            <button class="btn btn-warning" type="button" id="CustomerUpdate"   > Update</button>
-                                            <button class="btn btn-success " type="button" id="save-customer" > Save</button>
-                                            <button class="btn btn-info " type="button" id="getAll-Customer"  >Get-All </button>
-                                        </div>
-                                    </section>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-secondary" type="button">Close</button>
-                                    <button class="btn btn-primary" type="button">Save changes</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="allCustomer" tabindex="-1" id="getAllCustomerTable" >
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header" style="background-color: #46b2ff;">
+                                    <h5 class="modal-title" id="exampleModalLabe">Get All Customer </h5>
+                                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                                </div>
+
+                                <div class="container text-center">
+
+                                    <div class="col">
+                                        <div class="modal-body">
+                                            <section>
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">nic</th>
+                                                        <th scope="col">name</th>
+                                                        <th scope="col">address</th>
+                                                        <th scope="col">password</th>
+                                                        <th scope="col">contactNum</th>
+                                                        <th scope="col">licence</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Jacob</td>
+                                                        <td>Thornton</td>
+                                                        <td>@fat</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td colspan="2">Larry the Bird</td>
+                                                        <td>@twitter</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </form>
 
             </div>
@@ -175,6 +233,11 @@
                 <button class="btn btn-danger" data-bs-target="#exampleModal1" data-bs-toggle="modal" type="button" id="DrivrManage">
                     Go Driver ->
                 </button>
+                <button class="btn btn-info" data-bs-target="#getAllDriver" data-bs-toggle="modal" type="button" id="CustomerManage">
+                    Get All Driver ->
+                </button>
+
+
                 <form class="col-2 " id="driverForm" >
                     <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal1" tabindex="-1" id="driverForms" >
                         <div class="modal-dialog">
@@ -217,6 +280,58 @@
                             </div>
                         </div>
                     </div>
+
+                    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="getAllDriver" tabindex="-1" id="getAllDriverTable" >
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header" style="background-color: #46b2ff;">
+                                    <h5 class="modal-title" id="exampleModalLabels">Get All Driver </h5>
+                                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                                </div>
+
+                                <div class="container text-center">
+
+                                    <div class="col">
+                                        <div class="modal-body">
+                                            <section>
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">driverID</th>
+                                                        <th scope="col">drivername</th>
+                                                        <th scope="col">driveraddress</th>
+                                                        <th scope="col">driverContact</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Jacob</td>
+                                                        <td>Thornton</td>
+                                                        <td>@fat</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td colspan="2">Larry the Bird</td>
+                                                        <td>@twitter</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </form>
 
             </div>
@@ -230,6 +345,9 @@
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                 <button class="btn btn-danger" data-bs-target="#exampleModal2" data-bs-toggle="modal" type="button" id="addnewCustomer">
                     Go Car ->
+                </button>
+                <button class="btn btn-warning" data-bs-target="#getAllCar" data-bs-toggle="modal" type="button" id="car">
+                    Get All Car ->
                 </button>
 
                 <!-- new customer -->
@@ -306,6 +424,66 @@
                             </div>
                         </div>
                     </div>
+
+                    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="getAllCar" tabindex="-1" id="getAllCarTable" >
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header" style="background-color: #46b2ff;">
+                                    <h5 class="modal-title" id="exampleModalLabels1">Get All Car </h5>
+                                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                                </div>
+
+                                <div class="container text-center">
+
+                                    <div class="col">
+                                        <div class="modal-body">
+                                            <section>
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">vehicleNum</th>
+                                                        <th scope="col">Color</th>
+                                                        <th scope="col">CarMonthlyprice</th>
+                                                        <th scope="col">CarDailyprice</th>
+                                                        <th scope="col">available</th>
+                                                        <th scope="col">CarpricePerKm</th>
+                                                        <th scope="col">CarTransmitionType</th>
+                                                        <th scope="col">CarFuelType</th>
+                                                        <th scope="col">checkboxGeneral</th>
+                                                        <th scope="col">checkboxPremium</th>
+                                                        <th scope="col">checkboxLuxury</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Jacob</td>
+                                                        <td>Thornton</td>
+                                                        <td>@fat</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td colspan="2">Larry the Bird</td>
+                                                        <td>@twitter</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </form>
 
             </div>

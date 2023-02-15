@@ -13,7 +13,6 @@ protected Class<?>[] getRootConfigClasses() {
 
 @Override
 protected Class<?>[] getServletConfigClasses() {
-
         return new Class[]{WebAppConfig.class};
         }
 

@@ -167,7 +167,7 @@
                                                             <input type="text" id="txtCusAddress" class="form-control"name="address" />
                                                             <div class="form-check form-switch">
                                                             <label class="form-label" for="txtCusAddress" >Password</label>
-                                                            <input type="text" id="txtpassword" class="form-control" name="password"/>
+                                                            <input type="password" id="txtpassword" class="form-control" name="password"/>
                                                             <label class="form-label" for="txtContactNum" >Contact-tNum</label>
                                                             <input type="text" id="txtContactNum" class="form-control" name="contactNum" />
                                                             <label class="form-label" for="txtLicence">Licence</label>
@@ -225,9 +225,9 @@
                 url:baseUrl+"customer",
                 method:"post",
                 data:formData,
-                dataType:"jason",
+                dataType:"json",
                 success:function (res){
-                    alert("customer save")
+                    alert(res.message)
                 },
                 error(error){
                     alert(JSON.parse(error.responseText).message);
