@@ -19,4 +19,5 @@ public class Driver {
     String drivername;
     String driveraddress;
     String driverContact;
+    boolean isAvailable;
 }
