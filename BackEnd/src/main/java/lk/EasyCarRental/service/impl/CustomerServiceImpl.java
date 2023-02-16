@@ -51,7 +51,7 @@ public class CustomerServiceImpl implements CustomerService {
         if(!repo.existsById(dto.getNic())){
             throw new RuntimeException("customer not exits");
         }
-        Customer customer=mapper.map(dto,Customer.class);
-        repo.save(customer);
+        repo.save(mapper.map(dto,Customer.class));
+        System.out.println(dto);
     }
 }

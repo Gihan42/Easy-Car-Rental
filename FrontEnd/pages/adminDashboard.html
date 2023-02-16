@@ -513,6 +513,7 @@
         })
     }
     $('#search-Customer').click(function (){
+        alert('ok');
         $.ajax({
             url:baseurl+"customer?nic=" + $('#txtCustomerId' ).val(),
             dataType:"json",
@@ -530,7 +531,9 @@
             }
         })
    });
+
     $('#CustomerUpdate').click(function (){
+        alert('weda')
         let json={
             nic: $('#txtCustomerId').val(),
             name:$('#txtCustomerName').val(),
@@ -538,18 +541,18 @@
             password:$('#txtCustomerPassword').val(),
             contactNum:$('#txtCustomerContactNum').val(),
             licence:$('#txtCustomerLicence').val()
-        }
+        };
         $.ajax({
             url:baseUrl+"customer",
             method: "put",
             data:JSON.stringify(json),
-            dataTypes:"json",
+            dataType:"json",
             contentType:"application/json",
-            success:function (res){
+            success:function(res){
                 alert(res.message)
             },
-            error:function (error){
-                alert(error.message)
+            error:function(error){
+                alert(JSON.parse(error.responseText).message)
             }
 
         })

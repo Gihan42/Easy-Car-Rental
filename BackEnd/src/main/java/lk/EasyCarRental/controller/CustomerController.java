@@ -28,8 +28,9 @@ public class CustomerController{
     }
 
     @PutMapping
-    public ResponseUtil updateCustomer(@ModelAttribute CustomerDto dto){
+    public ResponseUtil updateCustomer(@RequestBody CustomerDto dto){
         service.UpdateCustomer(dto);
+        System.out.println(dto);
         return new ResponseUtil("ok","CustomerUpdated",null);
     }
 
