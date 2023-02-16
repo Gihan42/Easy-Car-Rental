@@ -45,4 +45,13 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.println(customer);
         return map;
     }
+
+    @Override
+    public void UpdateCustomer(CustomerDto dto) {
+        if(!repo.existsById(dto.getNic())){
+            throw new RuntimeException("customer not exits");
+        }
+        Customer customer=mapper.map(dto,Customer.class);
+        repo.save(customer);
+    }
 }

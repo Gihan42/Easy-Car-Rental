@@ -162,7 +162,7 @@
                                                         <button class="btn btn-danger" type="button" id="CustomerDelete"  > Delete</button>
                                                         <button class="btn btn-warning" type="button" id="CustomerUpdate"   > Update</button>
                                                         <button class="btn btn-success " type="button" id="save-customer" > Save</button>
-                                                        <button class="btn btn-info " type="button" id="getAll-Customer"  >Search </button>
+                                                        <button class="btn btn-info " type="button" id="search-Customer"  >Search </button>
                                                     </div>
                                                 </section>
                                             </div>
@@ -512,6 +512,49 @@
 
         })
     }
+    $('#search-Customer').click(function (){
+        $.ajax({
+            url:baseurl+"customer?nic=" + $('#txtCustomerId' ).val(),
+            dataType:"json",
+            method:"get",
+            success:function (res){
+                console.log(res);
+                $('#txtCustomerId').val(res.data[0].nic);
+                $('#txtCustomerName').val(res.data[0].name);
+                $('#txtCustomerAddress').val(res.data[0].address);
+                $('#txtCustomerPassword').val(res.data[0].password);
+                $('#txtCustomerContactNum').val(res.data[0].contactNum);
+                $('#txtCustomerLicence').val(res.data[0].licence);
+            },
+            error(error) {
+            }
+        })
+   });
+    $('#CustomerUpdate').click(function (){
+        let json={
+            nic: $('#txtCustomerId').val(),
+            name:$('#txtCustomerName').val(),
+            address:$('#txtCustomerPassword').val(),
+            password:$('#txtCustomerPassword').val(),
+            contactNum:$('#txtCustomerContactNum').val(),
+            licence:$('#txtCustomerLicence').val()
+        }
+        $.ajax({
+            url:baseUrl+"customer",
+            method: "put",
+            data:JSON.stringify(json),
+            dataTypes:"json",
+            contentType:"application/json",
+            success:function (res){
+                alert(res.message)
+            },
+            error:function (error){
+                alert(error.message)
+            }
+
+        })
+
+    });
 </script>
 </body>
 </html>

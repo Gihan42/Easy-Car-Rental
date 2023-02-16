@@ -27,9 +27,18 @@ public class CustomerController{
         return new ResponseUtil("ok","CustomerSave",null);
     }
 
+    @PutMapping
+    public ResponseUtil updateCustomer(@ModelAttribute CustomerDto dto){
+        service.UpdateCustomer(dto);
+        return new ResponseUtil("ok","CustomerUpdated",null);
+    }
+
+
+//    searchcustomer
+    @GetMapping(path = {"/nic"})
     public ResponseUtil searchCustomer(String nic){
         service.findCustomerByNic(nic);
-        return new ResponseUtil("ok","searchcustomer",service.getCustomer());
+        return new ResponseUtil("ok","searchcustomer",null);
     }
 
 }
