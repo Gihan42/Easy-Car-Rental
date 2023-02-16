@@ -34,4 +34,15 @@ public class CustomerServiceImpl implements CustomerService {
         return mapper.map(repo.findAll(),new TypeToken<ArrayList<CustomerDto>>(){}.getType());
 
     }
+
+    @Override
+    public CustomerDto findCustomerByNic(String nic) {
+        if(repo.existsById(nic)){
+            throw new RuntimeException("Invalid Id");
+        }
+        Customer customer=repo.findCustomerByNic(nic);
+        CustomerDto map=mapper.map(customer,CustomerDto.class);
+        System.out.println(customer);
+        return map;
+    }
 }

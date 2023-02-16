@@ -8,4 +8,5 @@ public interface CustomerService {
 
     void saveCustomer(CustomerDto dto);
     ArrayList<CustomerDto> getCustomer();
+    CustomerDto findCustomerByNic(String nic);
 }

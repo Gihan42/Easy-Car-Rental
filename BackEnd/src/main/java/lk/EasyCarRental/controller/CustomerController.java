@@ -27,4 +27,9 @@ public class CustomerController{
         return new ResponseUtil("ok","CustomerSave",null);
     }
 
+    public ResponseUtil searchCustomer(String nic){
+        service.findCustomerByNic(nic);
+        return new ResponseUtil("ok","searchcustomer",service.getCustomer());
+    }
+
 }
