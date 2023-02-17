@@ -2,6 +2,7 @@ package lk.EasyCarRental.config;
 
 
 import lk.EasyCarRental.repo.AdminRepo;
+import lk.EasyCarRental.repo.CarRepo;
 import lk.EasyCarRental.repo.CustomerRepo;
 import lk.EasyCarRental.repo.DriverRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement //<-- transaction manage wenawa auto
-@EnableJpaRepositories(basePackageClasses = {CustomerRepo.class, AdminRepo.class, DriverRepo.class})//<-- mehema denne customerrepo interface eka controller eke access krann ona nisa
+@EnableJpaRepositories(basePackageClasses = {CustomerRepo.class, AdminRepo.class, DriverRepo.class, CarRepo.class})//<-- mehema denne customerrepo interface eka controller eke access krann ona nisa
 @PropertySource("classpath:application.properties")
 public class JpaConfig {
 

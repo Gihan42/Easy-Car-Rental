@@ -62,4 +62,14 @@ public class CustomerServiceImpl implements CustomerService {
         }
         repo.deleteById(nic);
     }
+
+    @Override
+    public long countCustomer() {
+        long l = repo.count();
+        return l;
+    }
+
+
+
+
 }

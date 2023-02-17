@@ -27,5 +27,11 @@ class CustomerServiceImplTest {
         Customer cus=repo.findCustomerByNic("200025503568");
         System.out.println(cus);
     }
+    @Test
+    void countCustomerByNic() {
+        long l = repo.count();
+        System.out.println(l);
+
+    }
 
 }

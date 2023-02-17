@@ -44,7 +44,7 @@
                 <img src="../assest/img/istockphoto-1341141923-612x612.jpg" class="card-img-top" alt="..." >
                 <div class="card-body">
                     <h5 class="card-title">Registered User</h5>
-                    <h1 class="card-title" style="color: #263e60">105+</h1>
+                    <h1 class="card-title" style="color: #263e60" id="RegisteredUser"></h1>
                 </div>
             </div>
         </div>
@@ -349,7 +349,7 @@
                                         </div>
                                         <div class="mb-3">
 
-                                            <input class="form-control" id="txtcarColor" multiple type="text" name="Color" placeholder="Colour">
+                                            <input class="form-control" id="txtcarColor" multiple type="color" name="Color" placeholder="Colour">
                                         </div>
                                         <div class="mb-3">
 
@@ -379,15 +379,15 @@
                                             <input class="form-control form-control-sm" id="txtcarFuelType" type="text" name="CarFuelType" placeholder="Fuel-Type">
                                         </div>
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" role="switch" id="checkboxGeneral">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="checkboxGeneral" name="general">
                                             <label class="form-check-label" for="checkboxGeneral">General</label>
                                         </div>
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" role="switch" id="checkboxPremium" checked>
+                                            <input class="form-check-input" type="checkbox" role="switch" id="checkboxPremium" checked name="premium">
                                             <label class="form-check-label" for="checkboxPremium">Premium</label>
                                         </div>
                                         <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="checkboxLuxury" checked>
+                                        <input class="form-check-input" type="checkbox" role="switch" id="checkboxLuxury" checked name="luxury">
                                         <label class="form-check-label" for="checkboxLuxury">Luxury</label>
                                     </div>
 
@@ -436,23 +436,9 @@
                                                         <th scope="col">Luxury</th>
                                                     </tr>
                                                     </thead>
-                                                    <tbody>
+                                                    <tbody id="carTable">
                                                     <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td colspan="2">Larry the Bird</td>
-                                                        <td>@twitter</td>
+
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -479,11 +465,13 @@
 <script>
     let baseurl="http://localhost:8080/BackEnd_war/"
     let basurlTwo="http://localhost:8080/BackEnd_war/"
+    let baseurlThree="http://localhost:8080/BackEnd_war/"
     // CUSTOMER START
     LoadAllCustomer();
+    countCustomer();
     $('#getAllCustomer').click(function (){
         LoadAllCustomer();
-    })
+    });
     function LoadAllCustomer(){
         $.ajax({
             url:baseurl+"customer",
@@ -564,6 +552,15 @@
         $('#txtCustomerPassword').val('');
         $('#txtCustomerContactNum').val('');
     }
+    function countCustomer(){
+        $.ajax({
+            url:baseurl+"customer",
+            success:function (res){
+                LoadAllCustomer();
+                $('#RegisteredUser').text(res.data+" +")
+            }
+        })
+    }
     // CUSTOMER END
     // DRIVER START
     loadAllDrivers();
@@ -582,7 +579,7 @@
                 alert(JSON.parse(error.responseText).message)
             }
         })
-    })
+    });
     $('#search-Driver').click(function (){
         $.ajax({
             url:basurlTwo+"driver?driverID=" + $('#txtDriverId').val(),
@@ -618,7 +615,7 @@
     }
     $('#DriverManage').click(function (){
         loadAllDrivers();
-    })
+    });
     $('#DriverDelete').click(function (){
         $.ajax({
             url:basurlTwo+"driver?driverID=" + $('#txtDriverId').val(),
@@ -631,7 +628,7 @@
                 alert("something went wrong")
             }
         })
-    })
+    });
     function clearDriverTextFeild(){
         $('#txtDriverId').val('');
         $('#txtDriverame').val('');
@@ -639,7 +636,48 @@
         $('#txtDriverContact').val('');
         $('#txtDriverVailable').val('')
     }
+    $('#DriverUpdate').click(function (){
+        let driverJson={
+            driverID:$('#txtDriverId').val(),
+            drivername:$('#txtDriverame').val(),
+            driveraddress:$('#txtDriverContact').val(),
+            driverContact:$('#txtDriverVailable').val()
+        };
+        $.ajax({
+           url:basurlTwo+"driver",
+           method:"put",
+           data:JSON.stringify(driverJson),
+           dataType:"json",
+           contentType:"application/json" ,
+            success:function (){
+                clearDriverTextFeild();
+               alert(res.message)
+            },
+            error:function (error){
+               alert('something went wrong')
+            }
+        });
+    });
     // DRIVER END
+    //CAR START
+    $('#save-car').click(function (){
+        let carData=$('#carForms').serialize();
+        $.ajax({
+            url:baseurlThree+"car",
+            data:carData,
+            dataType:"json",
+            method:"post",
+            success:function (res){
+                alert(res.message)
+            },
+            error:function (error){
+                alert("data not save")
+            }
+
+        })
+
+    });
+    //CAR END
 </script>
 </body>
 </html>

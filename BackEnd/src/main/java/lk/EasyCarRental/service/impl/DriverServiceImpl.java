@@ -52,4 +52,12 @@ public class DriverServiceImpl implements DriverService {
         }
         repo.deleteById(driverID);
     }
+
+    @Override
+    public void updateDriver(DriverDto dto) {
+        if (!repo.existsById(dto.getDriverID())){
+            throw new RuntimeException("Driver not exits ");
+        }
+        repo.save(mapper.map(dto,Driver.class));
+    }
 }

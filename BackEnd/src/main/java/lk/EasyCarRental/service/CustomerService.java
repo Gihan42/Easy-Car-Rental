@@ -11,4 +11,5 @@ public interface CustomerService {
     CustomerDto findCustomerByNic(String nic);
     void UpdateCustomer(CustomerDto dto);
     void DeleteCustomer(String nic);
+    long countCustomer();
 }

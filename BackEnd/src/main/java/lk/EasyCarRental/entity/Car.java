@@ -17,15 +17,15 @@ public class Car {
     @Id
     String vehicleNum;
     String Color;
-    String CarMonthlyprice;
-    String CarDailyprice;
+    double CarMonthlyprice;
+    double CarDailyprice;
     boolean available;
     int CarpricePerKm;
     String CarTransmitionType;
     String CarFuelType;
-    boolean checkboxGeneral;
-    boolean checkboxPremium;
-    boolean checkboxLuxury;
+    boolean general;
+    boolean premium;
+    boolean luxury;
 
 
 }

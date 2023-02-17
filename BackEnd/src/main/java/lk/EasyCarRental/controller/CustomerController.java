@@ -15,11 +15,11 @@ public class CustomerController{
     public CustomerController(){
         System.out.println("CustomerController");
     }
-    @GetMapping
+   /* @GetMapping
     public ResponseUtil getAllCustomer(){
         System.out.println("getAll");
         return new ResponseUtil("ok","loadallcustomer",service.getCustomer());
-    }
+    }*/
     @PostMapping
     public ResponseUtil saveCustomer(@ModelAttribute CustomerDto dto){
         System.out.println(dto);
@@ -45,6 +45,11 @@ public class CustomerController{
     public ResponseUtil searchCustomer(String nic){
         service.findCustomerByNic(nic);
         return new ResponseUtil("ok","searchcustomer",null);
+    }
+    @GetMapping
+    public ResponseUtil customerCount(){
+        System.out.println(service.countCustomer());
+        return new ResponseUtil("ok","countcustomer",service.countCustomer());
     }
 
 }

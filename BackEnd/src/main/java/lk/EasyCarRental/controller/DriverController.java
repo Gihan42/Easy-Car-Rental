@@ -34,4 +34,9 @@ public class DriverController {
         service.deleteDriver(driverID);
         return new ResponseUtil("ok","deleted",null);
     }
+    @PutMapping
+    public ResponseUtil updateDriver(@RequestBody DriverDto dto){
+        service.updateDriver(dto);
+        return new ResponseUtil("ok","updated",null);
+    }
 }
