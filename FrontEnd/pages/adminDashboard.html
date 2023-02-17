@@ -550,6 +550,7 @@
             contentType:"application/json",
             success:function(res){
                 alert(res.message)
+                clearTextFeild();
             },
             error:function(error){
                 alert(JSON.parse(error.responseText).message)
@@ -558,6 +559,26 @@
         })
 
     });
+    $('#CustomerDelete').click(function (){
+        $.ajax({
+            url:baseurl+"customer?nic=" + $('#txtCustomerId' ).val(),
+            method:'delete',
+            success:function (res){
+                alert("success delete")
+                clearTextFeild();
+            },
+            error:function (error){
+
+            }
+
+        })
+    });
+    function clearTextFeild(){
+        $('#txtCustomerId').val('');
+        $('#txtCustomerName').val('');
+        $('#txtCustomerPassword').val('');
+        $('#txtCustomerContactNum').val('');
+    }
 </script>
 </body>
 </html>

@@ -10,4 +10,5 @@ public interface CustomerService {
     ArrayList<CustomerDto> getCustomer();
     CustomerDto findCustomerByNic(String nic);
     void UpdateCustomer(CustomerDto dto);
+    void DeleteCustomer(String nic);
 }

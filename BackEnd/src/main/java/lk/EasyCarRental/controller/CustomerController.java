@@ -34,6 +34,11 @@ public class CustomerController{
         return new ResponseUtil("ok","CustomerUpdated",null);
     }
 
+    @DeleteMapping(params = "nic")
+    public ResponseUtil DeleteCustomer(@RequestParam String nic){
+        service.DeleteCustomer(nic);
+        return new ResponseUtil("ok","DeleteCustomer",null);
+    }
 
 //    searchcustomer
     @GetMapping(path = {"/nic"})

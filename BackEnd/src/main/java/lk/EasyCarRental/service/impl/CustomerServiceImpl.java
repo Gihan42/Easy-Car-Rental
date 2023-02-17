@@ -54,4 +54,12 @@ public class CustomerServiceImpl implements CustomerService {
         repo.save(mapper.map(dto,Customer.class));
         System.out.println(dto);
     }
+
+    @Override
+    public void DeleteCustomer(String nic) {
+        if(!repo.existsById(nic)){
+            throw new RuntimeException("invalid id") ;
+        }
+        repo.deleteById(nic);
+    }
 }

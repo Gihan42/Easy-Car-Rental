@@ -149,7 +149,7 @@
 
                         <div class="card-body">
                             <h1 class="display-4">Admin Register</h1>
-                            <form>
+                            <form id="adminRegisterForm">
                                 <!-- Email input -->
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form2Example1">Email address</label>
@@ -159,7 +159,7 @@
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form2Example2">Password</label>
-                                    <input type="password" id="form2_Example2" class="form-control" name="password"/>
+                                    <input type="text" id="form2_Example2" class="form-control" name="password"/>
 
                                 </div>
 
@@ -186,7 +186,7 @@
                                 </div>
 
                                 <!-- Submit button -->
-                                <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+                                <button type="button" class="btn btn-primary btn-block mb-4" id="adminRegister">Register</button>
 
                                 <!-- Register buttons -->
                                 <div class="text-center">
@@ -224,6 +224,26 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+<script src="jquery-3.6.1.min.js"></script>
+<script>
+    let baseUrl="http://localhost:8080/BackEnd_war/"
+    $('#adminRegister').click(function (){
+        let formData=$('#adminRegisterForm').serialize();
+        $.ajax({
+            url:baseUrl+"admin",
+            method:"post",
+            data:formData,
+            dataTypes:"json",
+            success:function (res){
+                alert(res.message)
+            },
+            error:function (error){
+                alert(JSON.parse(error.responseText).message)
+            }
 
+        });
+    })
+
+</script>
 </body>
 </html>
