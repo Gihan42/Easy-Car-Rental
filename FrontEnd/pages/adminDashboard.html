@@ -245,7 +245,7 @@
                                         </div>
                                         <div class="mb-3">
 
-                                            <input class="form-control" id="txtDriverName" multiple type="text" name="drivername" placeholder="Name">
+                                            <input class="form-control" id="txtDriverame" multiple type="text" name="drivername" placeholder="Name">
                                         </div>
                                         <div class="mb-3">
 
@@ -492,11 +492,11 @@
 <script src="jquery-3.6.1.min.js"></script>
 <script>
     let baseurl="http://localhost:8080/BackEnd_war/"
+    // CUSTOMER START
     LoadAllCustomer();
     $('#getAllCustomer').click(function (){
         LoadAllCustomer();
     })
-    // loadAllCustomer
     function LoadAllCustomer(){
         $.ajax({
             url:baseurl+"customer",
@@ -531,7 +531,6 @@
             }
         })
    });
-
     $('#CustomerUpdate').click(function (){
         alert('weda')
         let json={
@@ -579,6 +578,26 @@
         $('#txtCustomerPassword').val('');
         $('#txtCustomerContactNum').val('');
     }
+    // CUSTOMER END
+    // DRIVER START
+    $('#save-Driver').click(function (){
+        let formData=$('#driverForm').serialize();
+        $.ajax({
+            url:baseurl+"driver",
+            data:formData,
+            dataType:"json",
+            method:"post",
+            success:function (res){
+                alert(res.message)
+            },
+            error:function (error){
+                alert(JSON.parse(error.responseText).message)
+            }
+        })
+    })
+
+
+    // DRIVER END
 </script>
 </body>
 </html>
