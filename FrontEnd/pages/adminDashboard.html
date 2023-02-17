@@ -224,7 +224,7 @@
                 <button class="btn btn-danger" data-bs-target="#exampleModal1" data-bs-toggle="modal" type="button" id="DrivrManage">
                     Go Driver ->
                 </button>
-                <button class="btn btn-info" data-bs-target="#getAllDriver" data-bs-toggle="modal" type="button" id="CustomerManage">
+                <button class="btn btn-info" data-bs-target="#getAllDriver" data-bs-toggle="modal" type="button" id="DriverManage">
                     Get All Driver ->
                 </button>
 
@@ -264,7 +264,7 @@
                                             <button class="btn btn-danger" type="button" id="DriverDelete"  > Delete</button>
                                             <button class="btn btn-warning" type="button" id="DriverUpdate"   > Update</button>
                                             <button class="btn btn-success " type="button" id="save-Driver" > Save</button>
-                                            <button class="btn btn-info " type="button" id="getAll-Driver"  >Get-All </button>
+                                            <button class="btn btn-info " type="button" id="search-Driver"  >Search </button>
                                         </div>
                                     </section>
                                 </div>
@@ -299,23 +299,9 @@
                                                         <th scope="col">Availability</th>
                                                     </tr>
                                                     </thead>
-                                                    <tbody>
+                                                    <tbody id="driverTableBody">
                                                     <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td colspan="2">Larry the Bird</td>
-                                                        <td>@twitter</td>
+
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -492,6 +478,7 @@
 <script src="jquery-3.6.1.min.js"></script>
 <script>
     let baseurl="http://localhost:8080/BackEnd_war/"
+    let basurlTwo="http://localhost:8080/BackEnd_war/"
     // CUSTOMER START
     LoadAllCustomer();
     $('#getAllCustomer').click(function (){
@@ -513,9 +500,8 @@
         })
     }
     $('#search-Customer').click(function (){
-        alert('ok');
         $.ajax({
-            url:baseurl+"customer?nic=" + $('#txtCustomerId' ).val(),
+            url:baseurl+"customer?nic=" + $('#txtDriverId' ).val(),
             dataType:"json",
             method:"get",
             success:function (res){
@@ -580,23 +566,79 @@
     }
     // CUSTOMER END
     // DRIVER START
+    loadAllDrivers();
     $('#save-Driver').click(function (){
         let formData=$('#driverForm').serialize();
         $.ajax({
-            url:baseurl+"driver",
+            url:basurlTwo+"driver",
             data:formData,
             dataType:"json",
             method:"post",
             success:function (res){
-                alert(res.message)
+                alert(res.message);
+                loadAllDrivers();
             },
             error:function (error){
                 alert(JSON.parse(error.responseText).message)
             }
         })
     })
+    $('#search-Driver').click(function (){
+        $.ajax({
+            url:basurlTwo+"driver?driverID=" + $('#txtDriverId').val(),
+            dataType:"json",
+            method:"get",
+            success:function (res){
+                console.log(res)
+                $('#txtDriverId').val(res.data[0].driverID);
+                $('#txtDriverame').val(res.data[0].drivername);
+                $('#txtDriverAddress').val(res.data[0].driveraddress);
+                $('#txtDriverContact').val(res.data[0].driverContact);
+                $('#txtDriverVailable').val(res.data[0].isAvailable);
 
+            },
+            error:function (error){
 
+            }
+        })
+    });
+    function loadAllDrivers(){
+       $.ajax({
+           url:basurlTwo+"driver",
+           success:function (res){
+               $('#driverTableBody').empty();
+               for (let i =0;i < res.data.length;i++){
+                   $('#driverTableBody').append(`<tr><td>`+ res.data[i].driverID +`</td><td>` + res.data[i].drivername + `</td><td>` + res.data[i].driveraddress + `</td><td>` + res.data[i].driverContact + `</td><td>` + res.data[i].isAvailable + `</td></tr>`);
+               }
+           },
+           error:function (error){
+
+           }
+       })
+    }
+    $('#DriverManage').click(function (){
+        loadAllDrivers();
+    })
+    $('#DriverDelete').click(function (){
+        $.ajax({
+            url:basurlTwo+"driver?driverID=" + $('#txtDriverId').val(),
+            method:"delete",
+            success:function (res){
+                alert('success deleted');
+                clearDriverTextFeild();
+            },
+            error:function (error){
+                alert("something went wrong")
+            }
+        })
+    })
+    function clearDriverTextFeild(){
+        $('#txtDriverId').val('');
+        $('#txtDriverame').val('');
+        $('#txtDriverAddress').val('');
+        $('#txtDriverContact').val('');
+        $('#txtDriverVailable').val('')
+    }
     // DRIVER END
 </script>
 </body>

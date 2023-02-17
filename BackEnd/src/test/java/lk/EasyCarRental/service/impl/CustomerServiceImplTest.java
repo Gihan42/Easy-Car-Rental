@@ -2,6 +2,7 @@ package lk.EasyCarRental.service.impl;
 
 import lk.EasyCarRental.config.WebRootConfig;
 import lk.EasyCarRental.entity.Customer;
+import lk.EasyCarRental.entity.Driver;
 import lk.EasyCarRental.repo.CustomerRepo;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,4 +27,5 @@ class CustomerServiceImplTest {
         Customer cus=repo.findCustomerByNic("200025503568");
         System.out.println(cus);
     }
+
 }
