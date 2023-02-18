@@ -10,4 +10,6 @@ public interface CarService {
     void saveCar(CarDto dto);
     CarDto findCarByvehicleNum(String vehicleNum);
     ArrayList<CarDto> getCars();
+    void updateCar(CarDto dto);
+    void deleteCar(String vehicleNum);
 }

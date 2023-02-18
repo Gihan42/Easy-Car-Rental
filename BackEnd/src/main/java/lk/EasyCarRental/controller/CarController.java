@@ -1,6 +1,7 @@
 package lk.EasyCarRental.controller;
 
 import lk.EasyCarRental.dto.CarDto;
+import lk.EasyCarRental.dto.DriverDto;
 import lk.EasyCarRental.service.CarService;
 import lk.EasyCarRental.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,16 @@ public class CarController {
     public ResponseUtil getAllCar(){
         System.out.println("getAllCar");
         return new ResponseUtil("ok","loadcar",service.getCars());
+    }
+    @PutMapping
+    public ResponseUtil updateCar(@RequestBody CarDto dto){
+        service.updateCar(dto);
+        return new ResponseUtil("ok","updated",null);
+    }
+    @DeleteMapping(params = "vehicleNum")
+    public ResponseUtil deleteCar(@RequestParam String vehicleNum){
+        service.deleteCar(vehicleNum);
+        return new ResponseUtil("ok","deleted",null);
     }
 
 }

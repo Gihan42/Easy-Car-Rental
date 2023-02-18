@@ -50,5 +50,21 @@ public class CarServiceImpl implements CarService {
         return mapper.map(repo.findAll(),new TypeToken<ArrayList<CarDto>>(){}.getType());
     }
 
+    @Override
+    public void updateCar(CarDto dto) {
+        if(!repo.existsById(dto.getVehicleNum())){
+            throw new RuntimeException("car not exits");
+        }
+        repo.save(mapper.map(dto,Car.class));
+    }
+
+    @Override
+    public void deleteCar(String vehicleNum) {
+        if(!repo.existsById(vehicleNum)){
+            throw new RuntimeException("invalid id");
+        }
+        repo.deleteById(vehicleNum);
+    }
+
 
 }

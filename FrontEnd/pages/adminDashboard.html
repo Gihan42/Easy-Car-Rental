@@ -378,11 +378,15 @@
 
                                             <input class="form-control form-control-sm" id="txtcarFuelType" type="text" name="carFuelType" placeholder="Fuel-Type">
                                         </div>
-                                        <select class="form-select" aria-label="Default select example" id="cmbCarType" name="vehicleType"  style="margin-bottom: 10px">
-                                            <option value="1">General</option>
-                                            <option value="2">Premium</option>
-                                            <option value="3">Luxury</option>
+                                        <select class="form-select" aria-label="Default select example" id="cmbCarType" name=""  style="margin-bottom: 10px">
+                                            <option value="General">General</option>
+                                            <option value="Premium">Premium</option>
+                                            <option value="Luxury">Luxury</option>
                                         </select>
+                                        <div class="mb-3">
+
+                                            <input class="form-control form-control-sm" id="txtCarType" type="text" name="vehicleType" placeholder="Car-Type">
+                                        </div>
 
                                         <div aria-label="Basic mixed styles example" class="btn-group" role="group">
                                             <button class="btn btn-danger" type="button" id="carDelete"  > Delete</button>
@@ -659,7 +663,9 @@
             dataType:"json",
             method:"post",
             success:function (res){
-                alert(res.message)
+                alert(res.message);
+                carTextFeildClear();
+                loadAllCar();
             },
             error:function (error){
                 alert(JSON.parse(error.responseText).message)
@@ -683,6 +689,7 @@
                 $('#txtcarPriceperKm').val(res.data[0].carpricePerKm);
                 $('#txtcarTransmitionType').val(res.data[0].carTransmitionType);
                 $('#txtcarFuelType').val(res.data[0].carFuelType);
+                $('#txtCarType').val(res.data[0].vehicleType);
                 // $('#txtcarNom').val()
             }
         })
@@ -701,6 +708,61 @@
             }
         })
     };
+    $('#carrUpdate').click(function (){
+        let carJson={
+            vehicleNum:$('#txtcarNom').val(),
+            color:$('#txtcarColor').val(),
+            carMonthlyprice:$('#txtcarMonthlyPrice').val(),
+            carDailyprice:$('#txtcarDailyPrice').val(),
+            available: $('#Available').val(),
+            carpricePerKm:$('#txtcarPriceperKm').val(),
+            carTransmitionType:$('#txtcarTransmitionType').val(),
+            vehicleType:$('#txtCarType').val(),
+            carFuelType:$('#txtcarFuelType').val()
+        };
+        $.ajax({
+            url:baseurlThree+"car",
+            method:"put",
+            data:JSON.stringify(carJson),
+            dataType:"json",
+            contentType:"application/json" ,
+            success:function (res){
+                alert(res.message);
+                carTextFeildClear();
+                loadAllCar();
+            },
+            error:function (error){
+                alert("something went wrong")
+            }
+
+        })
+    });
+    function carTextFeildClear(){
+        $('#txtcarNom').val('');
+        $('#txtcarColor').val('');
+        $('#txtcarMonthlyPrice').val('');
+        $('#txtcarDailyPrice').val('');
+        $('#Available').val('');
+        $('#txtcarPriceperKm').val('');
+        $('#txtcarTransmitionType').val('');
+        $('#txtcarFuelType').val('');
+        $('#txtCarType').val('');
+    }
+    $('#cmbCarType').click(function (){
+        let val=$('#cmbCarType').val();
+        $('#txtCarType').val(val);
+    });
+    $('#carDelete').click(function (){
+       $.ajax({
+           url:baseurlThree+"car?vehicleNum=" + $('#txtcarNom').val(),
+           method:"delete",
+           success:function (res){
+               alert(res.message)
+               carTextFeildClear();
+               loadAllCar();
+           }
+       })
+    })
     //CAR END
 </script>
 </body>
