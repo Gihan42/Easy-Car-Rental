@@ -22,5 +22,6 @@ public class Customer {
     String password;
     int contactNum;
     String licence;
+//    String nicImage;
 
 }

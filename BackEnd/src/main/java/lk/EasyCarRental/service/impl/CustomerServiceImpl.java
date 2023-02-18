@@ -9,6 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 @Service
@@ -25,8 +29,22 @@ public class CustomerServiceImpl implements CustomerService {
         if(repo.existsById(dto.getNic())){
             throw new RuntimeException("Invalid Id");
         }
+//        Path licenseLocation = Paths.get("C:\\Users\\LALITH\\Pictures\\whats app");
+//
+//        System.out.println("licenseLocation = " + licenseLocation);
+//
+//        try {
+//            Files.write(licenseLocation, dto.getNicImage().getBytes());
+//            dto.getNicImage().transferTo(licenseLocation);
+//
+//
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+
         Customer customer=mapper.map(dto,Customer.class);
-        repo.save(customer);
+       // customer.setNicImage(licenseLocation.toString());
+       repo.save(customer);
     }
 
     @Override
@@ -63,10 +81,11 @@ public class CustomerServiceImpl implements CustomerService {
         repo.deleteById(nic);
     }
 
+
     @Override
-    public long countCustomer() {
-        long l = repo.count();
-        return l;
+    public long countCustomer( ){
+        long count = repo.count();
+        return count;
     }
 
 

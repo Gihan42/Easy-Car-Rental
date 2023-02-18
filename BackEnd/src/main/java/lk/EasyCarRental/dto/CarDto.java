@@ -18,7 +18,5 @@ public class CarDto {
     int CarpricePerKm;
     String CarTransmitionType;
     String CarFuelType;
-    boolean general;
-    boolean premium;
-    boolean luxury;
+    String vehicleType;
 }

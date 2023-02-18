@@ -72,7 +72,7 @@
             <div class="card" style="width: 18rem;">
                 <img src="../assest/img/maintance.jpg" class="card-img-top" alt="..." style="height: 50%;width: 100%;">
                 <div class="card-body">
-                    <h5 class="card-title">Registered User</h5>
+                    <h5 class="card-title">Car That Need Maintenance</h5>
                     <h1 class="card-title" style="color: #263e60">105+</h1>
                 </div>
             </div>
@@ -349,7 +349,7 @@
                                         </div>
                                         <div class="mb-3">
 
-                                            <input class="form-control" id="txtcarColor" multiple type="color" name="Color" placeholder="Colour">
+                                            <input class="form-control" id="txtcarColor" multiple type="text" name="Color" placeholder="Colour">
                                         </div>
                                         <div class="mb-3">
 
@@ -372,24 +372,17 @@
                                         </div>
                                         <div class="mb-3">
 
-                                            <input class="form-control form-control-sm" id="txtcarTransmitionType" type="number" name="CarTransmitionType" placeholder="Transmition-Type">
+                                            <input class="form-control form-control-sm" id="txtcarTransmitionType" type="text" name="CarTransmitionType" placeholder="Transmition-Type">
                                         </div>
                                         <div class="mb-3">
 
                                             <input class="form-control form-control-sm" id="txtcarFuelType" type="text" name="CarFuelType" placeholder="Fuel-Type">
                                         </div>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" role="switch" id="checkboxGeneral" name="general">
-                                            <label class="form-check-label" for="checkboxGeneral">General</label>
-                                        </div>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" role="switch" id="checkboxPremium" checked name="premium">
-                                            <label class="form-check-label" for="checkboxPremium">Premium</label>
-                                        </div>
-                                        <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="checkboxLuxury" checked name="luxury">
-                                        <label class="form-check-label" for="checkboxLuxury">Luxury</label>
-                                    </div>
+                                        <select class="form-select" aria-label="Default select example" id="cmbCarType" name="vehicleType"  style="margin-bottom: 10px">
+                                            <option value="1">General</option>
+                                            <option value="2">Premium</option>
+                                            <option value="3">Luxury</option>
+                                        </select>
 
                                         <div aria-label="Basic mixed styles example" class="btn-group" role="group">
                                             <button class="btn btn-danger" type="button" id="carDelete"  > Delete</button>
@@ -554,10 +547,11 @@
     }
     function countCustomer(){
         $.ajax({
-            url:baseurl+"customer",
+            url:baseurl+"customer?option=count",
+            dataType:"json",
             success:function (res){
                 LoadAllCustomer();
-                $('#RegisteredUser').text(res.data+" +")
+                $('#RegisteredUser').text(res.data+"+")
             }
         })
     }
@@ -671,7 +665,7 @@
                 alert(res.message)
             },
             error:function (error){
-                alert("data not save")
+                alert(JSON.parse(error.responseText).message)
             }
 
         })

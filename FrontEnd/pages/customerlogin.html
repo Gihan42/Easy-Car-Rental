@@ -178,7 +178,7 @@
                                                             <div class="col-md-6 mb-4">
 
                                                                 <div class="form-outline">
-                                                                    <input type="file" id="form3Example1w" class="form-control" placeholder="license img font"/>
+                                                                    <input type="file" id="form3Example1w" class="form-control" placeholder="license img font" name="nicImage"/>
                                                                     <label class="form-label" for="form3Example1w">license img font</label>
                                                                 </div>
 
@@ -220,12 +220,14 @@
 
         // save customer
         $('#register').click(function (){
-            let formData=$("#customersRegisterForm").serialize();
+            // let formData= new FormData($("#customersRegisterForm")[0]);
+            let formData= $("#customersRegisterForm").serialize()
             $.ajax({
                 url:baseUrl+"customer",
                 method:"post",
                 data:formData,
-                dataType:"json",
+                // contentType:false,
+                // processData: false,
                 success:function (res){
                     alert(res.message)
                 },

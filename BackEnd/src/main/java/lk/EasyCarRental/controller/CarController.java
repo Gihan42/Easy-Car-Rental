@@ -15,7 +15,14 @@ public class CarController {
 
     @PostMapping
     public ResponseUtil saveCar(@ModelAttribute CarDto dto){
+        System.out.println(dto);
         service.saveCar(dto);
         return new ResponseUtil("ok","car save",null);
+    }
+    @GetMapping(path = {"/vehicleNum"})
+    public ResponseUtil searchCar(String vehicleNum){
+        service.findCarByvehicleNum(vehicleNum);
+        return new ResponseUtil("ok","search car",null);
+
     }
 }
