@@ -53,7 +53,7 @@
                 <img src="../assest/img/123.jpg" class="card-img-top" alt="..." style="width: 70%; height: 20%">
                 <div class="card-body">
                     <h5 class="card-title">Available   Cars</h5>
-                    <h1 class="card-title" style="color: #263e60">10+</h1>
+                    <h1 class="card-title" style="color: #263e60" id="availableCars"></h1>
                 </div>
             </div>
         </div>
@@ -558,6 +558,7 @@
     // CUSTOMER END
     // DRIVER START
     loadAllDrivers();
+
     $('#save-Driver').click(function (){
         let formData=$('#driverForm').serialize();
         $.ajax({
@@ -655,6 +656,7 @@
     // DRIVER END
     //CAR START
     loadAllCar();
+    countAvailableCar();
     $('#save-car').click(function (){
         let carData=$('#carForms').serialize();
         $.ajax({
@@ -762,7 +764,17 @@
                loadAllCar();
            }
        })
-    })
+    });
+    function countAvailableCar(){
+        $.ajax({
+            url:baseurlThree+"car?available=count",
+            dataType:"json",
+            success:function (res){
+                console.log(res)
+                $('#availableCars').text(res.data+"+")
+            }
+        })
+    }
     //CAR END
 </script>
 </body>

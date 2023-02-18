@@ -66,5 +66,11 @@ public class CarServiceImpl implements CarService {
         repo.deleteById(vehicleNum);
     }
 
+    @Override
+    public long countCarAvailable(boolean available) {
+        long l = repo.countCarByavailable(available);
+        return l;
+    }
+
 
 }

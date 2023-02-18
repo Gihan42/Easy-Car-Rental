@@ -41,5 +41,9 @@ public class CarController {
         service.deleteCar(vehicleNum);
         return new ResponseUtil("ok","deleted",null);
     }
+    @GetMapping(params = {"available"})
+    public ResponseUtil availableCarCount( boolean count){
+      return new ResponseUtil("ok","count",  service.countCarAvailable(count));
+    }
 
 }

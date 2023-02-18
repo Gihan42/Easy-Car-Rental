@@ -12,4 +12,5 @@ public interface CarService {
     ArrayList<CarDto> getCars();
     void updateCar(CarDto dto);
     void deleteCar(String vehicleNum);
+   long countCarAvailable( boolean available);
 }

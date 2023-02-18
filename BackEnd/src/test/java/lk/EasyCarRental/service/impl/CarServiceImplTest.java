@@ -28,4 +28,9 @@ class CarServiceImplTest {
         Car carsByvehicleNum = repo.findCarsByvehicleNum("8658");
         System.out.println(carsByvehicleNum);
     }
+    @Test
+    void count(){
+        long aTrue = repo.countCarByavailable(false);
+        System.out.println(aTrue);
+    }
 }
