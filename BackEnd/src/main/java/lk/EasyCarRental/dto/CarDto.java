@@ -12,11 +12,11 @@ import lombok.ToString;
 public class CarDto {
     String vehicleNum;
     String Color;
-    double CarMonthlyprice;
-    double CarDailyprice;
+    double carMonthlyprice;
+    double carDailyprice;
     boolean available;
-    int CarpricePerKm;
-    String CarTransmitionType;
-    String CarFuelType;
+    int carpricePerKm;
+    String carTransmitionType;
+    String carFuelType;
     String vehicleType;
 }

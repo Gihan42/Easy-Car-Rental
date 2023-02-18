@@ -25,4 +25,10 @@ public class CarController {
         return new ResponseUtil("ok","search car",null);
 
     }
+    @GetMapping
+    public ResponseUtil getAllCar(){
+        System.out.println("getAllCar");
+        return new ResponseUtil("ok","loadcar",service.getCars());
+    }
+
 }

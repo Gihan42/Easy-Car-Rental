@@ -353,30 +353,30 @@
                                         </div>
                                         <div class="mb-3">
 
-                                            <input class="form-control form-control-sm" id="txtcarMonthlyPrice" type="number" name="CarMonthlyprice" placeholder="Monthly-Price">
+                                            <input class="form-control form-control-sm" id="txtcarMonthlyPrice" type="number" name="carMonthlyprice" placeholder="Monthly-Price">
                                         </div>
                                         <div class="mb-3">
 
-                                            <input class="form-control form-control-sm" id="txtcarDailyPrice" type="number" name="CarDailyprice" placeholder="Daily-Price">
+                                            <input class="form-control form-control-sm" id="txtcarDailyPrice" type="number" name="carDailyprice" placeholder="Daily-Price">
                                         </div>
                                         <div class="mb-3">
                                             <input class="form-control" type="file" id="formFile" placeholder="Please insert four picture ">
                                         </div>
                                         <div class="mb-3">
-                                            <input class="form-control" type="text" id="passenger" placeholder="Is Available " name="available">
+                                            <input class="form-control" type="text" id="Available" placeholder="Is Available " name="available">
                                         </div>
 
                                         <div class="mb-3">
 
-                                            <input class="form-control form-control-sm" id="txtcarPriceperKm" type="number" name="CarpricePerKm" placeholder="Price-Per-Km">
+                                            <input class="form-control form-control-sm" id="txtcarPriceperKm" type="number" name="carpricePerKm" placeholder="Price-Per-Km">
                                         </div>
                                         <div class="mb-3">
 
-                                            <input class="form-control form-control-sm" id="txtcarTransmitionType" type="text" name="CarTransmitionType" placeholder="Transmition-Type">
+                                            <input class="form-control form-control-sm" id="txtcarTransmitionType" type="text" name="carTransmitionType" placeholder="Transmition-Type">
                                         </div>
                                         <div class="mb-3">
 
-                                            <input class="form-control form-control-sm" id="txtcarFuelType" type="text" name="CarFuelType" placeholder="Fuel-Type">
+                                            <input class="form-control form-control-sm" id="txtcarFuelType" type="text" name="carFuelType" placeholder="Fuel-Type">
                                         </div>
                                         <select class="form-select" aria-label="Default select example" id="cmbCarType" name="vehicleType"  style="margin-bottom: 10px">
                                             <option value="1">General</option>
@@ -388,7 +388,7 @@
                                             <button class="btn btn-danger" type="button" id="carDelete"  > Delete</button>
                                             <button class="btn btn-warning" type="button" id="carrUpdate"   > Update</button>
                                             <button class="btn btn-success " type="button" id="save-car" >Save</button>
-                                            <button class="btn btn-info " type="button" id="getAll-car"  >Get-All</button>
+                                            <button class="btn btn-info " type="button" id="SearchCar"  >Search-Car</button>
                                         </div>
                                     </section>
                                 </div>
@@ -424,15 +424,11 @@
                                                         <th scope="col">CarpricePerKm</th>
                                                         <th scope="col">CarTransmitionType</th>
                                                         <th scope="col">CarFuelType</th>
-                                                        <th scope="col">General</th>
-                                                        <th scope="col">Premium</th>
-                                                        <th scope="col">Luxury</th>
+                                                        <th scope="col">Vehicle Type</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody id="carTable">
-                                                    <tr>
 
-                                                    </tr>
                                                     </tbody>
                                                 </table>
                                             </section>
@@ -654,6 +650,7 @@
     });
     // DRIVER END
     //CAR START
+    loadAllCar();
     $('#save-car').click(function (){
         let carData=$('#carForms').serialize();
         $.ajax({
@@ -671,6 +668,39 @@
         })
 
     });
+    $('#SearchCar').click(function (){
+        $.ajax({
+            url:baseurlThree+"car?vehicleNum=" + $('#txtcarNom').val(),
+            dataType:"json",
+            method:"get",
+            success:function (res){
+                alert(res)
+                $('#txtcarNom').val(res.data[0].vehicleNum);
+                $('#txtcarColor').val(res.data[0].color);
+                $('#txtcarMonthlyPrice').val(res.data[0].carMonthlyprice);
+                $('#txtcarDailyPrice').val(res.data[0].carDailyprice);
+                $('#Available').val(res.data[0].available);
+                $('#txtcarPriceperKm').val(res.data[0].carpricePerKm);
+                $('#txtcarTransmitionType').val(res.data[0].carTransmitionType);
+                $('#txtcarFuelType').val(res.data[0].carFuelType);
+                // $('#txtcarNom').val()
+            }
+        })
+    });
+    function loadAllCar(){
+        $.ajax({
+            url:baseurlThree+"car",
+            method:"get",
+            success:function (res){
+                $('#carTable').empty()
+                console.log(res)
+                for (let i =0;i < res.data.length;i++){
+                    $('#carTable').append(`<tr><td>` + res.data[i].vehicleNum + `</td><td>` + res.data[i].color + `</td><td>` + res.data[i].carMonthlyprice + `</td><td>` + res.data[i].carDailyprice + `</td><td>` + res.data[i].available + `</td><td>` + res.data[i].carpricePerKm + `</td><td>` + res.data[i].carTransmitionType + `</td><td>` + res.data[i].carFuelType +  `</td><td>` + res.data[i].vehicleType + `</td></tr>`);
+                }
+
+            }
+        })
+    };
     //CAR END
 </script>
 </body>

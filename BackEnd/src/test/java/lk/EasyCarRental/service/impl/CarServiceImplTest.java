@@ -3,6 +3,7 @@ package lk.EasyCarRental.service.impl;
 import lk.EasyCarRental.config.WebRootConfig;
 import lk.EasyCarRental.dto.CarDto;
 import lk.EasyCarRental.entity.Car;
+import lk.EasyCarRental.repo.CarRepo;
 import lk.EasyCarRental.repo.CustomerRepo;
 import lombok.var;
 import org.junit.jupiter.api.Test;
@@ -21,8 +22,10 @@ import static org.junit.jupiter.api.Assertions.*;
 @Transactional
 class CarServiceImplTest {
     @Autowired
-    CustomerRepo repo;
+    CarRepo repo;
     @Test
-    void saveCar() {
+    void searchCar() {
+        Car carsByvehicleNum = repo.findCarsByvehicleNum("8658");
+        System.out.println(carsByvehicleNum);
     }
 }
