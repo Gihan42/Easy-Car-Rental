@@ -36,10 +36,10 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public CarDto findCarByvehicleNum(String vehicleNum) {
-        if (repo.existsById(vehicleNum)){
+        if (!repo.existsById(vehicleNum)){
             throw new RuntimeException("invalid id");
         }
-        Car car=repo.findCarsByvehicleNum(vehicleNum);
+        Car car=repo.findCarByVehicleNum(vehicleNum);
         CarDto map=mapper.map(car,CarDto.class);
         System.out.println(map);
         return map;
@@ -67,8 +67,8 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public long countCarAvailable(boolean available) {
-       int l = (int) repo.countCarByavailable(available);
+    public long countCarAvailable() {
+       int l = (int) repo.countCarsByAvailable();
         System.out.println("count"+ l);
         return  l ;
     }

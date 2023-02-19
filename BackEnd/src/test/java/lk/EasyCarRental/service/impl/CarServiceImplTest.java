@@ -28,12 +28,12 @@ class CarServiceImplTest {
     CarRepo repo;
     @Test
     void searchCar() {
-        Car carsByvehicleNum = repo.findCarsByvehicleNum("8658");
+        Car carsByvehicleNum = repo.findCarByVehicleNum("8658");
         System.out.println(carsByvehicleNum);
     }
     @Test
     void count(){
-        long aTrue = repo.countCarByavailable(true);
+        long aTrue = repo.countCarsByAvailable();
         System.out.println(aTrue);
     }
     @Test

@@ -20,10 +20,10 @@ public class CarController {
         service.saveCar(dto);
         return new ResponseUtil("ok","car save",null);
     }
-    @GetMapping(path = {"/vehicleNum"})
+    @GetMapping(params = {"vehicleNum"})
     public ResponseUtil searchCar(String vehicleNum){
-        service.findCarByvehicleNum(vehicleNum);
-        return new ResponseUtil("ok","search car",null);
+        System.out.println(vehicleNum);
+        return new ResponseUtil("ok","search car",service.findCarByvehicleNum(vehicleNum));
 
     }
     @GetMapping
@@ -42,9 +42,9 @@ public class CarController {
         return new ResponseUtil("ok","deleted",null);
     }
     @GetMapping(params = {"available"})
-    public ResponseUtil availableCarCount( boolean count){
-        System.out.println(service.countCarAvailable( count));
-      return new ResponseUtil("ok","count",  service.countCarAvailable(count));
+    public ResponseUtil availableCarCount(){
+        System.out.println(service.countCarAvailable());
+      return new ResponseUtil("ok","count",  service.countCarAvailable());
     }
 
     @GetMapping(params = {"Premium"})

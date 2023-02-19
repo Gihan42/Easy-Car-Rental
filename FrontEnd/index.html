@@ -231,7 +231,7 @@
     .container .contactinfo .cbox img{
         min-width: 60px;
         height: 60px;
-        background-color: none;
+        /*background-color:;*/
         display: flex;
         justify-content: center;
         align-items: center;
@@ -566,128 +566,16 @@
 
     <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">Premium Cars
         <div class="container text-center">
-            <div class="row">
-                <div class="col" id="generalTab" >
-                    Column1
+            <div class="row" id="generalTab" style="padding: 10px">
 
-                 <!--   <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
-                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
-                        </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
-                                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    Column2
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
-                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
-                        </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
-                                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    Column3
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
-                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
-                        </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
-                                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container text-center">
-            <div class="row">
-                <div class="col">
-                    Column1
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
-                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
-                        </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
-                                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    Column2
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
-                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
-                        </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
-                                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    Column3
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
-                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
-                        </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
-                                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>-->
-            </div>
     </div>
     </div>
     </div>
     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
         <div class="container text-center">
-            <div class="row">
-                <div class="col" id="luxuryTab">
-                    Column1
+            <div class="row"  id="luxuryTab">
+                <!--<div class="col">
+                    Column1-->
 
                     <!--<div class="card" style="width: 18rem;">
                         <img src="..." class="card-img-top" alt="...">
@@ -798,7 +686,7 @@
                         </div>
                     </div>
                 </-->
-            </div>
+            <!--</div>-->
         </div>
 
     </div>
@@ -888,16 +776,9 @@
 <script>
 let baseUrlindex="http://localhost:8080/BackEnd_war/"
 loadPremiumCars();
+loadGeneralsCars();
+loadLuxuryCars();
 
-$('#pillsprofileHometab').click(function (){
-    loadPremiumCars();
-});
-$('#pillsprofiletab').click(function (){
-    loadGeneralsCars();
-});
-$('#navcontacttab').click(function (){
-    loadLuxuryCars();
-});
 
 function loadPremiumCars(){
     $.ajax({
@@ -906,14 +787,14 @@ function loadPremiumCars(){
         success:function (res){
             $('#premiumTab').empty();
             for(let i =0;i < res.data.length;i++){
-                var card=`<div class="col" style="padding: 10px" ><div class="card" style="width: 18rem; height: 14rem">   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[i].vehicleNum+` </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><a href="#" class="btn btn-primary">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                let card=`<div class="col" style="padding: 10px" ><div class="card" style="width: 18rem; height: 14rem">   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[i].vehicleNum+` </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><a href="#" class="btn btn-primary">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                         </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
                                 <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
                             </svg></div></div></div>`
                 $('#premiumTab').append(card)
-                console.log(res.data[i].vehicleNum)
+                console.log(res.data[i].vehicleNum +"premium")
 
             }
 
@@ -926,16 +807,16 @@ function loadGeneralsCars(){
         url:baseUrlindex+"car?General=count",
         dataType:"json",
         success:function (res){
-        for(let i =0;i < res.data.length;i++) {
             $('#generalTab').empty();
-            var cardl=`<div class="col" style="padding: 10px" ><div class="card" style="width: 18rem; height: 14rem">   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[i].vehicleNum+` </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><a href="#" class="btn btn-primary">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+        for(let g =0;g < res.data.length;g++) {
+            let cardl=`<div class="col" style="padding: 10px" ><div class="card" style="width: 18rem; height: 14rem" >   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[g].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[g].vehicleNum+` </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[g].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[g].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[g].pricePerExtraKm +`</label><a href="#" class="btn btn-primary">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                         </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
                                 <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
                             </svg></div></div></div>`
             $('#generalTab').append(cardl)
-            console.log(res.data[i].vehicleNum)
+            console.log(res.data[g].vehicleNum +"General")
     }
     }
     })
@@ -946,9 +827,9 @@ function loadLuxuryCars(){
         url: baseUrlindex + "car?Luxury=count",
         dataType: "json",
         success:function (res){
+            $('#luxuryTab').empty();
             for(let i =0;i < res.data.length;i++) {
-                $('#luxuryTab').empty();
-                var cardG=`<div class="col" style="padding: 10px" ><div class="card" style="width: 18rem; height: 14rem">   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[i].vehicleNum+` </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><a href="#" class="btn btn-primary">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                let cardG=`<div class="col" style="padding: 10px" ><div class="card" style="width: 18rem; height: 14rem">   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[i].vehicleNum+` </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><a href="#" class="btn btn-primary">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                         </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
@@ -957,7 +838,7 @@ function loadLuxuryCars(){
                 $('#luxuryTab').append(cardG)
 
 
-                console.log(res.data[i].vehicleNum);
+                console.log(res.data[i].vehicleNum +"luxury");
             }
         }
     })

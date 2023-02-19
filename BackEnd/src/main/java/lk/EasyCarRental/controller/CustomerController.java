@@ -47,6 +47,7 @@ public class CustomerController{
         return new ResponseUtil("ok","searchcustomer",null);
     }
 
+
     @GetMapping(params = {"option"})
     public ResponseUtil customerCount(){
         System.out.println(service.countCustomer());

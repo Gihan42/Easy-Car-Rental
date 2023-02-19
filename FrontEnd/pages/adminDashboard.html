@@ -161,7 +161,7 @@
                                                     <div aria-label="Basic mixed styles example" class="btn-group" role="group">
                                                         <button class="btn btn-danger" type="button" id="CustomerDelete"  > Delete</button>
                                                         <button class="btn btn-warning" type="button" id="CustomerUpdate"   > Update</button>
-                                                        <button class="btn btn-success " type="button" id="save-customer" > Save</button>
+                                                        <!--<button class="btn btn-success " type="button" id="save-customer" > Save</button>-->
                                                         <button class="btn btn-info " type="button" id="search-Customer"  >Search </button>
                                                     </div>
                                                 </section>
@@ -476,6 +476,25 @@
     let baseurlThree="http://localhost:8080/BackEnd_war/"
     // CUSTOMER START
     LoadAllCustomer();
+/*    $('#save-customer').click(function (){
+        alert('weda')
+        // let formData= new FormData($("#customersRegisterForm")[0]);
+        let formData= $("#CustomerForms").serialize()
+        $.ajax({
+            url:baseUrl+"customer",
+            method:"post",
+            data:formData,
+            // contentType:false,
+            // processData: false,
+            success:function (res){
+                alert(res.message)
+            },
+            error(error){
+                alert(JSON.parse(error.responseText).message);
+            }
+        })
+
+    })*/
     countCustomer();
     $('#getAllCustomer').click(function (){
         LoadAllCustomer();
@@ -697,20 +716,19 @@
             dataType:"json",
             method:"get",
             success:function (res){
-                alert(res)
-                $('#txtcarNom').val(res.data[0].vehicleNum);
-                $('#txtcarColor').val(res.data[0].color);
-                $('#txtcarModel').val(res.data[0].vehicleModel);
-                $('#txtcarMonthlyPrice').val(res.data[0].carMonthlyprice);
-                $('#txtcarDailyPrice').val(res.data[0].carDailyprice);
-                $('#Available').val(res.data[0].available);
-                $('#txtcarPriceperKm').val(res.data[0].carpricePerKm);
-                $('#txtcarpricePerKmMonth').val(res.data[0].carpricePerKmMonth);
-                $('#txtcarTransmitionType').val(res.data[0].carTransmitionType);
-                $('#txtcarFuelType').val(res.data[0].carFuelType);
-                $('#txtCarType').val(res.data[0].vehicleType);
-                $('#txtpricePerExtraKm').val(res.data[0].pricePerExtraKm);
-
+                $('#txtcarNom').val(res.data.vehicleNum);
+                $('#txtcarColor').val(res.data.color);
+                $('#txtcarModel').val(res.data.vehicleModel);
+                $('#txtcarMonthlyPrice').val(res.data.carMonthlyprice);
+                $('#txtcarDailyPrice').val(res.data.carDailyprice);
+                $('#Available').val(res.data.available);
+                $('#txtcarPriceperKm').val(res.data.carpricePerKm);
+                $('#txtcarpricePerKmMonth').val(res.data.carpricePerKmMonth);
+                $('#txtcarTransmitionType').val(res.data.carTransmitionType);
+                $('#txtcarFuelType').val(res.data.carFuelType);
+                $('#txtCarType').val(res.data.vehicleType);
+                $('#txtpricePerExtraKm').val(res.data.pricePerExtraKm);
+                console.log(res);
                 // $('#txtcarNom').val()
             }
         })

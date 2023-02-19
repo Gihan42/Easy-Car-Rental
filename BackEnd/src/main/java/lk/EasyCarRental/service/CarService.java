@@ -12,7 +12,7 @@ public interface CarService {
     ArrayList<CarDto> getCars();
     void updateCar(CarDto dto);
     void deleteCar(String vehicleNum);
-   long countCarAvailable( boolean available);
+   long countCarAvailable();
     ArrayList<CarDto> indCarsByVehicleType(String Premium);
     ArrayList<CarDto> findCarsByGeneralType(String General);
     ArrayList<CarDto> findCarsByLuxuryType(String Luxury);
