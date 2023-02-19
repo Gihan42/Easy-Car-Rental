@@ -43,7 +43,19 @@ public class CarController {
     }
     @GetMapping(params = {"available"})
     public ResponseUtil availableCarCount( boolean count){
+        System.out.println(service.countCarAvailable( count));
       return new ResponseUtil("ok","count",  service.countCarAvailable(count));
+    }
+
+    @GetMapping(params = {"Premium"})
+    public ResponseUtil getPremiumCar(){
+        System.out.println("no");
+        return new ResponseUtil("ok","PremiumCars",service.indCarsByVehicleType("Premium"));
+    }
+    @GetMapping(params = {"General"})
+    public ResponseUtil getGenaralCars(){
+        return new ResponseUtil("ok","PremiumCars",service.findCarsByGeneralType("General"));
+
     }
 
 }

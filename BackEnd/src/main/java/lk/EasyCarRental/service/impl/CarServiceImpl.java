@@ -68,8 +68,29 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public long countCarAvailable(boolean available) {
-        long l = repo.countCarByavailable(available);
-        return l;
+       int l = (int) repo.countCarByavailable(available);
+        System.out.println("count"+ l);
+        return  l ;
+    }
+
+    @Override
+    public ArrayList<CarDto> indCarsByVehicleType(String Premium) {
+        ArrayList<Car> premium = repo.findCarsByVehicleType("Premium");
+        for (Car car:premium) {
+            System.out.println(car);
+        }
+        return mapper.map(repo.findCarsByVehicleType(Premium),new TypeToken<ArrayList<CarDto>>(){}.getType());
+
+    }
+
+    @Override
+    public ArrayList<CarDto> findCarsByGeneralType(String General) {
+        ArrayList<Car> general = repo.findCarsByVehicleType("General");
+        for (Car car:general) {
+            System.out.println(car);
+        }
+        return mapper.map(repo.findCarsByVehicleType(General),new TypeToken<ArrayList<CarDto>>(){}.getType());
+
     }
 
 

@@ -16,14 +16,17 @@ import javax.persistence.Id;
 public class Car {
     @Id
     String vehicleNum;
+    String vehicleModel;
     String Color;
     double carMonthlyprice;
     double carDailyprice;
     boolean available;
-    int carpricePerKm;
+    int carpriceperkmaday;
+    int carpricePerKmMonth;
     String carTransmitionType;
     String carFuelType;
     String vehicleType;
+    double pricePerExtraKm;
 
 
 }

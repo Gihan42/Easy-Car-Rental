@@ -14,6 +14,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @WebAppConfiguration  //create  testing conterx
@@ -30,7 +33,21 @@ class CarServiceImplTest {
     }
     @Test
     void count(){
-        long aTrue = repo.countCarByavailable(false);
+        long aTrue = repo.countCarByavailable(true);
         System.out.println(aTrue);
+    }
+    @Test
+    void countPrimium(){
+        ArrayList<Car> premium = repo.findCarsByVehicleType("Premium");
+        for (Car car:premium){
+            System.out.println(car);
+        }
+    }
+    @Test
+    void countGeneral(){
+        /*List<Car> General = repo.findCarsByvehicleType("General");
+        for (Car car:General){
+            System.out.println(car);
+        }*/
     }
 }

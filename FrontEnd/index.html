@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Easy_Car_Rental</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"> -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"> -->
 </head>
@@ -338,6 +339,10 @@
     .tab-content>.active {
         margin-bottom: 50px;
     }
+    #grid{
+        overflow-x: hidden;
+        z-index: 0;
+    }
 </style>
 <body>
 <div class="dashboard">
@@ -419,14 +424,14 @@
     </section>
 </div>
 <!--class grid start-->
-<div class="classGrid">
+<div class="classGrid" id="grid">
     <h2 class="details">Details</h2>
 <ul class="nav nav-tabs" id="pillstab" role="tablist">
     <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="pillsprofileHometab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">General</button>
+        <button class="nav-link active" id="pillsprofileHometab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Premium</button>
     </li>
     <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pillsprofiletab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Premium</button>
+        <button class="nav-link" id="pillsprofiletab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">General</button>
     </li>
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="navcontacttab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Luxury</button>
@@ -434,16 +439,18 @@
 
 </ul>
 <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">General Cars Rates
+    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
         <div class="container text-center">
-            <div class="row">
-                <div class="col">
+            <div class="row" id="premiumTab">
+               <!-- <div class="col">
                     Column1
                     <div class="card" style="width: 18rem;">
                         <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">100 </label>
+                            <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">2400 </label>
+                            <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">30.00 </label>
                             <a href="#" class="btn btn-primary">Go somewhere</a> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                         </svg>
@@ -455,8 +462,8 @@
                         </div>
                     </div>
 
-                </div>
-                <div class="col">
+                </div>-->
+                <!--<div class="col">
                     Column2
 
                     <div class="card" style="width: 18rem;">
@@ -551,18 +558,19 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
         </div>
         </div>
+    </div>
 
     <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">Premium Cars
         <div class="container text-center">
             <div class="row">
-                <div class="col">
+                <div class="col" id="generalTab" >
                     Column1
 
-                    <div class="card" style="width: 18rem;">
+                 <!--   <div class="card" style="width: 18rem;">
                         <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -670,8 +678,9 @@
                             </svg>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
+    </div>
     </div>
     </div>
     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
@@ -874,5 +883,53 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+<script src="pages/jquery-3.6.1.min.js"></script>
+<script>
+let baseUrlindex="http://localhost:8080/BackEnd_war/"
+loadPremiumCars();
+loadGeneralsCars();
+function loadPremiumCars(){
+    $.ajax({
+        url:baseUrlindex+"car?Premium=count",
+        dataType:"json",
+        success:function (res){
+            $('#premiumTab').empty();
+            for(let i =0;i < res.data.length;i++){
+                var card=`<div class="col" style="padding: 10px" ><div class="card" style="width: 18rem; height: 14rem">   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[i].vehicleNum+` </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><a href="#" class="btn btn-primary">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                            </svg></div></div></div>`
+                $('#premiumTab').append(card)
+                console.log(res.data[i].vehicleNum)
+
+            }
+
+        }
+
+    })
+}
+function loadGeneralsCars(){
+    $.ajax({
+        url:baseUrlindex+"car?General=count",
+        dataType:"json",
+        success:function (res){
+        for(let i =0;i < res.data.length;i++) {
+            $('#generalTab').empty();
+            var cardG=`<div class="col" style="padding: 10px" ><div class="card" style="width: 18rem; height: 14rem">   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[i].vehicleNum+` </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><a href="#" class="btn btn-primary">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
+                        </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                            </svg></div></div></div>`
+            $('#generalTab').append(cardG)
+            console.log(res.data[i].vehicleNum)
+    }
+    }
+    })
+
+}
+</script>
 </body>
 </html>

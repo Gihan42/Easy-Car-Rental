@@ -349,6 +349,10 @@
                                         </div>
                                         <div class="mb-3">
 
+                                            <input class="form-control" id="txtcarModel" type="text" name="vehicleModel" placeholder="vehicle Model">
+                                        </div>
+                                        <div class="mb-3">
+
                                             <input class="form-control" id="txtcarColor" multiple type="text" name="Color" placeholder="Colour">
                                         </div>
                                         <div class="mb-3">
@@ -368,7 +372,11 @@
 
                                         <div class="mb-3">
 
-                                            <input class="form-control form-control-sm" id="txtcarPriceperKm" type="number" name="carpricePerKm" placeholder="Price-Per-Km">
+                                            <input class="form-control form-control-sm" id="txtcarPriceperKm" type="number" name="carpriceperkmaday" placeholder="Price-Per-Km-Day">
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <input class="form-control form-control-sm" id="txtcarpricePerKmMonth" type="number" name="carpricePerKmMonth" placeholder="Price-Per-Km-Month">
                                         </div>
                                         <div class="mb-3">
 
@@ -386,6 +394,10 @@
                                         <div class="mb-3">
 
                                             <input class="form-control form-control-sm" id="txtCarType" type="text" name="vehicleType" placeholder="Car-Type">
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <input class="form-control form-control-sm" id="txtpricePerExtraKm" type="text" name="pricePerExtraKm" placeholder="Price-Per-Extra-Km">
                                         </div>
 
                                         <div aria-label="Basic mixed styles example" class="btn-group" role="group">
@@ -421,14 +433,17 @@
                                                     <thead>
                                                     <tr>
                                                         <th scope="col">vehicleNum</th>
+                                                        <th scope="col">vehicleModel</th>
                                                         <th scope="col">Color</th>
                                                         <th scope="col">CarMonthlyprice</th>
                                                         <th scope="col">CarDailyprice</th>
                                                         <th scope="col">available</th>
-                                                        <th scope="col">CarpricePerKm</th>
+                                                        <th scope="col">CarpricePerKm Day</th>
+                                                        <th scope="col">CarpricePerKm Month</th>
                                                         <th scope="col">CarTransmitionType</th>
                                                         <th scope="col">CarFuelType</th>
                                                         <th scope="col">Vehicle Type</th>
+                                                        <th scope="col">Price per Extra Km</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody id="carTable">
@@ -685,13 +700,17 @@
                 alert(res)
                 $('#txtcarNom').val(res.data[0].vehicleNum);
                 $('#txtcarColor').val(res.data[0].color);
+                $('#txtcarModel').val(res.data[0].vehicleModel);
                 $('#txtcarMonthlyPrice').val(res.data[0].carMonthlyprice);
                 $('#txtcarDailyPrice').val(res.data[0].carDailyprice);
                 $('#Available').val(res.data[0].available);
                 $('#txtcarPriceperKm').val(res.data[0].carpricePerKm);
+                $('#txtcarpricePerKmMonth').val(res.data[0].carpricePerKmMonth);
                 $('#txtcarTransmitionType').val(res.data[0].carTransmitionType);
                 $('#txtcarFuelType').val(res.data[0].carFuelType);
                 $('#txtCarType').val(res.data[0].vehicleType);
+                $('#txtpricePerExtraKm').val(res.data[0].pricePerExtraKm);
+
                 // $('#txtcarNom').val()
             }
         })
@@ -704,7 +723,7 @@
                 $('#carTable').empty()
                 console.log(res)
                 for (let i =0;i < res.data.length;i++){
-                    $('#carTable').append(`<tr><td>` + res.data[i].vehicleNum + `</td><td>` + res.data[i].color + `</td><td>` + res.data[i].carMonthlyprice + `</td><td>` + res.data[i].carDailyprice + `</td><td>` + res.data[i].available + `</td><td>` + res.data[i].carpricePerKm + `</td><td>` + res.data[i].carTransmitionType + `</td><td>` + res.data[i].carFuelType +  `</td><td>` + res.data[i].vehicleType + `</td></tr>`);
+                    $('#carTable').append(`<tr><td>` + res.data[i].vehicleNum +`</td><td>` + res.data[i].vehicleModel + `</td><td>` + res.data[i].color + `</td><td>` + res.data[i].carMonthlyprice + `</td><td>` + res.data[i].carDailyprice + `</td><td>` + res.data[i].available + `</td><td>` + res.data[i].carpricePerKm + `</td><td>`  + res.data[i].carpricePerKmMonth + `</td><td>` + res.data[i].carTransmitionType + `</td><td>` + res.data[i].carFuelType +  `</td><td>` + res.data[i].vehicleType + `</td><td>` + res.data[i].pricePerExtraKm +  `</td></tr>`);
                 }
 
             }
@@ -714,13 +733,16 @@
         let carJson={
             vehicleNum:$('#txtcarNom').val(),
             color:$('#txtcarColor').val(),
+            vehicleModel: $('#txtcarModel').val(),
             carMonthlyprice:$('#txtcarMonthlyPrice').val(),
             carDailyprice:$('#txtcarDailyPrice').val(),
             available: $('#Available').val(),
             carpricePerKm:$('#txtcarPriceperKm').val(),
+            carpricePerKmMonth:$('#txtcarpricePerKmMonth').val(),
             carTransmitionType:$('#txtcarTransmitionType').val(),
             vehicleType:$('#txtCarType').val(),
-            carFuelType:$('#txtcarFuelType').val()
+            carFuelType:$('#txtcarFuelType').val(),
+            pricePerExtraKm:$('#txtpricePerExtraKm').val()
         };
         $.ajax({
             url:baseurlThree+"car",
@@ -744,11 +766,16 @@
         $('#txtcarColor').val('');
         $('#txtcarMonthlyPrice').val('');
         $('#txtcarDailyPrice').val('');
+        $('#txtcarMonthlyPrice').val('');
         $('#Available').val('');
         $('#txtcarPriceperKm').val('');
         $('#txtcarTransmitionType').val('');
+        $('#txtcarpricePerKmMonth').val('');
         $('#txtcarFuelType').val('');
         $('#txtCarType').val('');
+        $('#txtcarModel').val('');
+        $('#txtpricePerExtraKm').val('');
+        $('#txtpricePerExtraKm').val('');
     }
     $('#cmbCarType').click(function (){
         let val=$('#cmbCarType').val();
@@ -769,6 +796,7 @@
         $.ajax({
             url:baseurlThree+"car?available=count",
             dataType:"json",
+            method:"get",
             success:function (res){
                 console.log(res)
                 $('#availableCars').text(res.data+"+")
