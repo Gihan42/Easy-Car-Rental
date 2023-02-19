@@ -57,5 +57,10 @@ public class CarController {
         return new ResponseUtil("ok","PremiumCars",service.findCarsByGeneralType("General"));
 
     }
+    @GetMapping(params = {"Luxury"})
+    public ResponseUtil getLuxuryCars(){
+        return new ResponseUtil("ok","PremiumCars",service.findCarsByLuxuryType("Luxury"));
+
+    }
 
 }

@@ -15,4 +15,5 @@ public interface CarService {
    long countCarAvailable( boolean available);
     ArrayList<CarDto> indCarsByVehicleType(String Premium);
     ArrayList<CarDto> findCarsByGeneralType(String General);
+    ArrayList<CarDto> findCarsByLuxuryType(String Luxury);
 }

@@ -93,5 +93,14 @@ public class CarServiceImpl implements CarService {
 
     }
 
+    @Override
+    public ArrayList<CarDto> findCarsByLuxuryType(String Luxury) {
+        ArrayList<Car> general = repo.findCarsByVehicleType("Luxury");
+        for (Car car:general) {
+            System.out.println(car);
+        }
+        return mapper.map(repo.findCarsByVehicleType(Luxury),new TypeToken<ArrayList<CarDto>>(){}.getType());
+    }
+
 
 }
