@@ -476,25 +476,6 @@
     let baseurlThree="http://localhost:8080/BackEnd_war/"
     // CUSTOMER START
     LoadAllCustomer();
-/*    $('#save-customer').click(function (){
-        alert('weda')
-        // let formData= new FormData($("#customersRegisterForm")[0]);
-        let formData= $("#CustomerForms").serialize()
-        $.ajax({
-            url:baseUrl+"customer",
-            method:"post",
-            data:formData,
-            // contentType:false,
-            // processData: false,
-            success:function (res){
-                alert(res.message)
-            },
-            error(error){
-                alert(JSON.parse(error.responseText).message);
-            }
-        })
-
-    })*/
     countCustomer();
     $('#getAllCustomer').click(function (){
         LoadAllCustomer();
@@ -521,12 +502,12 @@
             method:"get",
             success:function (res){
                 console.log(res);
-                $('#txtCustomerId').val(res.data[0].nic);
-                $('#txtCustomerName').val(res.data[0].name);
-                $('#txtCustomerAddress').val(res.data[0].address);
-                $('#txtCustomerPassword').val(res.data[0].password);
-                $('#txtCustomerContactNum').val(res.data[0].contactNum);
-                $('#txtCustomerLicence').val(res.data[0].licence);
+                $('#txtCustomerId').val(res.data.nic);
+                $('#txtCustomerName').val(res.data.name);
+                $('#txtCustomerAddress').val(res.data.address);
+                $('#txtCustomerPassword').val(res.data.password);
+                $('#txtCustomerContactNum').val(res.data.contactNum);
+                $('#txtCustomerLicence').val(res.data.licence);
             },
             error(error) {
             }
