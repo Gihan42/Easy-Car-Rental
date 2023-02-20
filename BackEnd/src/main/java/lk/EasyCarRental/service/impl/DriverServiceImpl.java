@@ -32,7 +32,7 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public DriverDto findDriverBydriverID(String driverID) {
-        if (repo.existsById(driverID)){
+        if (!repo.existsById(driverID)){
             throw new RuntimeException("invalid driver id");
         }
         Driver driver=repo.findDriverBydriverID(driverID);

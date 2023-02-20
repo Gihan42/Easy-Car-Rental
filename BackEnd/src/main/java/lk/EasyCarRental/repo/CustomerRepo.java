@@ -2,6 +2,7 @@ package lk.EasyCarRental.repo;
 
 
 
+import lk.EasyCarRental.entity.Car;
 import lk.EasyCarRental.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 

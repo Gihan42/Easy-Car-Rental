@@ -24,10 +24,9 @@ public class DriverController {
         service.saveDriver(dto);
         return new ResponseUtil("ok","driver save",null);
     }
-    @GetMapping(path = {"/driverID"})
+    @GetMapping(params = {"driverID"})
     public ResponseUtil searchDriver( String driverID ){
-        service.findDriverBydriverID(driverID);
-        return new ResponseUtil("ok","search",null);
+        return new ResponseUtil("ok","search",service.findDriverBydriverID(driverID));
     }
     @DeleteMapping(params = "driverID")
     public ResponseUtil deleteDriver(@RequestParam String driverID){

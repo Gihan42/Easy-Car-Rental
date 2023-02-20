@@ -41,10 +41,9 @@ public class CustomerController{
     }
 
 //    searchcustomer
-    @GetMapping(path = {"/nic"})
+    @GetMapping(params = {"nic"})
     public ResponseUtil searchCustomer(String nic){
-        service.findCustomerByNic(nic);
-        return new ResponseUtil("ok","searchcustomer",null);
+        return new ResponseUtil("ok","searchcustomer",service.findCustomerByNic(nic));
     }
 
 

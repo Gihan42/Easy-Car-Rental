@@ -1,5 +1,7 @@
 package lk.EasyCarRental.service.impl;
+import lk.EasyCarRental.dto.CarDto;
 import lk.EasyCarRental.dto.CustomerDto;
+import lk.EasyCarRental.entity.Car;
 import lk.EasyCarRental.entity.Customer;
 import lk.EasyCarRental.repo.CustomerRepo;
 import lk.EasyCarRental.service.CustomerService;
@@ -55,7 +57,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDto findCustomerByNic(String nic) {
-        if(repo.existsById(nic)){
+        if(!repo.existsById(nic)){
             throw new RuntimeException("Invalid Id");
         }
         Customer customer=repo.findCustomerByNic(nic);

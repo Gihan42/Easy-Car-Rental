@@ -497,7 +497,7 @@
     }
     $('#search-Customer').click(function (){
         $.ajax({
-            url:baseurl+"customer?nic=" + $('#txtDriverId' ).val(),
+            url:baseurl+"customer?nic=" + $('#txtCustomerId').val(),
             dataType:"json",
             method:"get",
             success:function (res){
@@ -597,11 +597,11 @@
             method:"get",
             success:function (res){
                 console.log(res)
-                $('#txtDriverId').val(res.data[0].driverID);
-                $('#txtDriverame').val(res.data[0].drivername);
-                $('#txtDriverAddress').val(res.data[0].driveraddress);
-                $('#txtDriverContact').val(res.data[0].driverContact);
-                $('#txtDriverVailable').val(res.data[0].isAvailable);
+                $('#txtDriverId').val(res.data.driverID);
+                $('#txtDriverame').val(res.data.drivername);
+                $('#txtDriverAddress').val(res.data.driveraddress);
+                $('#txtDriverContact').val(res.data.driverContact);
+                $('#txtDriverVailable').val(res.data.isAvailable);
 
             },
             error:function (error){

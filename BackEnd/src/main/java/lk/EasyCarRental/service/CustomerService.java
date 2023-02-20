@@ -1,5 +1,6 @@
 package lk.EasyCarRental.service;
 
+import lk.EasyCarRental.dto.CarDto;
 import lk.EasyCarRental.dto.CustomerDto;
 
 import java.util.ArrayList;
