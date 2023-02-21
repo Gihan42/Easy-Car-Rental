@@ -45,11 +45,6 @@ public class CustomerController{
     public ResponseUtil searchCustomer(String nic){
         return new ResponseUtil("ok","searchcustomer",service.findCustomerByNic(nic));
     }
- /*   @GetMapping(params = "{nic}")
-    public ResponseUtil logincustomer(String nic){
-        return new ResponseUtil("ok","searchcustomer",service.loginCustomer(nic));
-    }*/
-
 
     @GetMapping(params = {"option"})
     public ResponseUtil customerCount(){
