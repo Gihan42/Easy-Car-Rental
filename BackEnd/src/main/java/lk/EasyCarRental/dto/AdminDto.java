@@ -10,8 +10,13 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class AdminDto {
-    String Emailaddress;
+    String emailaddress;
     String password;
     String name;
+
+    public AdminDto(String emailaddress, String password) {
+        this.emailaddress = emailaddress;
+        this.password = password;
+    }
 }
 

@@ -10,4 +10,5 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
     Customer findCustomerByNic(String nic);
     long count();
 
+
 }

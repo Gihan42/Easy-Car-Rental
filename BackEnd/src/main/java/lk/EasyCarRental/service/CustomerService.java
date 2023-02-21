@@ -13,5 +13,8 @@ public interface CustomerService {
     void UpdateCustomer(CustomerDto dto);
     void DeleteCustomer(String nic);
     long countCustomer();
+    CustomerDto loginCustomer(String nic);
+
+
 
 }

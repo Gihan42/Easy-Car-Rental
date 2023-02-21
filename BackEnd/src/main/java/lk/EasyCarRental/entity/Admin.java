@@ -14,7 +14,7 @@ import javax.persistence.Id;
 public class Admin {
 
     @Id
-    String Emailaddress;
+    String emailaddress;
     String password;
     String name;
 }

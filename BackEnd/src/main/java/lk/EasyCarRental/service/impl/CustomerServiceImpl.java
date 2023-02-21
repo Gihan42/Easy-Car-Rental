@@ -90,7 +90,16 @@ public class CustomerServiceImpl implements CustomerService {
         return count;
     }
 
-
+    @Override
+    public CustomerDto loginCustomer(String nic) {
+        Customer customer=repo.findCustomerByNic(nic);
+        if(!repo.existsById(nic)){
+            throw new RuntimeException("Invalid nic");
+        }
+        CustomerDto map=mapper.map(customer,CustomerDto.class);
+        System.out.println(customer);
+        return map;
+    }
 
 
 }

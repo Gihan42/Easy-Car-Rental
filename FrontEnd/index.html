@@ -487,20 +487,20 @@
                                                             <form>
                                                                 <!-- Email input -->
                                                                 <div class="form-outline mb-4">
-                                                                    <label class="form-label" for="form2Example1">Nic</label>
-                                                                    <input type="email" id="form2Example1" class="form-control" />
+                                                                    <label class="form-label" for="txtCusNic">Nic</label>
+                                                                    <input type="text" id="txtCusNic" class="form-control" placeholder="nic" name="nic"/>
                                                                 </div>
 
                                                                 <!-- Password input -->
                                                                 <div class="form-outline mb-4">
-                                                                    <label class="form-label" for="form2Example2">Password</label>
-                                                                    <input type="password" id="form2Example2" class="form-control" />
+                                                                    <label class="form-label" for="txtCusPw">Password</label>
+                                                                    <input type="password" id="txtCusPw" class="form-control" placeholder="password" name="password"/>
 
                                                                 </div>
 
 
                                                                 <!-- Submit button -->
-                                                                <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+                                                                <button type="button" class="btn btn-primary btn-block mb-4" id="customerLogin">login</button>
 
                                                                 <!-- Register buttons -->
                                                                 <div class="text-center" id="registerwindow" >
@@ -633,7 +633,7 @@
                             <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                         </svg>
                      Login</button>
-                    <!--edit-->
+                    <!--edit admin-->
                     <div aria-hidden="true" aria-labelledby="exampleModalLabel1" class="modal fade" id="exampleModal1" tabindex="-1" id="driverForms" >
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -650,8 +650,6 @@
                                     </li>
 
                                 </ul>
-
-
                                 <div class="modal-body" >
                                     <div class="tab-content" id="myTabContentse" >
                                         <div class="tab-pane fade show active" id="home-tab-panese" role="tabpanel" aria-labelledby="home-tab" tabindex="0" >
@@ -664,14 +662,13 @@
                                                                 <form>
                                                                     <!-- Email input -->
                                                                     <div class="form-outline mb-4">
-                                                                        <label class="form-label" for="form2Example1">Email address</label>
-                                                                        <input type="email" id="form2Example3" class="form-control" />
+                                                                        <label class="form-label" for="txtAdminEmail">Email address</label>
+                                                                        <input type="email"  class="form-control" id="txtAdminEmail" name="emailaddress" placeholder="email-address"/>
                                                                     </div>
-
                                                                     <!-- Password input -->
                                                                     <div class="form-outline mb-4">
-                                                                        <label class="form-label" for="form2Example2">Password</label>
-                                                                        <input type="password" id="form2Example4" class="form-control" />
+                                                                        <label class="form-label" for="txtAdminpw">Password</label>
+                                                                        <input type="password"  class="form-control" id="txtAdminpw" name="password" placeholder="Password"/>
 
                                                                     </div>
 
@@ -687,7 +684,7 @@
                                                                     </div>
 
                                                                     <!-- Submit button -->
-                                                                    <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+                                                                    <button type="button" class="btn btn-primary btn-block mb-4" id="adminlogIn">login in</button>
 
                                                                     <!-- Register buttons -->
                                                                     <div class="text-center">
@@ -735,19 +732,19 @@
                                                                 <form id="adminRegisterForm">
                                                                     <!-- Email input -->
                                                                     <div class="form-outline mb-4">
-                                                                        <label class="form-label" for="form2Example1">Email address</label>
-                                                                        <input type="email" id="form2_Example1" class="form-control" name="Emailaddress"/>
+                                                                        <label class="form-label" for="txtCustomerNic">Email address</label>
+                                                                        <input type="text" class="form-control" name="emailaddress" id="txtCustomerNic" name="nic"/>
                                                                     </div>
 
                                                                     <!-- Password input -->
                                                                     <div class="form-outline mb-4">
-                                                                        <label class="form-label" for="form2Example2">Password</label>
-                                                                        <input type="password" id="form2_Example2" class="form-control" name="password"/>
+                                                                        <label class="form-label" for="txtCustomerPw" >Password</label>
+                                                                        <input type="password" class="form-control" name="password" id="txtCustomerPw" name="password"/>
 
                                                                     </div>
 
                                                                     <div class="form-outline mb-4">
-                                                                        <label class="form-label" for="form2Example2">Name</label>
+                                                                        <label class="form-label" >Name</label>
                                                                         <input type="text" id="form2_Example3" class="form-control" name="name" />
 
                                                                     </div>
@@ -768,8 +765,6 @@
                         </div>
                     </div>
                 </li>
-
-
                     <!--edit-->
                 </li>
                 <li class="nav-item">
@@ -783,12 +778,12 @@
 <div class="dashboard" id="dashboard">
     <!-- main title start -->
     <div class="maintitle">
-        <h1>Easy Car Rental</h1>
+        <h1 style="color: #191919">Easy Car Rental</h1>
     </div>
     <!-- main title end -->
     <!-- logo start -->
     <div class="logo">
-        <h1 class="system">System...</h1>
+        <h1 class="system" style="color: #191919">System...</h1>
     </div>
     <!--logo end -->
     <div class="detel"><a href="#about">About Us </a>
@@ -947,6 +942,7 @@ function loadPremiumCars(){
     $.ajax({
         url:baseUrlindex+"car?Premium=count",
         dataType:"json",
+        async:false,
         success:function (res){
             $('#premiumTab').empty();
             for(let i =0;i < res.data.length;i++){
@@ -969,6 +965,7 @@ function loadGeneralsCars(){
     $.ajax({
         url:baseUrlindex+"car?General=count",
         dataType:"json",
+        async:false,
         success:function (res){
             $('#generalTab').empty();
         for(let g =0;g < res.data.length;g++) {
@@ -989,6 +986,7 @@ function loadLuxuryCars(){
     $.ajax({
         url: baseUrlindex + "car?Luxury=count",
         dataType: "json",
+        async:false,
         success:function (res){
             $('#luxuryTab').empty();
             for(let i =0;i < res.data.length;i++) {
@@ -1007,13 +1005,14 @@ function loadLuxuryCars(){
     })
 }
     // save customer
-    $('#register').click(function (){
+$('#register').click(function (){
     // let formData= new FormData($("#customersRegisterForm")[0]);
     let formData= $("#customersRegisterForm").serialize()
     $.ajax({
     url:baseUrlt+"customer",
     method:"post",
     data:formData,
+        async:false,
     // contentType:false,
     // processData: false,
     success:function (res){
@@ -1026,7 +1025,6 @@ function loadLuxuryCars(){
 
 });
 
-
 $('#adminRegister').click(function (){
     let formData=$('#adminRegisterForm').serialize();
     $.ajax({
@@ -1034,6 +1032,7 @@ $('#adminRegister').click(function (){
         method:"post",
         data:formData,
         dataTypes:"json",
+        async:false,
         success:function (res){
             alert(res.message)
         },
@@ -1044,7 +1043,57 @@ $('#adminRegister').click(function (){
     });
 })
 
+$('#customerLogin').click(function() {
+    let userName = $('#txtCusNic').val();
+    let password = $('#txtCusPw').val();
+        $.ajax({
+        url: baseUrlt + "customer?nic=" + $('#txtCusNic').val(),
+        dataType: "json",
+        method: "get",
+        async:false,
+        success: function (res) {
+            console.log(res.data.nic);
+            console.log(res.data.password);
+            console.log(password);
+            if(userName==res.data.nic && password==res.data.password){
+                    location.href="pages/adminDashboard.html";
 
+            }
+        },
+        error:function (error){
+            alert(JSON.parse(error.responseText).message);
+        }
+    });
+});
+
+
+$('#adminlogIn').click(function (){
+    let adminEmail=$('#txtAdminEmail').val();
+    let adminPw=$('#txtAdminpw').val();
+    $.ajax({
+        url:baseUrlA + "admin?emailaddress=" + $('#txtAdminEmail').val(),
+        method:"get",
+        async:false,
+        success:function (res){
+            console.log(res.data.emailaddress);
+            console.log(res.data.password)
+            console.log("password"+adminPw)
+                    if (adminEmail==res.data.emailaddress && adminPw==res.data.password){
+                        location.href="pages/adminDashboard.html";
+                    }
+                    else {
+                        alert('login  fail please try again')
+                    }
+        },
+        error:function (error){
+            alert('login fail')
+        }
+    });
+})
+/*$('#txtAdminpw').click(function (){
+
+    alert('wda')
+})*/
 
 </script>
 </body>

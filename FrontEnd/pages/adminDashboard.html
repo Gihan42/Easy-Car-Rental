@@ -500,6 +500,7 @@
             url:baseurl+"customer?nic=" + $('#txtCustomerId').val(),
             dataType:"json",
             method:"get",
+            async:false,
             success:function (res){
                 console.log(res);
                 $('#txtCustomerId').val(res.data.nic);
@@ -528,6 +529,7 @@
             method: "put",
             data:JSON.stringify(json),
             dataType:"json",
+            async:false,
             contentType:"application/json",
             success:function(res){
                 alert(res.message)
@@ -544,6 +546,7 @@
         $.ajax({
             url:baseurl+"customer?nic=" + $('#txtCustomerId' ).val(),
             method:'delete',
+            async:false,
             success:function (res){
                 alert("success delete")
                 clearTextFeild();
@@ -564,6 +567,7 @@
         $.ajax({
             url:baseurl+"customer?option=count",
             dataType:"json",
+            async:false,
             success:function (res){
                 LoadAllCustomer();
                 $('#RegisteredUser').text(res.data+"+")
@@ -581,6 +585,7 @@
             data:formData,
             dataType:"json",
             method:"post",
+            async:false,
             success:function (res){
                 alert(res.message);
                 loadAllDrivers();
@@ -595,6 +600,7 @@
             url:basurlTwo+"driver?driverID=" + $('#txtDriverId').val(),
             dataType:"json",
             method:"get",
+            async:false,
             success:function (res){
                 console.log(res)
                 $('#txtDriverId').val(res.data.driverID);
@@ -612,6 +618,7 @@
     function loadAllDrivers(){
        $.ajax({
            url:basurlTwo+"driver",
+           async:false,
            success:function (res){
                $('#driverTableBody').empty();
                for (let i =0;i < res.data.length;i++){
@@ -630,6 +637,7 @@
         $.ajax({
             url:basurlTwo+"driver?driverID=" + $('#txtDriverId').val(),
             method:"delete",
+            async:false,
             success:function (res){
                 alert('success deleted');
                 clearDriverTextFeild();
@@ -659,6 +667,7 @@
            data:JSON.stringify(driverJson),
            dataType:"json",
            contentType:"application/json" ,
+            async:false,
             success:function (){
                 clearDriverTextFeild();
                alert(res.message)
@@ -679,6 +688,7 @@
             data:carData,
             dataType:"json",
             method:"post",
+            async:false,
             success:function (res){
                 alert(res.message);
                 carTextFeildClear();
@@ -696,6 +706,7 @@
             url:baseurlThree+"car?vehicleNum=" + $('#txtcarNom').val(),
             dataType:"json",
             method:"get",
+            async:false,
             success:function (res){
                 $('#txtcarNom').val(res.data.vehicleNum);
                 $('#txtcarColor').val(res.data.color);
@@ -718,6 +729,7 @@
         $.ajax({
             url:baseurlThree+"car",
             method:"get",
+            async:false,
             success:function (res){
                 $('#carTable').empty()
                 console.log(res)
@@ -749,6 +761,7 @@
             data:JSON.stringify(carJson),
             dataType:"json",
             contentType:"application/json" ,
+            async:false,
             success:function (res){
                 alert(res.message);
                 carTextFeildClear();
@@ -784,6 +797,7 @@
        $.ajax({
            url:baseurlThree+"car?vehicleNum=" + $('#txtcarNom').val(),
            method:"delete",
+           async:false,
            success:function (res){
                alert(res.message)
                carTextFeildClear();
@@ -796,6 +810,7 @@
             url:baseurlThree+"car?available=count",
             dataType:"json",
             method:"get",
+            async:false,
             success:function (res){
                 console.log(res)
                 $('#availableCars').text(res.data+"+")

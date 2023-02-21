@@ -20,4 +20,12 @@ public class AdminController {
         service.AdminSave(dto);
         return new ResponseUtil("ok","AdminSave",null);
     }
+    @GetMapping(params = {"emailaddress"})
+    public ResponseUtil findAdmin(String emailaddress){
+        return new ResponseUtil("ok","AdminSave",service.findAdminByemail(emailaddress));
+    }
+    @GetMapping
+    public  void getAllAdmin(){
+        System.out.println("getAll");
+    }
 }
