@@ -865,7 +865,7 @@
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <div class="collapse navbar-collapse" id="">
+                            <div class="collapse navbar-collapse" >
                                 <div class="navbar-nav" >
                                     <a class="nav-link disabled" style="color: white">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16" style="margin-right: 18px">
@@ -922,7 +922,7 @@
                                                 <div class="container text-center">
                                                     <div class="row" >
                                                         <div class="col"style="position: relative;width: 450px;bottom: 30px">
-                                                            <h6>Toyota</h6>
+                                                            <h6 id="lblCarModel">Toyota</h6>
                                                               <div class="input-group input-group-sm mb-3">
                                                                     <span class="input-group-text" id="inputGroup-sizing-sm">Vehicle Num</span>
                                                                     <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtCarNUm">
@@ -934,11 +934,11 @@
                                                             </div>
                                                             <div class="input-group input-group-sm mb-3">
                                                                 <span class="input-group-text" id="inputGroup-sizing-sml2">Free Km for a Month  </span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtFreeKmForAMonth ">
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtFreemonth">
                                                             </div>
                                                             <div class="input-group input-group-sm mb-3">
                                                                 <span class="input-group-text" id="inputGroup-sizing-sml3">Price per Extra Km(Rs) </span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtPricePerExtraKm(Rs) ">
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtPricePerExtraKm">
                                                             </div>
                                                        </div>
                                                     </div>
@@ -1129,7 +1129,7 @@ function loadPremiumCars(){
         success:function (res){
             $('#premiumTab').empty();
             for(let i =0;i < res.data.length;i++){
-                let card=`<div class="col" style="padding: 10px  "id="colGrid" ><div class="card" style="width: 18rem; height: 14rem" id="carCard">   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left" id="lblPVehiclenum"><span>`+ res.data[i].vehicleNum+`</span> </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><a  class="btn btn-primary" data-bs-target="#loadBookingTab" data-bs-toggle="modal" type="button" id="btnSelectP">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                let card=`<div class="col" style="padding: 10px  "id="colGrid" ><div class="card" style="width: 18rem; height: 14rem" id="carCard">   <img src="..." class="card-img-top" alt="..."><div class="card-body" data-bs-target="#loadBookingTab" data-bs-toggle="modal" id="btnSelectP"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left" id="lblPVehiclenum"><span>`+ res.data[i].vehicleNum+`</span> </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><a  class="btn btn-primary" data-bs-target="#loadBookingTab" data-bs-toggle="modal" type="button" id="btnSelectP">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                         </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
@@ -1152,7 +1152,7 @@ function loadGeneralsCars(){
         success:function (res){
             $('#generalTab').empty();
         for(let g =0;g < res.data.length;g++) {
-            let cardl=`<div class="col" style="padding: 10px" ><div class="card" style="width: 18rem; height: 14rem" >   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[g].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[g].vehicleNum+` </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[g].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[g].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[g].pricePerExtraKm +`</label><a href="#" class="btn btn-primary">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+            let cardl=`<div class="col" style="padding: 10px" ><div class="card" style="width: 18rem; height: 14rem" >   <img src="..." class="card-img-top" alt="..."><div class="card-body" data-bs-target="#loadBookingTab" data-bs-toggle="modal" id="btnSelectP"><h5 class="card-title">` + res.data[g].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[g].vehicleNum+` </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[g].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[g].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[g].pricePerExtraKm +`</label><a href="#" class="btn btn-primary">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                         </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
@@ -1173,7 +1173,7 @@ function loadLuxuryCars(){
         success:function (res){
             $('#luxuryTab').empty();
             for(let i =0;i < res.data.length;i++) {
-                let cardG=`<div class="col" style="padding: 10px" ><div class="card" style="width: 18rem; height: 14rem">   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[i].vehicleNum+` </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><a href="#" class="btn btn-primary">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                let cardG=`<div class="col" style="padding: 10px" ><div class="card" style="width: 18rem; height: 14rem">   <img src="..." class="card-img-top" alt="..."><div class="card-body" data-bs-target="#loadBookingTab" data-bs-toggle="modal" id="btnSelectP"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[i].vehicleNum+` </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><a href="#" class="btn btn-primary">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                         </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
@@ -1273,10 +1273,44 @@ $('#adminlogIn').click(function (){
     });
 });
 
-$('#premiumTab>div>div>div>a').click(function (){
-    //let CarNum=$('#lblPVehiclenum').text()
-    let CarNum=$(' #premiumTab>div>div>div>label>span').text();
-    alert(CarNum);
+$('#premiumTab>div>div>div').click(function (){
+    /*let imag=*/
+   let carModel= $(this).children(":eq(0)").text();
+   let carNum=$(this).children(":eq(2)").text();
+   let freeKmforaDay =$(this).children(":eq(4)").text();
+   let KmforMonth=$(this).children(":eq(6)").text();
+   let PriceperExtraKm=$(this).children(":eq(8)").text();
+   $('#lblCarModel').text(carModel)
+   $('#txtCarNUm').val(carNum);
+   $('#txtFreeKmADay').val(freeKmforaDay);
+   $('#txtFreemonth').val(KmforMonth);
+   $('#txtPricePerExtraKm').val(PriceperExtraKm);
+});
+$('#generalTab>div>div>div').click(function (){
+    /*let imag=*/
+    let carModel= $(this).children(":eq(0)").text();
+    let carNum=$(this).children(":eq(2)").text();
+    let freeKmforaDay =$(this).children(":eq(4)").text();
+    let KmforMonth=$(this).children(":eq(6)").text();
+    let PriceperExtraKm=$(this).children(":eq(8)").text();
+    $('#lblCarModel').text(carModel)
+    $('#txtCarNUm').val(carNum);
+    $('#txtFreeKmADay').val(freeKmforaDay);
+    $('#txtFreemonth').val(KmforMonth);
+    $('#txtPricePerExtraKm').val(PriceperExtraKm);
+});
+$('#luxuryTab>div>div>div').click(function (){
+    /*let imag=*/
+    let carModel= $(this).children(":eq(0)").text();
+    let carNum=$(this).children(":eq(2)").text();
+    let freeKmforaDay =$(this).children(":eq(4)").text();
+    let KmforMonth=$(this).children(":eq(6)").text();
+    let PriceperExtraKm=$(this).children(":eq(8)").text();
+    $('#lblCarModel').text(carModel)
+    $('#txtCarNUm').val(carNum);
+    $('#txtFreeKmADay').val(freeKmforaDay);
+    $('#txtFreemonth').val(KmforMonth);
+    $('#txtPricePerExtraKm').val(PriceperExtraKm);
 });
 
 </script>
