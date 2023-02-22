@@ -13,14 +13,13 @@
    /* background-color: #F5F6F8;*/
     background: rgb(114,114,122);
     background: linear-gradient(90deg, rgba(114,114,122,1) 0%, rgba(152,152,157,0.15467436974789917) 38%, rgba(216,245,251,0.1518732492997199) 100%);
-
   }
   #pillstab {
     position: relative;
     left: 400px;
     border: 1px solid #1f2833;
     width: 500px;
-    border-radius: 20px;
+    border-radius: 30px;
     background-color:#1f2833;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   }
@@ -42,6 +41,7 @@
     left: 580px;
     color: #46b2ff;
   }
+
 </style>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #313131;height: 40px">
@@ -113,7 +113,7 @@
         <!--edit-->
         </li>
         <li class="nav-item">
-          <button type="button" class="btn btn-outline-danger">
+          <button type="button" class="btn btn-outline-danger" id="btnAdmin">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" style="padding-bottom: 3px">
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
               <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
@@ -123,9 +123,6 @@
     </div>
   </div>
 </nav>
-
-
-
 <!--  main content start-->
 <div class="classGrid" id="grid" style="padding-top: 50px">
 
@@ -143,23 +140,21 @@
   </div>
 
 
-  <ul class="nav nav-tabs" id="pillstab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="pillsprofileHometab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" style="color: #AE303D">Premium</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="pillsprofiletab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" style="color: #AE303D">General</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="navcontacttab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false" style="color: #AE303D">Luxury</button>
-    </li>
+  <ul class="nav nav-tabs" id="pillstab" role="tablist" >
+    <h1 style="padding-left: 120px;color: white">Book Your Car</h1>
   </ul>
 <!--col start-->
 <div class="container text-center" >
   <div class="row">
     <div class="col" >
       1 of
-      <div class="tab-content" id="myTabContent" style="padding-left: 100px">
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+<!--      <div class="tab-content" id="myTabContent" style="padding-left: 100px">
         <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
           <div class="container text-center">
             <div class="row" id="premiumTab">
@@ -184,8 +179,7 @@
             </div>
           </div>
         </div>
-      </div>
-
+      </div>-->
     </div>
     <div class="col">
       2 of 2
@@ -208,8 +202,8 @@
 
                     <div class="form-outline mb-4" style="align-items: center">
                       <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Vehicle Number</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        <span class="input-group-text" >Vehicle Number</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="carNum" id="carNum">
                       </div>
                       <div class="input-group input-group-sm mb-3">
                         <span class="input-group-text" id="">Free Km for a Day</span>
@@ -240,7 +234,7 @@
 
                         </div>
                       </div>
-                    </div>
+
                     <button type="button" class="btn btn-success" id="register">Register</button>
                   </form>
 
@@ -264,6 +258,7 @@
 <script src="jquery-3.6.1.min.js"></script>
 <script>
   let baseUrlindex="http://localhost:8080/BackEnd_war/"
+  let baseUrlC="http://localhost:8080/BackEnd_war/"
   loadPremiumCars();
   loadGeneralsCars();
   loadLuxuryCars();
@@ -275,7 +270,7 @@
       success:function (res){
         $('#premiumTab').empty();
         for(let i =0;i < res.data.length;i++){
-          let card=`<div class="col" style="padding: 10px " ><div class="card" id="card" style="width: 28rem; height: 14rem" >   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 25px;color: #AE303D"><b>Vehicle Number</b> = </label><label>`+ res.data[i].vehicleNum+` </label> </br> <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label></br><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label></br><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="padding-bottom: 10px">`+res.data[i].pricePerExtraKm +`</label></br><a href="#" class="btn btn-primary" style="margin-right: 40px">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+          let card=`<div class="col" style="padding: 10px " ><div class="card" id="card" style="width: 28rem; height: 14rem" >   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 25px;color: #AE303D"><b>Vehicle Number</b> = </label><label class="CardcarNum">`+ res.data[i].vehicleNum+` </label> </br> <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label></br><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label></br><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="padding-bottom: 10px">`+res.data[i].pricePerExtraKm +`</label></br> <a  class=" btn btn-primary" style="margin-right: 40px" id="btnSelect">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                         </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16" style="margin-left: 40px">
                                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
@@ -298,7 +293,7 @@
       success:function (res){
         $('#generalTab').empty();
         for(let g =0;g < res.data.length;g++) {
-          let cardl=`<div class="col" style="padding: 10px" ><div class="card" id="card" style="width: 28rem; height: 14rem" >   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[g].vehicleModel + `</h5><label style="text-align: left ;padding-right: 25px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[g].vehicleNum+` </label><br><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[g].carpriceperkmaday +` </label><br><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[g].carpricePerKmMonth+` </label><br><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="padding-bottom: 10px">`+res.data[g].pricePerExtraKm +`</label><br><a href="#" class="btn btn-primary" style="margin-right: 40px">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+          let cardl=`<div class="col" style="padding: 10px" ><div class="card" id="card" style="width: 28rem; height: 14rem" >   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[g].vehicleModel + `</h5><label style="text-align: left ;padding-right: 25px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[g].vehicleNum+` </label><br><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[g].carpriceperkmaday +` </label><br><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[g].carpricePerKmMonth+` </label><br><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="padding-bottom: 10px">`+res.data[g].pricePerExtraKm +`</label><br><a  class="btn btn-primary" style="margin-right: 40px" id="btnSelectG">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                         </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16" style="margin-left: 30px">
                                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
@@ -319,7 +314,7 @@
       success:function (res){
         $('#luxuryTab').empty();
         for(let i =0;i < res.data.length;i++) {
-          let cardG=`<div class="col" style="padding: 10px" ><div class="card" id="card" style="width: 28rem; height: 14rem">   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[i].vehicleNum+` </label>  <br>  <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label><br><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label><br><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="style="padding-bottom: 10px">">`+res.data[i].pricePerExtraKm +`</label><br><a href="#" class="btn btn-primary" style="margin-right: 40px">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+          let cardG=`<div class="col" style="padding: 10px" ><div class="card" id="card" style="width: 28rem; height: 14rem">   <img src="..." class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left" id="vehicleNum">`+ res.data[i].vehicleNum+` </label>  <br>  <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label><br><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label><br><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="style="padding-bottom: 10px">">`+res.data[i].pricePerExtraKm +`</label><br><a  class="btn btn-primary" style="margin-right: 40px" id="btnSelectL">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                         </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16" style="margin-left: 30px">
                                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
@@ -333,11 +328,83 @@
       }
     })
   }
-
-
   $('#btnHome').click(function (){
-    location.href="index.html";
-  })
+    /*location.href="index.html";*/
+    window.open('../index.html',"_parent");
+  });
+  $('#btnAdmin').click(function (){
+      location.href="adminDashboard.html";
+  });
+
+  $('#btnSelect').click(function (){
+    loadCarDetails();
+  });
+  $('#btnSelectG').click(function (){
+    alert('ok')
+  });
+  $('#btnSelectL').click(function (){
+    alert('ok')
+  });
+
+
+  function loadCarDetails(){
+    let text=$('.CardcarNum').text();
+    $.ajax({
+      url:baseUrlC+"car?vehicleNum=" + $('.CardcarNum').text(),
+      dataType:"json",
+      method:"get",
+      async:false,
+      success:function (res){
+      console.log(res.data.vehicleNum);
+      console.log(res.data.vehicleModel
+      );
+
+      }
+    })
+
+
+  }
+
+/*  function bindRowClickEvents() {
+    $("#tblCustomer>tr").click(function () {
+      let id = $(this).children(":eq(0)").text();
+      let name = $(this).children(":eq(1)").text();
+      let address = $(this).children(":eq(2)").text();
+      let salary = $(this).children(":eq(3)").text();
+      // console.log(id, name, address, salary);
+
+      //setting table details values to text fields
+      $('#txtCustomerID').val(id);
+      $('#txtCustomerName').val(name);
+      $('#txtCustomerAddress').val(address);
+      $('#txtCustomerSalary').val(salary);
+
+    });
+  }*/
+/*  $('#SearchCar').click(function (){
+    $.ajax({
+      url:baseurlThree+"car?vehicleNum=" + $('#txtcarNom').val(),
+      dataType:"json",
+      method:"get",
+      async:false,
+      success:function (res){
+        $('#txtcarNom').val(res.data.vehicleNum);
+        $('#txtcarColor').val(res.data.color);
+        $('#txtcarModel').val(res.data.vehicleModel);
+        $('#txtcarMonthlyPrice').val(res.data.carMonthlyprice);
+        $('#txtcarDailyPrice').val(res.data.carDailyprice);
+        $('#Available').val(res.data.available);
+        $('#txtcarPriceperKm').val(res.data.carpricePerKm);
+        $('#txtcarpricePerKmMonth').val(res.data.carpricePerKmMonth);
+        $('#txtcarTransmitionType').val(res.data.carTransmitionType);
+        $('#txtcarFuelType').val(res.data.carFuelType);
+        $('#txtCarType').val(res.data.vehicleType);
+        $('#txtpricePerExtraKm').val(res.data.pricePerExtraKm);
+        console.log(res);
+        // $('#txtcarNom').val()
+      }
+    })
+  });*/
 </script>
 </body>
 </html>

@@ -31,6 +31,16 @@
     width: max-content;
 }
     .modal-body{overflow: scroll}
+    #homepage,#bookingpage{
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    #homepage:hover{
+        border-bottom:2px solid #AE303D;
+    }
+    #bookingpage:hover{
+        border-bottom:2px solid #AE303D;
+    }
 </style>
 <body>
 <!--navbar start-->
@@ -43,10 +53,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="color: white">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html" style="color: #f9004d ;font-weight: bold">HOME</a>
+                    <a class="nav-link active" aria-current="page"  style="color: #f9004d ;font-weight: bold" id="homepage">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"style="color: #f9004d;font-weight: bold;margin-left: 50px">BOOKING</a>
+                    <a class="nav-link" style="color: #f9004d;font-weight: bold;margin-left: 50px" id="bookingpage">BOOKING</a>
                 </li>
 
             </ul>
@@ -839,8 +849,14 @@
                 $('#availableCars').text(res.data+"+")
             }
         })
-    }
+    };
     //CAR END
+    $('#homepage').click(function (){
+        window.open('../index.html',"_parent");
+    });
+    $('#bookingpage').click(function (){
+        location.href="booking.html";
+    })
 </script>
 </body>
 </html>
