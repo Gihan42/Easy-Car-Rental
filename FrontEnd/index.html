@@ -943,69 +943,71 @@
                                                        </div>
                                                     </div>
                                                 </div>
-
-
-
-
+                                                <h4>Your Booking Id</h4><h5 id="bookingId">B000</h5>
                                             </div>
                                         </div>
                                         </div>
 
-                                    <div class="col" style="width: 350px">
+                                    <div class="col" style="width: 350px" >
                                     <!--    2 of 2-->
-                                        <div class="card" id="bookingCard" style="width: 400px;position: relative;right: 50px">
+                                        <div class="card" id="bookingCard" style="width: 400px;height:700px;position: relative;right: 50px;">
                                             <div class="card-header" style="background-color: #2C3E50;height: 30px;padding-top: 0px;margin-bottom: 0px" >
                                                 <h1 style="color: white;font-size: 20px">Just Pay</h1>
                                             </div>
                                             <div class="container py-5 h-100" style="position: relative;bottom: 50px;right: 50px;left: 0" >
                                                 <div class="row d-flex justify-content-center align-items-center h-100">
-                                                    <div class="col-lg-8 col-xl-6" style="width: max-content;padding-top: 0px">
-                                                        <div class="card rounded-3"  style="width: 390px;bottom: 28px" >
+                                                    <div class="col-lg-8 col-xl-6" style="width: max-content;padding-top: 0px" id="payment">
+                                                        <div class="card rounded-3"  style="width: 390px;bottom: 28px;height:600px" >
                                                             <img src="assest/img/istockphoto-1360536098-612x612.jpg"
                                                                  class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;width: 200px;height: 200px"
                                                                  alt="Sample photo">
 
-                                                            <div class="card-body p-4 p-md-5">
-                                                                <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Payment</h3>
-
-                                                                <form class="px-md-2" id="bookingRegisterForm">
-
-                                                                    <div class="form-outline mb-4" style="align-items: center">
+                                                            <div class="card-body p-4 p-md-5" style="position: relative;bottom: 50px;height: 500px;">
+                                                                <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Bank Details</h3>
+                                                                <form class="px-md-2" id="bookingRegisterForm" >
+                                                                    <div class="form-outline mb-4" style="align-items: center;position: relative;bottom: 40px" >
                                                                         <div class="input-group input-group-sm mb-3">
-                                                                            <span class="input-group-text" >Vehicle Number</span>
-                                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="carNum" id="carNum">
+                                                                            <span class="input-group-text" >Account No</span>
+                                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="carNum" id="txtAccountNo">
                                                                         </div>
                                                                         <div class="input-group input-group-sm mb-3">
-                                                                            <span class="input-group-text" id="">Free Km for a Day</span>
-                                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="">
+                                                                            <span class="input-group-text" >Beneficiary Name</span>
+                                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtBeneficiaryName">
                                                                         </div>
                                                                         <div class="input-group input-group-sm mb-3">
-                                                                            <span class="input-group-text" id="">Free Km for a Month</span>
-                                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="">
+                                                                            <span class="input-group-text" >Select Date</span>
+                                                                            <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtSelectDate">
+                                                                        </div>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" >
+                                                                            <label class="form-check-label" for="flexRadioDefault1" style="position:relative;right: 120px">
+                                                                                Day
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check" >
+                                                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" style="position: relative;left: 110px;bottom: 24px"  >
+                                                                            <label class="form-check-label" for="flexRadioDefault2" style="position: relative;bottom: 23px">
+                                                                                Month
+                                                                            </label>
                                                                         </div>
                                                                         <div class="input-group input-group-sm mb-3">
-                                                                            <span class="input-group-text" id="">Price per Extra Km(Rs)</span>
-                                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="">
+                                                                            <span class="input-group-text" >Days</span>
+                                                                            <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtDays">
+                                                                        </div>
+                                                                        <div class="form-check form-switch">
+                                                                            <input class="form-check-input" type="checkbox" role="switch" id="chcHireDriver"  >
+                                                                            <label class="form-check-label" for="chcHireDriver" style="position: relative;right: 90px">Hire Driver</label>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="row">
+                                                                    <div class="row"style="position: relative;bottom: 45px">
                                                                         <div class="col-md-6 mb-4">
                                                                             <div class="form-outline">
-                                                                                <input type="file" id="form3Example1w" class="form-control" placeholder="license img font" name="nicImage"/>
-                                                                                <label class="form-label" for="form3Example1w">license img font</label>
+                                                                                <label class="form-label" for="form3Example1w">Upload Bank Slip</label>
+                                                                                <input type="file"  class="form-control" placeholder="license img font" name="nicImage" style="position: relative;width: auto"/>
                                                                             </div>
-
                                                                         </div>
-                                                                        <div class="col-md-6 mb-4">
-                                                                            <div class="form-outline">
-                                                                                <input type="file" id="form3Example2w" class="form-control" placeholder="license img font"/>
-                                                                                <label class="form-label" for="form3Example1w">license img back</label>
-                                                                            </div>
-
                                                                         </div>
-                                                                    </div>
-
-                                                                    <button type="button" class="btn btn-success" id="register">Register</button>
+                                                                    <button type="button" class="btn btn-success" id="btnBooking" style="position: relative; bottom: 40px;width: 300px">Conform Booking</button>
                                                                 </form>
 
                                                             </div>
@@ -1021,11 +1023,7 @@
 
                                             </div>
                                                 </div>
-
                         </div>
-
-
-
                     </div>
 <!--                    end context-->
                 </div>

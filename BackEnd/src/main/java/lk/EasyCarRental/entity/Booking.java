@@ -5,8 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -16,8 +15,13 @@ import javax.persistence.Id;
 public class Booking {
 
     @Id
-    String bookId;
-    String time;
-    String date;
-    double advancePayment;
+    private String bookingID;
+    private String date;
+    private String time;
+    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
+    @JoinColumn(name = "nic",referencedColumnName = "nic",nullable = false)
+    private Customer nic;
+    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
+    @JoinColumn(name = "vehicleNum",referencedColumnName = "vehicleNum",nullable = false)
+    private Car vehicleNum;
 }
