@@ -11,6 +11,7 @@ import lombok.ToString;
 @ToString
 public class PaymentDto {
     String accountNo;
+    String beneficiaryName;
     String date;
     String paymentMethod;
     String deduction;

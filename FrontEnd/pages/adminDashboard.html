@@ -12,7 +12,8 @@
     body{
         overflow-x: hidden;
         z-index: 0;
-        color: #191919;
+        background: rgb(114,114,122);
+        background: linear-gradient(90deg, rgba(114,114,122,1) 0%, rgba(152,152,157,0.15467436974789917) 38%, rgba(216,245,251,0.1518732492997199) 100%);
     }
 .card{
     margin-top: 20px;
@@ -30,17 +31,26 @@
 .modal-content{
     width: max-content;
 }
+#pillstab{
+    position: relative;
+    left: 180px;
+    border: 1px solid #1f2833;
+    width: 500px;
+    border-radius: 30px;
+    background-color:#1f2833;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
     .modal-body{overflow: scroll}
-    #homepage,#bookingpage{
+    #homepage,#register{
         cursor: pointer;
         margin-right: 10px;
+        width: 105px;
+        height: 46px;
     }
-    #homepage:hover{
-        border-bottom:2px solid #AE303D;
-    }
-    #bookingpage:hover{
-        border-bottom:2px solid #AE303D;
-    }
+   .card{
+       box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+   }
 </style>
 <body>
 <!--navbar start-->
@@ -53,16 +63,67 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="color: white">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page"  style="color: #f9004d ;font-weight: bold" id="homepage">HOME</a>
+                    <button type="button" class="btn btn-danger" id="homepage">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-house-add-fill" viewBox="0 0 16 16">
+                            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 1 1-1 0v-1h-1a.5.5 0 1 1 0-1h1v-1a.5.5 0 0 1 1 0Z"/>
+                            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
+                            <path d="m8 3.293 4.712 4.712A4.5 4.5 0 0 0 8.758 15H3.5A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
+                        </svg>
+                        Home</button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #f9004d;font-weight: bold;margin-left: 50px" id="bookingpage">BOOKING</a>
-                </li>
+                    <button type="button" class="btn btn-primary" data-bs-target="#exampleModal4" data-bs-toggle="modal" id="register">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-download-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
+                        </svg>
+                        Register</button>
+                        <div aria-hidden="true" aria-labelledby="exampleModalLabel1" class="modal fade" id="exampleModal4" tabindex="-1"  >
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="background-color: #46b2ff;">
+                                        <h5 class="modal-title" id="exampleModalLabel4">Admin</h5>
+                                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                                    </div>
+                                    <div class="modal-body" >
+                                        <div class="tab-content" id="myTabContentse" >
+                                            <div class="tab-pane fade show active" id="home-tab-panese" role="tabpanel" aria-labelledby="home-tab" tabindex="0" >
+                                                <div class="container text-center" >
+                                                                <div class="card-body">
+                                                                    <h1 class="display-4" style="color: #AE303D">Admin Register</h1>
+                                                                    <form id="adminRegisterForms">
+                                                                        <!-- Email input -->
+                                                                        <div class="form-outline mb-4">
+                                                                            <label class="form-label" for="txtCustomerNic" style="color: #191919">Email address</label>
+                                                                            <input type="text" class="form-control" name="emailaddress" id="txtCustomerNic" name="nic"/>
+                                                                        </div>
+                                                                        <!-- Password input -->
+                                                                        <div class="form-outline mb-4">
+                                                                            <label class="form-label" for="txtCustomerPw" style="color: #191919">Password</label>
+                                                                            <input type="password" class="form-control" name="password" id="txtCustomerPw" name="password"/>
+                                                                        </div>
+                                                                        <div class="form-outline mb-4">
+                                                                            <label class="form-label" style="color: #191919">Name</label>
+                                                                            <input type="text" id="form2_Example3" class="form-control" name="name" />
 
+                                                                        </div>
+                                                                        <!-- Submit button -->
+                                                                        <button type="button" class="btn btn-primary btn-block mb-4" id="adminRegister" style="position: relative;bottom: 10px;left: 10px">Register</button>
+
+                                                                    </form>
+                                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                </li>
             </ul>
-            <form class="d-flex" role="search">
+            <form class="d-flex" role="search" style="position: relative;top: 5px">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button type="button" class="btn btn-success">Search</button>
             </form>
         </div>
     </div>
@@ -70,7 +131,9 @@
 <!--navbar start-->
 <!-- Services Section Begin -->
 <div class="container text-center" id="adminContainer">
-    <h1>Admin</h1>
+    <div id="pillstab">
+    <h1 style="color: white">Admin</h1>
+    </div>
     <div class="row">
         <div class="col" >
             <div class="card" style="width: 18rem;">
@@ -507,6 +570,7 @@
     let baseurl="http://localhost:8080/BackEnd_war/"
     let basurlTwo="http://localhost:8080/BackEnd_war/"
     let baseurlThree="http://localhost:8080/BackEnd_war/"
+    let baseUrlFour="http://localhost:8080/BackEnd_war/"
     // CUSTOMER START
     LoadAllCustomer();
     countCustomer();
@@ -857,6 +921,23 @@
     $('#bookingpage').click(function (){
         location.href="booking.html";
     })
+    $('#adminRegister').click(function (){
+        let formData=$('#adminRegisterForms').serialize();
+        $.ajax({
+            url:baseUrlFour+"admin",
+            method:"post",
+            data:formData,
+            dataTypes:"json",
+            async:false,
+            success:function (res){
+                alert(res.message)
+            },
+            error:function (error){
+                alert(JSON.parse(error.responseText).message)
+            }
+
+        });
+    });
 </script>
 </body>
 </html>

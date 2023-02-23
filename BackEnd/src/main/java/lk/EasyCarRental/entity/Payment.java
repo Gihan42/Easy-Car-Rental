@@ -16,6 +16,7 @@ import javax.persistence.Id;
 public class Payment {
     @Id
     String accountNo;
+    String beneficiaryName;
     String date;
     String paymentMethod;
     String deduction;
