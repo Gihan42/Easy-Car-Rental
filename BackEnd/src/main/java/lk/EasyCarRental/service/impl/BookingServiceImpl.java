@@ -1,13 +1,17 @@
 package lk.EasyCarRental.service.impl;
 
 import lk.EasyCarRental.dto.BookingDto;
+import lk.EasyCarRental.dto.CustomerDto;
 import lk.EasyCarRental.entity.Booking;
 import lk.EasyCarRental.repo.BookingRepo;
 import lk.EasyCarRental.service.BookingService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
 
 @Transactional
 @Service
@@ -34,4 +38,12 @@ public class BookingServiceImpl implements BookingService {
         return "BID-"+(l+1);
 
     }
+
+    @Override
+    public ArrayList<BookingDto> getAllBooking() {
+        return mapper.map(repo.findAll(),new TypeToken<ArrayList<BookingDto>>(){}.getType());
+
+    }
+
+
 }

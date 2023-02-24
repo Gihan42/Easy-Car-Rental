@@ -10,7 +10,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @Data
 public class CarDto {
-
     String vehicleNum;
     String vehicleModel;
     String Color;
@@ -19,8 +18,9 @@ public class CarDto {
     boolean available;
     int carpriceperkmaday;
     int carpricePerKmMonth;
-    String carTransmitionType;
+    String carPasanger;
     String carFuelType;
     String vehicleType;
     double pricePerExtraKm;
+    double lossDamageWaiver;
 }

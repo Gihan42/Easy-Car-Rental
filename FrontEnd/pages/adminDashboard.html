@@ -476,7 +476,7 @@
                                         </div>
                                         <div class="mb-3">
 
-                                            <input class="form-control form-control-sm" id="txtcarTransmitionType" type="text" name="carTransmitionType" placeholder="Transmition-Type">
+                                            <input class="form-control form-control-sm" id="txtcarPasanger" type="text" name="carPasanger" placeholder="Passenger">
                                         </div>
                                         <div class="mb-3">
 
@@ -494,6 +494,10 @@
                                         <div class="mb-3">
 
                                             <input class="form-control form-control-sm" id="txtpricePerExtraKm" type="text" name="pricePerExtraKm" placeholder="Price-Per-Extra-Km">
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <input class="form-control form-control-sm" id="txtlossDamageWaiver" type="text" name="lossDamageWaiver" placeholder="loss-Damage-Waiver">
                                         </div>
 
                                         <div aria-label="Basic mixed styles example" class="btn-group" role="group">
@@ -536,10 +540,11 @@
                                                         <th scope="col">available</th>
                                                         <th scope="col">CarpricePerKm Day</th>
                                                         <th scope="col">CarpricePerKm Month</th>
-                                                        <th scope="col">CarTransmitionType</th>
+                                                        <th scope="col">Passenger</th>
                                                         <th scope="col">CarFuelType</th>
                                                         <th scope="col">Vehicle Type</th>
                                                         <th scope="col">Price per Extra Km</th>
+                                                        <th scope="col">Loss Damage Waiver </th>
                                                     </tr>
                                                     </thead>
                                                     <tbody id="carTable">
@@ -553,9 +558,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </form>
 
             </div>
@@ -719,7 +721,7 @@
            success:function (res){
                $('#driverTableBody').empty();
                for (let i =0;i < res.data.length;i++){
-                   $('#driverTableBody').append(`<tr><td>`+ res.data[i].driverID +`</td><td>` + res.data[i].drivername + `</td><td>` + res.data[i].driveraddress + `</td><td>` + res.data[i].driverContact + `</td><td>` + res.data[i].isAvailable + `</td></tr>`);
+                   $('#driverTableBody').append(`<tr><td>`+ res.data[i].driverID +`</td><td>` + res.data[i].drivername + `</td><td>` + res.data[i].driveraddress + `</td><td>` + res.data[i].driverContact + `</td><td>` + res.data[i].isAvailable + `</td><td>` + res.data[i].lossDamageWaiver + `</td></tr>`);
                }
            },
            error:function (error){
@@ -813,10 +815,11 @@
                 $('#Available').val(res.data.available);
                 $('#txtcarPriceperKm').val(res.data.carpricePerKm);
                 $('#txtcarpricePerKmMonth').val(res.data.carpricePerKmMonth);
-                $('#txtcarTransmitionType').val(res.data.carTransmitionType);
+                $('#txtcarPasanger').val(res.data.carPasanger);
                 $('#txtcarFuelType').val(res.data.carFuelType);
                 $('#txtCarType').val(res.data.vehicleType);
                 $('#txtpricePerExtraKm').val(res.data.pricePerExtraKm);
+                $('#txtlossDamageWaiver').val(res.data.lossDamageWaiver);
                 console.log(res);
                 // $('#txtcarNom').val()
             }
@@ -831,7 +834,7 @@
                 $('#carTable').empty()
                 console.log(res)
                 for (let i =0;i < res.data.length;i++){
-                    $('#carTable').append(`<tr><td>` + res.data[i].vehicleNum +`</td><td>` + res.data[i].vehicleModel + `</td><td>` + res.data[i].color + `</td><td>` + res.data[i].carMonthlyprice + `</td><td>` + res.data[i].carDailyprice + `</td><td>` + res.data[i].available + `</td><td>` + res.data[i].carpricePerKm + `</td><td>`  + res.data[i].carpricePerKmMonth + `</td><td>` + res.data[i].carTransmitionType + `</td><td>` + res.data[i].carFuelType +  `</td><td>` + res.data[i].vehicleType + `</td><td>` + res.data[i].pricePerExtraKm +  `</td></tr>`);
+                    $('#carTable').append(`<tr><td>` + res.data[i].vehicleNum +`</td><td>` + res.data[i].vehicleModel + `</td><td>` + res.data[i].color + `</td><td>` + res.data[i].carMonthlyprice + `</td><td>` + res.data[i].carDailyprice + `</td><td>` + res.data[i].available + `</td><td>` + res.data[i].carpricePerKm + `</td><td>`  + res.data[i].carpricePerKmMonth + `</td><td>` + res.data[i].carPasanger + `</td><td>` + res.data[i].carFuelType +  `</td><td>` + res.data[i].vehicleType + `</td><td>` + res.data[i].pricePerExtraKm +  `</td><td>` + res.data[i].lossDamageWaiver +  `</td></tr>`);
                 }
 
             }
@@ -847,10 +850,11 @@
             available: $('#Available').val(),
             carpricePerKm:$('#txtcarPriceperKm').val(),
             carpricePerKmMonth:$('#txtcarpricePerKmMonth').val(),
-            carTransmitionType:$('#txtcarTransmitionType').val(),
+            carPassanger:$('#txtcarPasanger').val(),
             vehicleType:$('#txtCarType').val(),
             carFuelType:$('#txtcarFuelType').val(),
-            pricePerExtraKm:$('#txtpricePerExtraKm').val()
+            pricePerExtraKm:$('#txtpricePerExtraKm').val(),
+            lossDamageWaiver:$('#txtlossDamageWaiver').val()
         };
         $.ajax({
             url:baseurlThree+"car",
@@ -878,14 +882,16 @@
         $('#txtcarMonthlyPrice').val('');
         $('#Available').val('');
         $('#txtcarPriceperKm').val('');
-        $('#txtcarTransmitionType').val('');
+        $('#txtcarPasanger').val('');
         $('#txtcarpricePerKmMonth').val('');
         $('#txtcarFuelType').val('');
         $('#txtCarType').val('');
         $('#txtcarModel').val('');
         $('#txtpricePerExtraKm').val('');
         $('#txtpricePerExtraKm').val('');
+        $('#txtlossDamageWaiver').val('');
     }
+
     $('#cmbCarType').click(function (){
         let val=$('#cmbCarType').val();
         $('#txtCarType').val(val);

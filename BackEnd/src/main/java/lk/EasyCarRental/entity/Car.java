@@ -23,10 +23,11 @@ public class Car {
     boolean available;
     int carpriceperkmaday;
     int carpricePerKmMonth;
-    String carTransmitionType;
+    String carPasanger;
     String carFuelType;
     String vehicleType;
     double pricePerExtraKm;
+    double lossDamageWaiver;
 
 
 }
