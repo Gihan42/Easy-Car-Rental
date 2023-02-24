@@ -84,8 +84,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <li class="nav-item" style="padding-left:600px ">
-          <button type="button" class="btn btn-danger">
+        <li class="nav-item" style="padding-left:500px;padding-right: 10px ">
+          <button type="button" class="btn btn-danger" id="btnHome">
             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-house-check" viewBox="0 0 16 16" style="padding-bottom: 5px">
               <path d="M7.293 1.5a1 1 0 0 1 1.414 0L11 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l2.354 2.353a.5.5 0 0 1-.708.708L8 2.207l-5 5V13.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 2 13.5V8.207l-.646.647a.5.5 0 1 1-.708-.708L7.293 1.5Z"/>
               <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.707l.547.547 1.17-1.951a.5.5 0 1 1 .858.514Z"/>
@@ -93,7 +93,12 @@
             Home</button>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"></a>
+          <button type="button" class="btn btn-dark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+              <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
+              <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+            </svg>
+            Add Cart</button>
         </li>
       </ul>
       <form class="d-flex" role="search">
@@ -144,12 +149,20 @@
                   <span class="input-group-text" id="inputGroup-sizing-sm3">Car Nom</span>
                   <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtBookingId">
                 </div>
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-sm5">Car Model</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtBookingId">
+                </div>
               </div>
               <div class="col">
                 Column 02
                 <div class="input-group input-group-sm mb-3">
                   <span class="input-group-text" id="inputGroup-sizing-sm1">Customer Id</span>
                   <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtCustomerId">
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-sm4">Customer Name</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtCustomerName">
                 </div>
               </div>
             </div>
@@ -202,6 +215,11 @@
 </section>
 <!--main content end-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
-<script src="pages/jquery-3.6.1.min.js"></script>
+<script src="jquery-3.6.1.min.js"></script>
+<script>
+  $('#btnHome').click(function (){
+    window.open('../index.html',"_parent");
+  });
+</script>
 </body>
 </html>

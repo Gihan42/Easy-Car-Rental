@@ -568,7 +568,7 @@
                     <!--edit-->
                 </li>
                 <li class="nav-item">
-                    <button type="button" class="btn btn-danger">Add Cart</button>
+                    <button type="button" class="btn btn-danger" id="addCart">Booking</button>
             </li>
             </ul>
         </div>
@@ -1286,7 +1286,9 @@ $('#btnBooking').click(function (){
     })
 
 });
-
+$('#addCart').click(function (){
+    location.href="pages/booking.html";
+});
 let days;
 $('#flexRadioDefault1').click(function (){
     $('#txtDays').val(1)
