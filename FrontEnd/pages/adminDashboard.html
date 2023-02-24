@@ -523,9 +523,7 @@
                                     <h5 class="modal-title" id="exampleModalLabels1">Get All Car </h5>
                                     <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
                                 </div>
-
                                 <div class="container text-center">
-
                                     <div class="col">
                                         <div class="modal-body" style="overflow: scroll">
                                             <section>
@@ -593,7 +591,7 @@
             }
 
         })
-    }
+    };
     $('#search-Customer').click(function (){
         $.ajax({
             url:baseurl+"customer?nic=" + $('#txtCustomerId').val(),
@@ -661,7 +659,7 @@
         $('#txtCustomerName').val('');
         $('#txtCustomerPassword').val('');
         $('#txtCustomerContactNum').val('');
-    }
+    };
     function countCustomer(){
         $.ajax({
             url:baseurl+"customer?option=count",
@@ -672,7 +670,7 @@
                 $('#RegisteredUser').text(res.data+"+")
             }
         })
-    }
+    };
     // CUSTOMER END
     // DRIVER START
     loadAllDrivers();
