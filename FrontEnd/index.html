@@ -805,7 +805,7 @@
 </div>
 <!--Customer rejister and loging end-->
 <div class="model">
-    <form class="col-2 " id="modelForm" >
+    <form class="col-2 " id="bookingRegisterForm" >
         <div aria-hidden="true" aria-labelledby="bookingModel" class="modal fade" id="bookingModel" tabindex="-1" style="visibility:hidden"  >
             <div class="modal-dialog">
                 <div class="modal-content" style="position: relative;right: 200px">
@@ -862,8 +862,6 @@
                                     <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
                                 </svg>
                             </div>
-                            <form id="bookingForm">
-
                             <div class="container text-center" style="background-color: white;">
                                 <div class="row" style="background-color: white">
                                     <div class="col"style="background-color: white;margin-right: 30px;position: relative;bottom: 50px;border: none" >
@@ -877,7 +875,7 @@
                                                             <h6 id="lblCarModel">Toyota</h6>
                                                               <div class="input-group input-group-sm mb-3">
                                                                     <span class="input-group-text" id="inputGroup-sizing-sm">Vehicle Num</span>
-                                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtCarNUm">
+                                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtCarNUm" name="vehicleNum">
                                                                 </div>
 
                                                             <div class="input-group input-group-sm mb-3">
@@ -895,6 +893,10 @@
                                                             <div class="input-group input-group-sm mb-3">
                                                                 <span class="input-group-text" id="inputGroup-sizing-sml4">Loss Damage Waiver </span>
                                                                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtlossDamagevaiver">
+                                                            </div>
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                <span class="input-group-text" id="inputGroup-sizing-sml5">Customer Name </span>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtCustomerId" name="nic">
                                                             </div>
                                                        </div>
                                                     </div>
@@ -920,7 +922,6 @@
 
                                                             <div class="card-body p-4 p-md-5" style="position: relative;bottom: 50px;height: 500px;">
                                                                 <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Bank Details</h3>
-                                                                <form class="px-md-2" id="bookingRegisterForm" >
                                                                     <div class="form-outline mb-4" style="align-items: center;position: relative;bottom: 40px" >
                                                                         <div class="input-group input-group-sm mb-3">
                                                                             <span class="input-group-text" >Account No</span>
@@ -928,15 +929,13 @@
                                                                         </div>
                                                                         <div class="input-group input-group-sm mb-3">
                                                                             <span class="input-group-text" >Beneficiary Name</span>
-                                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtBeneficiaryName" name="">
-                                                                        </div>
-                                                                        <div class="input-group input-group-sm mb-3">
-                                                                            <span class="input-group-text" >Beneficiary Name</span>
                                                                             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtLostDamage" name="">
                                                                         </div>
                                                                         <div class="input-group input-group-sm mb-3">
-                                                                            <span class="input-group-text" >Select Date</span>
+                                                                            <span class="input-group-text" >D & T</span>
                                                                             <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtSelectDate" name="">
+                                                                            <input type="time" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtTime" name="date">
+
                                                                         </div>
                                                                         <div class="form-check">
                                                                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" >
@@ -952,12 +951,16 @@
                                                                         </div>
                                                                         <div class="input-group input-group-sm mb-3">
                                                                             <span class="input-group-text" >Days</span>
-                                                                            <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtDays">
+                                                                            <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtDays" name="date">
                                                                         </div>
                                                                         <div class="form-check form-switch">
                                                                             <input class="form-check-input" type="checkbox" role="switch" id="chcHireDriver"  >
                                                                             <label class="form-check-label" for="chcHireDriver" style="position: relative;right: 90px">Hire Driver</label>
                                                                             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtDrivers" placeholder="Driver" style="width: 175px;position: relative;bottom: 30px;left: 80px">
+                                                                        </div>
+                                                                        <div class="input-group input-group-sm mb-3" style="position: relative;bottom: 21px;padding-bottom: 8px">
+                                                                            <span class="input-group-text" >Driver Name</span>
+                                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtDriverName" name="">
                                                                         </div>
                                                                     </div>
                                                                     <div class="row"style="position: relative;bottom: 85px">
@@ -969,7 +972,7 @@
                                                                         </div>
                                                                         </div>
                                                                     <button type="button" class="btn btn-success" id="btnBooking" style="position: relative; bottom: 80px;width: 300px">Conform Booking</button>
-                                                                </form>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -977,9 +980,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                            </div>
-                                                </div>
-                            </form>
+
+                                </div>   </div>
                         </div>
                     </div>
 <!--                    end context-->
@@ -1192,6 +1194,7 @@ $('#customerLogin').click(function() {
             console.log(res.data.nic);
             console.log(res.data.password);
             console.log(password);
+            $('#txtCustomerId').val(userName);
             if(userName==res.data.nic && password==res.data.password){
                    // location.href="pages/booking.html";
                 $('#bookingModel').css('visibility','visible');
@@ -1241,6 +1244,7 @@ $('#premiumTab>div>div>div').click(function (){
    $('#txtFreemonth').val(KmforMonth);
    $('#txtPricePerExtraKm').val(PriceperExtraKm);
     $('#txtlossDamagevaiver').val(lossDamage);
+    $('#txtCustomerId').val(userName);
 });
 $('#generalTab>div>div>div').click(function (){
     /*let imag=*/
@@ -1256,6 +1260,7 @@ $('#generalTab>div>div>div').click(function (){
     $('#txtFreemonth').val(KmforMonth);
     $('#txtPricePerExtraKm').val(PriceperExtraKm);
     $('#txtlossDamagevaiver').val(lossDamage);
+    $('#txtCustomerId').val(userName);
 });
 $('#luxuryTab>div>div>div').click(function (){
     /*let imag=*/
@@ -1271,25 +1276,27 @@ $('#luxuryTab>div>div>div').click(function (){
     $('#txtFreemonth').val(KmforMonth);
     $('#txtPricePerExtraKm').val(PriceperExtraKm);
     $('#txtlossDamagevaiver').val(lossDamage);
+    $('#txtCustomerId').val(userName);
 });
+
 $('#btnBooking').click(function (){
-    let bookingDat=$('#')
+    let formdata=$('#bookingRegisterForm').serialize();
     $.ajax({
         url:baseUrlB+"booking",
         dataTypes:"json",
         async:false,
+        data:formdata,
         method:"post",
         success:function (res){
-        $('#bookingId').text()
+         alert('save booking')
         }
 
     })
-
 });
 $('#addCart').click(function (){
     location.href="pages/booking.html";
 });
-let days;
+let days='87659403';
 $('#flexRadioDefault1').click(function (){
     $('#txtDays').val(1)
 });
@@ -1297,8 +1304,24 @@ $('#flexRadioDefault2').click(function (){
     $('#txtDays').val(30)
 });
 $('#chcHireDriver').change(function (){
-    $('#txtDrivers').val('driver')
+    $('#txtDrivers').val(days);
+    loadDriverName();
+
 });
+function loadDriverName(){
+    $.ajax({
+        url:baseUrlB+"driver?driverID=" + $('#txtDrivers').val(),
+        dataType:"json",
+        method:"get",
+        async:false,
+        success:function (res){
+            $('#txtDriverName').val(res.data.drivername);
+        },
+        error:function (error){
+
+        }
+    })
+};
 </script>
 </body>
 </html>
