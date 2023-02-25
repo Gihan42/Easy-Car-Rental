@@ -14,5 +14,8 @@ public class DriverDto {
     String drivername;
     String driveraddress;
     String driverContact;
+    String password;
     boolean isAvailable;
+    private String date;
+
 }

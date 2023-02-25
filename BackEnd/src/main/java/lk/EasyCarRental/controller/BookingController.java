@@ -18,11 +18,11 @@ public class BookingController {
         System.out.println("get all");
         return new ResponseUtil("ok","getAll",service.getAllBooking());
     }
-  /*  @GetMapping(params = {"bookingID"})
+    @GetMapping(params = {"bookingID"})
     public ResponseUtil generateBookingId(){
 
         return new ResponseUtil("ok","generateId",service.generateBookingId());
-    }*/
+    }
     @PostMapping
     public ResponseUtil saveBooking(@RequestBody BookingDto dto){
         service.saveBooking(dto);

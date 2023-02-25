@@ -355,10 +355,13 @@
 
                                             <input class="form-control" id="txtDriverVailable" type="text" name="isAvailable" placeholder="Availability">
                                         </div>
+                                        <div class="mb-3">
 
+                                            <input class="form-control" id="txtDriverPw" type="text" name="password" placeholder="Password">
+                                        </div>
                                         <div aria-label="Basic mixed styles example" class="btn-group" role="group">
                                             <button class="btn btn-danger" type="button" id="DriverDelete"  > Delete</button>
-                                            <button class="btn btn-warning" type="button" id="DriverUpdate"   > Update</button>
+                                            <button class="btn btn-warning" type="button" id="DriverUpdate"   >Update</button>
                                             <button class="btn btn-success " type="button" id="save-Driver" > Save</button>
                                             <button class="btn btn-info " type="button" id="search-Driver"  >Search </button>
                                         </div>
@@ -393,6 +396,7 @@
                                                         <th scope="col">driveraddress</th>
                                                         <th scope="col">driverContact</th>
                                                         <th scope="col">Availability</th>
+                                                        <th scope="col">password</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody id="driverTableBody">
@@ -546,7 +550,6 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody id="carTable">
-
                                                     </tbody>
                                                 </table>
                                             </section>
@@ -705,7 +708,7 @@
                 $('#txtDriverAddress').val(res.data.driveraddress);
                 $('#txtDriverContact').val(res.data.driverContact);
                 $('#txtDriverVailable').val(res.data.isAvailable);
-
+                $('#txtDriverPw').val(res.data.password)
             },
             error:function (error){
 
@@ -719,7 +722,7 @@
            success:function (res){
                $('#driverTableBody').empty();
                for (let i =0;i < res.data.length;i++){
-                   $('#driverTableBody').append(`<tr><td>`+ res.data[i].driverID +`</td><td>` + res.data[i].drivername + `</td><td>` + res.data[i].driveraddress + `</td><td>` + res.data[i].driverContact + `</td><td>` + res.data[i].isAvailable + `</td><td>` + res.data[i].lossDamageWaiver + `</td></tr>`);
+                   $('#driverTableBody').append(`<tr><td>`+ res.data[i].driverID +`</td><td>` + res.data[i].drivername + `</td><td>` + res.data[i].driveraddress + `</td><td>` + res.data[i].driverContact + `</td><td>` + res.data[i].isAvailable + `</td><td>` + res.data[i].password+ `</td></tr>`);
                }
            },
            error:function (error){
@@ -756,7 +759,8 @@
             driverID:$('#txtDriverId').val(),
             drivername:$('#txtDriverame').val(),
             driveraddress:$('#txtDriverContact').val(),
-            driverContact:$('#txtDriverVailable').val()
+            driverContact:$('#txtDriverVailable').val(),
+
         };
         $.ajax({
            url:basurlTwo+"driver",
@@ -888,8 +892,7 @@
         $('#txtpricePerExtraKm').val('');
         $('#txtpricePerExtraKm').val('');
         $('#txtlossDamageWaiver').val('');
-    }
-
+    };
     $('#cmbCarType').click(function (){
         let val=$('#cmbCarType').val();
         $('#txtCarType').val(val);

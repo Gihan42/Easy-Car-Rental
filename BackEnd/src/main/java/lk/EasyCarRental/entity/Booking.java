@@ -24,4 +24,7 @@ public class Booking {
     @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
     @JoinColumn(name = "vehicleNum",referencedColumnName = "vehicleNum",nullable = false)
     private Car vehicleNum;
+    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
+    @JoinColumn(name = "driverID",referencedColumnName = "driverID",nullable = false)
+    private Driver driver;
 }
