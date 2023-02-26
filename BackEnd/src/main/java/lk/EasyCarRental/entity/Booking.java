@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Data
@@ -16,15 +17,19 @@ public class Booking {
 
     @Id
     private String bookingID;
-    private String date;
-    private String time;
-    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
-    @JoinColumn(name = "nic",referencedColumnName = "nic",nullable = false)
-    private Customer nic;
-    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
-    @JoinColumn(name = "vehicleNum",referencedColumnName = "vehicleNum",nullable = false)
+    private String currentDate;
+    private String dueDate;
+    private BigDecimal advancePayment;
+    @Lob
+    private byte[] paymentConfirmation;
+
+    private BigDecimal total;
+    @ManyToOne
     private Car vehicleNum;
-    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
-    @JoinColumn(name = "driverID",referencedColumnName = "driverID",nullable = false)
-    private Driver driver;
+    @ManyToOne
+    private Driver driverID;
+    /*@ManyToOne
+    private Admin admin;*/
+    @ManyToOne
+    private Customer Nic;
 }

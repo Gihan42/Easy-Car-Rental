@@ -20,6 +20,6 @@ public class Driver {
     String driveraddress;
     String driverContact;
     String password;
-    boolean isAvailable;
+    String available;
     private String date;
 }

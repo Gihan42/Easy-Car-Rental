@@ -571,6 +571,7 @@
                         </div>
                     </div>
                     <!--login driver-->
+<!--
                     <div aria-hidden="true" aria-labelledby="diverLogin" class="modal fade" id="diverlog" tabindex="-1" id="driverForms" >
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -588,22 +589,22 @@
                                                             <div class="card-body">
                                                                 <h1 class="display-4" style="color: #AE303D">Driver Login</h1>
                                                                 <form>
-                                                                    <!-- Email input -->
+                                                                    &lt;!&ndash; Email input &ndash;&gt;
                                                                     <div class="form-outline mb-4">
                                                                         <label class="form-label" for="txtdriverId">Driver Id</label>
                                                                         <input type="email"  class="form-control" id="txtdriverId"  name="driverID" placeholder="license"/>
                                                                     </div>
-                                                                    <!-- Password input -->
+                                                                    &lt;!&ndash; Password input &ndash;&gt;
                                                                     <div class="form-outline mb-4">
                                                                         <label class="form-label" for="txtDriverpw">Password</label>
                                                                         <input type="password"  class="form-control" id="txtDriverpw" name="password" placeholder="Password"/>
 
                                                                     </div>
 
-                                                                    <!-- 2 column grid layout for inline styling -->
+                                                                    &lt;!&ndash; 2 column grid layout for inline styling &ndash;&gt;
                                                                     <div class="row mb-4">
                                                                         <div class="col d-flex justify-content-center">
-                                                                            <!-- Checkbox -->
+                                                                            &lt;!&ndash; Checkbox &ndash;&gt;
                                                                             <div class="form-check">
                                                                                 <input class="form-check-input" type="checkbox" value="" id="form2_Example31D" checked />
                                                                                 <label class="form-check-label"> Remember me </label>
@@ -611,10 +612,10 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <!-- Submit button -->
+                                                                    &lt;!&ndash; Submit button &ndash;&gt;
                                                                     <button type="button" class="btn btn-primary btn-block mb-4" id="driverlogIn">login in</button>
 
-                                                                    <!-- Register buttons -->
+                                                                    &lt;!&ndash; Register buttons &ndash;&gt;
                                                                     <div class="text-center">
                                                                         <p>Not a member? <a href="#!">Register</a></p>
                                                                         <p>or sign up with:</p>
@@ -654,6 +655,7 @@
                             </div>
                         </div>
                     </div>
+-->
 
                 </li>
                     <!--edit-->
@@ -970,15 +972,15 @@
                                                                 </div>
 
                                                             <div class="input-group input-group-sm mb-3">
-                                                                <span class="input-group-text" id="inputGroup-sizing-sml1">Free Km for a Day </span>
-                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtFreeKmADay">
+                                                                <span class="input-group-text" id="inputGroup-sizing-sml1">Price Per Month  </span>
+                                                                <input type="text" class="form-control" aria-label="Sizing exampnle iput" aria-describedby="inputGroup-sizing-sm" id="txtFreeKmADay">
                                                             </div>
                                                             <div class="input-group input-group-sm mb-3">
-                                                                <span class="input-group-text" id="inputGroup-sizing-sml2">Free Km for a Month  </span>
+                                                                <span class="input-group-text" id="inputGroup-sizing-sml2">Price per Day  </span>
                                                                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtFreemonth">
                                                             </div>
                                                             <div class="input-group input-group-sm mb-3">
-                                                                <span class="input-group-text" id="inputGroup-sizing-sml3">Price per Extra Km(Rs) </span>
+                                                                <span class="input-group-text" id="inputGroup-sizing-sml3">Free Km for a Day </span>
                                                                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtPricePerExtraKm">
                                                             </div>
                                                             <div class="input-group input-group-sm mb-3">
@@ -1015,17 +1017,17 @@
                                                                 <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Bank Details</h3>
                                                                     <div class="form-outline mb-4" style="align-items: center;position: relative;bottom: 40px" >
                                                                         <div class="input-group input-group-sm mb-3">
-                                                                            <span class="input-group-text" >Account No</span>
+                                                                            <span class="input-group-text" >Our Account No</span>
                                                                             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="carNum" id="txtAccountNo" name="accountNo">
                                                                         </div>
                                                                         <div class="input-group input-group-sm mb-3">
                                                                             <span class="input-group-text" >Beneficiary Name</span>
-                                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtLostDamage" name="">
+                                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtBeneficiaryName" name="">
                                                                         </div>
                                                                         <div class="input-group input-group-sm mb-3">
                                                                             <span class="input-group-text" >D & T</span>
-                                                                            <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtSelectDate" name="">
-                                                                            <input type="time" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtTime" name="date">
+                                                                            <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="" id="BookingDate" name="">
+                                                                            <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="" id="DueDate" name="date">
 
                                                                         </div>
                                                                         <div class="form-check">
@@ -1160,11 +1162,17 @@
     <!--footer end-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 <script src="pages/jquery-3.6.1.min.js"></script>
+<script src="pages/db/db.js"></script>
 <script>
 let baseUrlindex="http://localhost:8080/BackEnd_war/"
 let baseUrlt="http://localhost:8080/BackEnd_war/"
 let baseUrlA="http://localhost:8080/BackEnd_war/"
 let baseUrlB="http://localhost:8080/BackEnd_war/"
+
+let driverPaymentPerDay="";
+
+$('#txtAccountNo').val('236579791');
+$('#txtBeneficiaryName').val('Easy Car');
 loadPremiumCars();
 loadGeneralsCars();
 loadLuxuryCars();
@@ -1176,7 +1184,7 @@ function loadPremiumCars(){
         success:function (res){
             $('#premiumTab').empty();
             for(let i =0;i < res.data.length;i++){
-                let card=`<div class="col" style="padding: 10px  "id="colGrid" ><div class="card" style="width: 18rem; height: 14rem" id="carCard">   <img src="..." class="card-img-top" alt="..."><div class="card-body" data-bs-target="#customerLogin" data-bs-toggle="modal" id="btnSelectP" style="text-align: left"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left" id="lblPVehiclenum"><span>`+ res.data[i].vehicleNum+`</span> </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Car Loss Damage Waiver</b> = </label><label> `+res.data[i].lossDamageWaiver +`</label><a  class="btn btn-primary" data-bs-target="#loadBookingTab" data-bs-toggle="modal" type="button" id="btnSelectP">Booking Car</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                let card=`<div class="col" style="padding: 10px  "id="colGrid" ><div class="card" style="width: 18rem; height: 14rem" id="carCard">   <img src="..." class="card-img-top" alt="..."><div class="card-body" data-bs-target="#customerLogin" data-bs-toggle="modal" id="btnSelectP" style="text-align: left"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left" id="lblPVehiclenum"><span>`+ res.data[i].vehicleNum+`</span> </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Month</b> = </label> <label style="text-align: left">`+ res.data[i].carMonthlyprice +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price Per Day</b> = </label> <label style="text-align: left">`+ res.data[i].carDailyprice+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Car Loss Damage Waiver</b> = </label><label> `+res.data[i].lossDamageWaiver +`</label><a  class="btn btn-primary" data-bs-target="#loadBookingTab" data-bs-toggle="modal" type="button" id="btnSelectP">Booking Car</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                         </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
@@ -1199,7 +1207,7 @@ function loadGeneralsCars(){
         success:function (res){
             $('#generalTab').empty();
         for(let g =0;g < res.data.length;g++) {
-            let cardl=`<div class="col" style="padding: 10px" ><div class="card" style="width: 18rem; height: 14rem" >   <img src="..." class="card-img-top" alt="..."><div class="card-body" data-bs-target="#loadBookingTab" data-bs-toggle="modal" id="btnSelectG" style="text-align: left"><h5 class="card-title">` + res.data[g].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[g].vehicleNum+` </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[g].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[g].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[g].pricePerExtraKm +`</label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Car Loss Damage Waiver</b> = </label><label> `+res.data[g].lossDamageWaiver +`</label><a href="#" class="btn btn-primary">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+            let cardl=`<div class="col" style="padding: 10px" ><div class="card" style="width: 18rem; height: 14rem" >   <img src="..." class="card-img-top" alt="..."><div class="card-body" data-bs-target="#loadBookingTab" data-bs-toggle="modal" id="btnSelectG" style="text-align: left"><h5 class="card-title">` + res.data[g].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[g].vehicleNum+` </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price Per Month</b> = </label> <label style="text-align: left">`+ res.data[g].carpricePerKmMonth +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price Per Day</b> = </label> <label style="text-align: left">`+ res.data[g].carDailyprice+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[g].pricePerExtraKm +`</label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Car Loss Damage Waiver</b> = </label><label> `+res.data[g].lossDamageWaiver +`</label><a href="#" class="btn btn-primary">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                         </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
@@ -1220,7 +1228,7 @@ function loadLuxuryCars(){
         success:function (res){
             $('#luxuryTab').empty();
             for(let i =0;i < res.data.length;i++) {
-                let cardG=`<div class="col" style="padding: 10px" ><div class="card" style="width: 18rem; height: 14rem">   <img src="..." class="card-img-top" alt="..."><div class="card-body" data-bs-target="#loadBookingTab" data-bs-toggle="modal" id="btnSelectL" style="text-align: left"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[i].vehicleNum+` </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Day</b> = </label> <label style="text-align: left">`+ res.data[i].carpriceperkmaday +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Free Km for a Month</b> = </label> <label style="text-align: left">`+ res.data[i].carpricePerKmMonth+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Car Loss Damage Waiver</b> = </label><label> `+res.data[i].lossDamageWaiver +`</label><a href="#" class="btn btn-primary">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                let cardG=`<div class="col" style="padding: 10px" ><div class="card" style="width: 18rem; height: 14rem">   <img src="..." class="card-img-top" alt="..."><div class="card-body" data-bs-target="#loadBookingTab" data-bs-toggle="modal" id="btnSelectL" style="text-align: left"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left">`+ res.data[i].vehicleNum+` </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price Per Month</b> = </label> <label style="text-align: left">`+ res.data[i].carMonthlyprice +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price Per Day</b> = </label> <label style="text-align: left">`+ res.data[i].carDailyprice+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Car Loss Damage Waiver</b> = </label><label> `+res.data[i].lossDamageWaiver +`</label><a href="#" class="btn btn-primary">View Details</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                         </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
@@ -1370,75 +1378,159 @@ $('#luxuryTab>div>div>div').click(function (){
     $('#txtCustomerId').val(userName);
 });
 
-generateBookingId();
+
+
+
 $('#btnBooking').click(function (){
-    generateBookingId();
-    let formdata=$('#bookingRegisterForm').serialize();
+    /*searchCus();
+    searchDriver();
+    searchCar();*/
+
+    let bookingID = "B-002"
+    let currentDate = $('#BookingDate').val();
+    let dueDate = $('#DueDate').val();
+    let advancePayment = 20000;
+    let perDayPayment = $('#txtFreemonth').val();
+    let cusFind=searchCus(userName);
+    let driverFind=searchDriver($('#txtDrivers').val());
+    let carFind=searchCar($('#txtCarNUm').val());
+    let date = (new Date(dueDate) - new Date(currentDate))/(1000*3600*24);
+    let total =(date*perDayPayment)+(date*driverPaymentPerDay);
+
+    console.log("custonerrrrrrrr");
+    console.log(cusFind);
+    console.log("driverrrr");
+    console.log(driverFind);
+    console.log(carFind);
+
+    var bookOB = {
+        bookingID:bookingID,
+        currentDate:currentDate,
+        dueDate:dueDate,
+        advancePayment:advancePayment,
+        total:total,
+        car:carFind,
+        driver:driverFind,
+        customer:cusFind
+    }
+
+
     $.ajax({
         url:baseUrlB+"booking",
-        dataTypes:"json",
-        async:false,
-        data:formdata,
+        data:"json",
+        contentType:"application/json",
         method:"post",
-        success:function (res){
-         alert('save booking')
-        }
-
-    })
-});
-$('#addCart').click(function (){
-    location.href="pages/booking.html";
-});
-let days='87659403';
-$('#flexRadioDefault1').click(function (){
-    $('#txtDays').val(1)
-});
-$('#flexRadioDefault2').click(function (){
-    $('#txtDays').val(30)
-});
-$('#chcHireDriver').change(function (){
-    $('#txtDrivers').val(days);
-    loadDriverName();
-
-});
-$('#driverlogIn').click(function (){
-    let dpassword=$('#txtDriverpw').val();
-    let driverId =$('#txtdriverId').val();
-    $.ajax({
-        url:baseUrlA + "driver?driverID=" + $('#txtdriverId').val(),
-        method:"get",
-        async:false,
-        success:function (res){
-            if (driverId==res.data.driverID && dpassword==res.data.password){
-                location.href="pages/driverDashBoard.html";
-            }
-        }
-    });
-})
-function loadDriverName(){
-    $.ajax({
-        url:baseUrlB+"driver?driverID=" + $('#txtDrivers').val(),
-        dataType:"json",
-        method:"get",
-        async:false,
-        success:function (res){
-            $('#txtDriverName').val(res.data.drivername);
-        },
-        error:function (error){
-
+        data:JSON.stringify(bookOB),
+        success:function (res) {
+            alert(res.message);
         }
     })
-};
-function generateBookingId(){
+
+
+});
+
+/*searccustomer*/
+function searchCus(nic) {
+    let response="";
     $.ajax({
-        url:baseUrlB+"customer?bookingID=count",
-        dataType:"json",
-        async:false,
-        success:function (res){
-            $('#bookingId').text(res.data)
+        url: baseUrlindex + "customer?nic=" + nic,
+        dataType: "json",
+        method: "get",
+        async: false,
+        success: function (res) {
+            response=res.data;
         }
     })
+    return response;
 }
+
+    function searchDriver(id) {
+    let response="";
+    $.ajax({
+            url: baseUrlindex + "driver?driverID=" +id,
+            dataType: "json",
+            method: "get",
+            async: false,
+            success: function (res) {
+                response=res.data;
+            }
+        })
+        return response;
+    };
+
+    function searchCar(id) {
+        let response="";
+        $.ajax({
+            url: baseUrlindex + "car?vehicleNum=" + id,
+            dataType: "json",
+            method: "get",
+            async: false,
+            success: function (res) {
+                response=res.data;
+            }
+        })
+        return response;
+    };
+
+    $('#addCart').click(function () {
+        location.href = "pages/booking.html";
+    });
+
+    $('#flexRadioDefault1').click(function () {
+        $('#txtDays').val(1)
+    });
+    $('#flexRadioDefault2').click(function () {
+        $('#txtDays').val(30)
+    });
+    $('#chcHireDriver').change(function () {
+
+        let checkDriver = findDriverByAvailable("Not Available");
+        console.log("gffgffg");
+        console.log(checkDriver[0].driverID);
+        $('#txtDrivers').val(checkDriver[0].driverID);
+        driverPaymentPerDay= 2500;
+        loadDriverName();
+
+    });
+
+    function findDriverByAvailable(avl) {
+        let response = "";
+        $.ajax({
+            url: baseUrlB + "driver",
+            async: false,
+            success: function (res) {
+                response = res.data.filter((c) => {
+                    return c.available == avl;
+
+                })
+            }
+        })
+        return response;
+    };
+
+    $('#DrivreLog').click(function () {
+        location.href = "pages/driverDashBoard.html";
+    });
+
+    function loadDriverName() {
+        $.ajax({
+            url: baseUrlB + "driver?driverID=" + $('#txtDrivers').val(),
+            dataType: "json",
+            method: "get",
+            async: false,
+            success: function (res) {
+                $('#txtDriverName').val(res.data.drivername);
+            },
+            error: function (error) {
+
+            }
+        })
+    }
+
+
+
+
+
 </script>
 </body>
 </html>

@@ -24,4 +24,10 @@ class DriverServiceImplTest {
         Driver driver=repo.findDriverBydriverID("45646464");
         System.out.println(driver);
     }
+
+    @Test
+    void findDriver() {
+        Driver driver=repo.findDriverByAvailable("Not Available");
+        System.out.println(driver);
+    }
 }

@@ -349,11 +349,16 @@
                                         </div>
                                         <div class="mb-3">
 
-                                            <input class="form-control" id="txtDriverContact" type="text" name="driverContact" placeholder="Contact No">
+                                            <input class="form-control" id="txtDriverContact" type="text" name="driverContact" placeholder="Contact No" >
                                         </div>
+                                        <select class="form-select" aria-label="Default select example" id="isavailable"style="margin-bottom: 10px">
+                                            <option value="Available">Available</option>
+                                            <option value="Not Available">Not Available</option>
+                                        </select>
+
                                         <div class="mb-3">
 
-                                            <input class="form-control" id="txtDriverVailable" type="text" name="isAvailable" placeholder="Availability">
+                                            <input class="form-control" id="txtDriverVailable" type="text" name="available" placeholder="Availability">
                                         </div>
                                         <div class="mb-3">
 
@@ -569,6 +574,7 @@
 <!--tabs end-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 <script src="jquery-3.6.1.min.js"></script>
+<script src="db/db.js"></script>
 <script>
     let baseurl="http://localhost:8080/BackEnd_war/"
     let basurlTwo="http://localhost:8080/BackEnd_war/"
@@ -707,7 +713,7 @@
                 $('#txtDriverame').val(res.data.drivername);
                 $('#txtDriverAddress').val(res.data.driveraddress);
                 $('#txtDriverContact').val(res.data.driverContact);
-                $('#txtDriverVailable').val(res.data.isAvailable);
+                $('#txtDriverVailable').val(res.data.available);
                 $('#txtDriverPw').val(res.data.password)
             },
             error:function (error){
@@ -720,9 +726,10 @@
            url:basurlTwo+"driver",
            async:false,
            success:function (res){
+               console.log(res.data);
                $('#driverTableBody').empty();
                for (let i =0;i < res.data.length;i++){
-                   $('#driverTableBody').append(`<tr><td>`+ res.data[i].driverID +`</td><td>` + res.data[i].drivername + `</td><td>` + res.data[i].driveraddress + `</td><td>` + res.data[i].driverContact + `</td><td>` + res.data[i].isAvailable + `</td><td>` + res.data[i].password+ `</td></tr>`);
+                   $('#driverTableBody').append(`<tr><td>`+ res.data[i].driverID +`</td><td>` + res.data[i].drivername + `</td><td>` + res.data[i].driveraddress + `</td><td>` + res.data[i].driverContact + `</td><td>` + res.data[i].available+ `</td><td>` + res.data[i].password+ `</td></tr>`);
                }
            },
            error:function (error){
@@ -896,6 +903,7 @@
     $('#cmbCarType').click(function (){
         let val=$('#cmbCarType').val();
         $('#txtCarType').val(val);
+
     });
     $('#carDelete').click(function (){
        $.ajax({
@@ -944,6 +952,10 @@
             }
 
         });
+    });
+    $('#isavailable').click(function (){
+        let value=$('#isavailable').val();
+        $('#txtDriverVailable').val(value);
     });
 </script>
 </body>

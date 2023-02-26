@@ -1,6 +1,7 @@
 package lk.EasyCarRental.controller;
 
 import lk.EasyCarRental.dto.DriverDto;
+import lk.EasyCarRental.entity.Driver;
 import lk.EasyCarRental.service.DriverService;
 import lk.EasyCarRental.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,12 @@ public class DriverController {
         service.updateDriver(dto);
         return new ResponseUtil("ok","updated",null);
     }
+    @GetMapping(params = "Available")
+    public ResponseUtil selectAvailableDriver(@RequestParam String Available){
+        DriverDto d= service.findDriver(Available);
+        System.out.println(d);
+        return new ResponseUtil("ok","searchA",service.findDriver(Available));
+    }
+
 
 }

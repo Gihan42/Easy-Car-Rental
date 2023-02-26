@@ -60,4 +60,14 @@ public class DriverServiceImpl implements DriverService {
         }
         repo.save(mapper.map(dto,Driver.class));
     }
+
+    @Override
+    public DriverDto findDriver(String Available) {
+        if (!repo.existsById(Available)){
+            throw new RuntimeException("invalid driver id");
+        }
+        Driver driver=repo.findDriverByAvailable(Available);
+        DriverDto dto=mapper.map(driver,DriverDto.class);
+        return dto;
+    }
 }

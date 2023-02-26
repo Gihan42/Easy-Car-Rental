@@ -15,7 +15,7 @@ public class DriverDto {
     String driveraddress;
     String driverContact;
     String password;
-    boolean isAvailable;
+    String available;
     private String date;
 
 }
