@@ -66,5 +66,15 @@ public class BookingServiceImpl implements BookingService {
         return map;
     }
 
+    @Override
+    public BookingDto findBookingbookingID(String bookingID) {
+        if (!repo.existsById(bookingID)){
+            throw new RuntimeException(" has already exists");
+        }
+        Booking booking= repo.findBookingByBookingID(bookingID);
+        BookingDto map=mapper.map(booking,BookingDto.class);
+        return map;
+    }
+
 
 }

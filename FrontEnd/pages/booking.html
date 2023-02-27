@@ -119,7 +119,7 @@
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <form>
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-            <p class="lead fw-normal mb-0 me-3">Place Your Rent</p>
+            <p class="lead fw-normal mb-0 me-3">Payment</p>
             <button type="button" class="btn btn-primary btn-floating mx-1">
               <i class="fab fa-facebook-f"></i>
             </button>
@@ -143,11 +143,11 @@
                 Column 01
                 <div class="input-group input-group-sm mb-3">
                   <span class="input-group-text" id="inputGroup-sizing-sm">Booking Id</span>
-                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtCarId">
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtBookingId">
                 </div>
                 <div class="input-group input-group-sm mb-3">
                   <span class="input-group-text" id="inputGroup-sizing-sm3">Car Nom</span>
-                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtBookingId">
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtCarId">
                 </div>
                 <div class="input-group input-group-sm mb-3">
                   <span class="input-group-text" id="inputGroup-sizing-sm5">Car Model</span>
@@ -156,6 +156,19 @@
                 <div class="input-group input-group-sm mb-3">
                   <span class="input-group-text" id="inputGroup-sizing-sm6">Loss Damage</span>
                   <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtCarLossDamage">
+                </div>
+                <label class="form-check-label" for="flexSwitchCheckChecked" style="position: relative;right: 35px;font-weight: bold">Damage</label>
+                <div class="form-check form-switch">
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Car Damage Check</label>
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" >
+                </div>
+                <label class="form-check-label" for="flexSwitchCheckChecked" style="position: relative;right: 35px;font-weight: bold">Payment Method</label>
+
+                <div class="form-check" style="margin-top: 15px">
+                  <label class="form-check-label" for="flexRadioDefault1" style="font-weight: bold">
+                    Cash Payment
+                  </label>
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                 </div>
               </div>
               <div class="col">
@@ -173,61 +186,51 @@
                   <input type="Date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtDate">
                 </div>
                 <div class="input-group input-group-sm mb-3">
-                  <span class="input-group-text" id="inputGroup-sizing-sm10">Time</span>
-                  <input type="time" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtTime">
+                  <span class="input-group-text" id="inputGroup-sizing-sm10">Amount</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtAmount">
                 </div>
+                <div class="input-group input-group-sm mb-3" style="margin-top: 34px">
+                  <span class="input-group-text" id="inputGroup-sizing-sm11">Damage</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtDamage">
+                </div>
+                <div class="form-check" style="margin-top: 40px">
+                  <label class="form-check-label" for="flexRadioDefault2" style="font-weight: bold">
+                    Card Payment
+                  </label>
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                </div>
+
               </div>
             </div>
           </div>
           <!--form feild end-->
           <div class="text-center text-lg-start mt-4 pt-2">
-            <button type="button" class="btn btn-success" style="padding-left: 10.5rem; padding-right: 10.5rem;margin-left: 30px">Payment</button>
+            <button type="button" class="btn btn-success" style="padding-left: 10.5rem; padding-right: 10.5rem;margin-left: 30px" id="btnPayment">Payment</button>
           </div>
         </form>
       </div>
 
-      <table class="table">
+      <table class="table" >
         <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">Booking Id</th>
+          <th scope="col">Date</th>
+          <th scope="col">Car</th>
+          <th scope="col">Car Model</th>
+          <th scope="col">Customer</th>
+          <th scope="col">Damage Waiver</th>
+          <th scope="col">Booking Amount</th>
+          <th scope="col">Customer Name</th>
         </tr>
         </thead>
-        <tbody class="table-group-divider">
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
+        <tbody id="tblBooking">
+
         </tbody>
       </table>
     </div>
   </div>
-  <div
-          class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary" style="background-color: #303030" >
-    <!-- Copyright -->
-    <div class="text-white mb-3 mb-md-0" >
-      Copyright © Ijse. All rights reserved.
-    </div>
-    <!-- Copyright -->
 
-    <!-- Right -->
-    <div>
-      <a href="#!" class="text-white me-4">
+    <!--  <a href="#!" class="text-white me-4">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
           <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
         </svg>
@@ -246,7 +249,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
           <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
         </svg>
-      </a>
+      </a>-->
     </div>
     <!-- Right -->
   </div>
@@ -255,9 +258,149 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 <script src="jquery-3.6.1.min.js"></script>
 <script>
+  let baseurl="http://localhost:8080/BackEnd_war/"
+  loadAllBooking();
+  let response="";
   $('#btnHome').click(function (){
     window.open('../index.html',"_parent");
   });
+  let boo="";
+  function loadAllBooking(){
+    $.ajax({
+      url:baseurl+"booking",
+      method:"get",
+      success:function (res) {
+        $('#tblBooking').empty();
+        boo=res.data;
+      for (let i=0;i<res.data.length;i++){
+        $('#tblBooking').append(`<tr><td>`+res.data[i].bookingID +`</td><td>`+ res.data[i].currentDate +`</td><td>`+res.data[i].car.vehicleNum +`</td><td>`+res.data[i].car.vehicleModel+`</td><td>`+ res.data[i].customer.nic +`</td><td>`+ res.data[i].car.lossDamageWaiver +`</td><td>`+ res.data[i].total +`</td><td>`+res.data[i].customer.name +`</td></tr>`)
+        bindRow();
+
+      }
+
+      }
+      })
+  }
+  function bindRow(){
+    $('#tblBooking>tr').click(function (){
+      let bookingid = $(this).children(":eq(0)").text();
+      let date = $(this).children(":eq(1)").text();
+      let carId = $(this).children(":eq(2)").text();
+      let model = $(this).children(":eq(3)").text();
+      let cusId = $(this).children(":eq(4)").text();
+      let loassDamge = $(this).children(":eq(5)").text();
+      let amount = $(this).children(":eq(6)").text();
+      let name = $(this).children(":eq(7)").text();
+      $('#txtBookingId').val(bookingid);
+      $('#txtDate').val(date);
+      $('#txtCarId').val(carId);
+      $('#txtCarModel').val(model)
+      $('#txtCustomerId').val(cusId);
+      $('#txtCarLossDamage').val(loassDamge);
+      $('#txtAmount').val(amount);
+      $('#txtCustomerName').val(name);
+
+      /*payment process*/
+      /*paymentProcess(boo);*/
+    })
+
+  }
+
+
+
+
+
+    $('#btnPayment').click(function (){
+
+      findBookingById();
+      console.log("boo");
+      console.log(response);
+      var paymentOB= {
+        bookingID:response.bookingID,
+        booking:response,
+        rent:response.total,
+        account:"67676766767",
+        paymentMethod:"card",
+        deduction:20000
+      }
+      console.log("ob");
+      console.log(paymentOB);
+
+      $.ajax({
+        url: baseurl+"payment",
+        method: "post",
+        dataType:"json",
+        contentType:"application/json",
+        data:JSON.stringify(paymentOB),
+        success:function (res) {
+          alert('awa')
+          alert(res.message);
+        },
+        error:function (error) {
+          let cause = JSON.parse(error.responseText).message;
+          alert(cause);
+        }
+
+      })
+    });
+
+
+ function findBookingById(){
+   alert("hii")
+   $.ajax({
+     url:baseurl+"booking?bookingID=" +$('#txtBookingId').val() ,
+     dataType:"json",
+     method:"get",
+     async:false,
+     success:function (res){
+       alert("kkjkjj");
+       response=res.data;
+       console.log(response)
+     }
+   });
+  }
+
+  $('#btnPayment').click(function (){
+    alert()
+/*
+    let ret=findBookingById($('#txtBookingId').val());
+*/
+    console.log("boo");
+    console.log(boo);
+    var paymentOB= {
+      bookingID:book.bookingID,
+      booking:book,
+      rent:book.rent,
+      account:67676766767,
+      paymentMethod:"card",
+      deduction:20000
+    }
+    console.log("ob");
+    console.log(paymentOB);
+
+    $.ajax({
+      url: baseurl+"payment",
+      method: "post",
+      dataType:"json",
+      contentType:"application/json",
+      data:JSON.stringify(paymentOB),
+      success:function (res) {
+        alert()
+        alert(res.message);
+      },
+      error:function (error) {
+        let cause = JSON.parse(error.responseText).message;
+        alert(cause);
+      }
+
+    })
+  })
+  /*payment process*/
+
+
+
+
+
 
 </script>
 </body>

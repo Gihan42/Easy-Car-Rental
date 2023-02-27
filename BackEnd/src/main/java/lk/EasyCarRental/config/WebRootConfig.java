@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @Import(JpaConfig.class)
-@ComponentScan(basePackageClasses = {CustomerServiceImpl.class, AdminServiceImpl.class, DriverServiceImpl.class, CarServiceImpl.class, BookingServiceImpl.class })
+@ComponentScan(basePackageClasses = {CustomerServiceImpl.class, AdminServiceImpl.class, DriverServiceImpl.class, CarServiceImpl.class, BookingServiceImpl.class ,PaymentServiceImpl.class})
 public class WebRootConfig {
     @Bean
     public ModelMapper moddlMapper(){

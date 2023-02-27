@@ -21,7 +21,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement //<-- transaction manage wenawa auto
-@EnableJpaRepositories(basePackageClasses = {CustomerRepo.class, AdminRepo.class, CarRepo.class,DriverRepo.class, BookingRepo.class})//<-- mehema denne customerrepo interface eka controller eke access krann ona nisa
+@EnableJpaRepositories(basePackageClasses = {CustomerRepo.class, AdminRepo.class, CarRepo.class,DriverRepo.class, BookingRepo.class,PaymentRepo.class})//<-- mehema denne customerrepo interface eka controller eke access krann ona nisa
 @PropertySource("classpath:application.properties")
 public class JpaConfig {
 

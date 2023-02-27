@@ -469,7 +469,7 @@
                                             <input class="form-control form-control-sm" id="txtcarDailyPrice" type="number" name="carDailyprice" placeholder="Daily-Price">
                                         </div>
                                         <div class="mb-3">
-                                            <input class="form-control" type="file" id="formFile" placeholder="Please insert four picture ">
+                                            <input class="form-control" type="file" id="formFile" placeholder="Please insert four picture " name="img">
                                         </div>
                                         <div class="mb-3">
                                             <input class="form-control" type="text" id="Available" placeholder="Is Available " name="available">
@@ -792,11 +792,14 @@
     loadAllCar();
     countAvailableCar();
     $('#save-car').click(function (){
-        let carData=$('#carForms').serialize();
+        // let carData=$('#carForms').serialize();
+        let carData = new FormData($("#carForms")[0]);
         $.ajax({
             url:baseurlThree+"car",
             data:carData,
             dataType:"json",
+            contentType:false,
+            processData:false,
             method:"post",
             async:false,
             success:function (res){
@@ -845,7 +848,7 @@
                 $('#carTable').empty()
                 console.log(res)
                 for (let i =0;i < res.data.length;i++){
-                    $('#carTable').append(`<tr><td>` + res.data[i].vehicleNum +`</td><td>` + res.data[i].vehicleModel + `</td><td>` + res.data[i].color + `</td><td>` + res.data[i].carMonthlyprice + `</td><td>` + res.data[i].carDailyprice + `</td><td>` + res.data[i].available + `</td><td>` + res.data[i].carpricePerKm + `</td><td>`  + res.data[i].carpricePerKmMonth + `</td><td>` + res.data[i].carPasanger + `</td><td>` + res.data[i].carFuelType +  `</td><td>` + res.data[i].vehicleType + `</td><td>` + res.data[i].pricePerExtraKm +  `</td><td>` + res.data[i].lossDamageWaiver +  `</td></tr>`);
+                    $('#carTable').append(`<tr><td> `+res.data[i].vehicleNum+`</td><td>` + res.data[i].vehicleNum +`</td><td>` + res.data[i].vehicleModel + `</td><td>` + res.data[i].color + `</td><td>` + res.data[i].carMonthlyprice + `</td><td>` + res.data[i].carDailyprice + `</td><td>` + res.data[i].available + `</td><td>` + res.data[i].carpricePerKm + `</td><td>`  + res.data[i].carpricePerKmMonth + `</td><td>` + res.data[i].carPasanger + `</td><td>` + res.data[i].carFuelType +  `</td><td>` + res.data[i].vehicleType + `</td><td>` + res.data[i].pricePerExtraKm +  `</td><td>` + res.data[i].lossDamageWaiver +  `</td></tr>`);
                 }
 
             }

@@ -6,6 +6,9 @@ import lk.EasyCarRental.service.CarService;
 import lk.EasyCarRental.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/car")
@@ -15,9 +18,10 @@ public class CarController {
     private CarService service;
 
     @PostMapping
-    public ResponseUtil saveCar(@ModelAttribute CarDto dto){
+    public ResponseUtil saveCar(@ModelAttribute CarDto dto, @ModelAttribute MultipartFile img){
         System.out.println(dto);
-        service.saveCar(dto);
+
+        service.saveCar(dto, img);
         return new ResponseUtil("ok","car save",null);
     }
     @GetMapping(params = {"vehicleNum"})

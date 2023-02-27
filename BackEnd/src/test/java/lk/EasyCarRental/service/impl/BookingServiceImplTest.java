@@ -21,9 +21,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class BookingServiceImplTest {
     @Autowired
     BookingRepo repo;
-  /* @Test
+   @Test
     void findBookingByDrivingId(){
-       Booking bookingByDriverId = repo.findBookingByDriverId("6562342355");
+       Booking bookingByDriverId = repo.findBookingByBookingID("BID-2");
        System.out.println(bookingByDriverId);
-   }*/
+   }
 }

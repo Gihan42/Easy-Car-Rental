@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @NoArgsConstructor
@@ -15,12 +15,14 @@ import javax.persistence.Id;
 @Data
 public class Payment {
     @Id
-    String accountNo;
-    String beneficiaryName;
-    String date;
-    String paymentMethod;
-    String deduction;
-    String lossDamageViewer;
-    String rent;
-    String time;
+    @Column(name = "booking_id")
+    private String bookingID;
+    @OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn(name = "booking_id",referencedColumnName="bookingID")
+    private Booking booking;
+
+    private BigDecimal rent;
+    private String account;
+    private String paymentMethod;
+    private BigDecimal deduction;
 }

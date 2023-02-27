@@ -20,11 +20,11 @@ public class BookingController {
         System.out.println("get all");
         return new ResponseUtil("ok","getAll",service.getAllBooking());
     }
-    @GetMapping(params = {"bookingID"})
+  /*  @GetMapping(params = {"bookingID"})
     public ResponseUtil generateBookingId(){
 
         return new ResponseUtil("ok","generateId",service.generateBookingId());
-    }
+    }*/
     @PostMapping
     public ResponseUtil saveBooking(@RequestBody BookingDto dto){
         service.saveBooking(dto);
@@ -37,5 +37,10 @@ public class BookingController {
     @GetMapping(params = {"option"})
     public ResponseUtil countAllBooking(){
         return new ResponseUtil("ok","count",service.countBooking());
+    }
+    @GetMapping(params = {"bookingID"})
+    public ResponseUtil findbookings(String bookingID){
+        System.out.println("jjjjjj"+bookingID);
+        return new ResponseUtil("ok","find",service.findBookingbookingID(bookingID));
     }
 }

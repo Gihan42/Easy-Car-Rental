@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.web.multipart.MultipartFile;
 
 @ToString
 @AllArgsConstructor
@@ -23,4 +24,5 @@ public class CarDto {
     String vehicleType;
     double pricePerExtraKm;
     double lossDamageWaiver;
+    MultipartFile img;
 }

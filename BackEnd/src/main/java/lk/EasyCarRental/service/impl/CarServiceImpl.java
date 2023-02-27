@@ -1,6 +1,7 @@
 package lk.EasyCarRental.service.impl;
 
 import lk.EasyCarRental.dto.CarDto;
+import lk.EasyCarRental.dto.CarNewDto;
 import lk.EasyCarRental.dto.CustomerDto;
 import lk.EasyCarRental.dto.DriverDto;
 import lk.EasyCarRental.entity.Car;
@@ -13,7 +14,12 @@ import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 @Service
@@ -25,11 +31,28 @@ public class CarServiceImpl implements CarService {
     private CarRepo repo;
 
     @Override
-    public void saveCar(CarDto dto) {
+    public void saveCar(CarDto dto, MultipartFile img) {
+
         if(repo.existsById(dto.getVehicleNum())){
             throw new RuntimeException("invalid vehicle num ");
         }
+
+        String projectPath = "E:\\GDSE\\2 sem\\Internet Technology\\EasyCarRentalProject\\EasyCarRental\\FrontEnd\\assest\\car";
+
+        try {
+            byte[] fileBytes = img.getBytes();
+            Path location = Paths.get(projectPath + "\\"+ dto.getVehicleNum() + ".jpeg");
+
+            Files.write(location, fileBytes);
+
+            img.transferTo(location);
+
+//            driver.setLicenseImage("/image/bucket/driver/license_" + driver.getNic() + ".jpeg");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         Car car=mapper.map(dto,Car.class);
+        car.setImg("/"+ dto.getVehicleNum() + ".jpeg");
         repo.save(car);
         System.out.println(car);
     }
@@ -46,8 +69,8 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public ArrayList<CarDto> getCars() {
-        return mapper.map(repo.findAll(),new TypeToken<ArrayList<CarDto>>(){}.getType());
+    public ArrayList<CarNewDto> getCars() {
+        return mapper.map(repo.findAll(),new TypeToken<ArrayList<CarNewDto>>(){}.getType());
     }
 
     @Override

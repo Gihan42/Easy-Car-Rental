@@ -29,5 +29,7 @@ public class Car {
     double pricePerExtraKm;
     double lossDamageWaiver;
 
+    String img;
+
 
 }
