@@ -1377,10 +1377,6 @@ $('#luxuryTab>div>div>div').click(function (){
     $('#txtlossDamagevaiver').val(lossDamage);
     $('#txtCustomerId').val(userName);
 });
-
-
-
-
 $('#btnBooking').click(function (){
     /*searchCus();
     searchDriver();
@@ -1401,6 +1397,7 @@ $('#btnBooking').click(function (){
     console.log(cusFind);
     console.log("driverrrr");
     console.log(driverFind);
+    console.log("carrrr");
     console.log(carFind);
 
     var bookOB = {
@@ -1413,6 +1410,8 @@ $('#btnBooking').click(function (){
         driver:driverFind,
         customer:cusFind
     }
+    console.log("bookind data");
+    console.log(bookOB);
 
 
     $.ajax({
@@ -1525,11 +1524,7 @@ function searchCus(nic) {
 
             }
         })
-    }
-
-
-
-
+    };
 
 </script>
 </body>

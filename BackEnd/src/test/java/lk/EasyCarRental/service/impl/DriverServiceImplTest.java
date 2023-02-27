@@ -30,4 +30,10 @@ class DriverServiceImplTest {
         Driver driver=repo.findDriverByAvailable("Not Available");
         System.out.println(driver);
     }
+
+    @Test
+    void countAvailable(){
+        long l = repo.countDriverByAvailable("Available");
+        System.out.println(l);
+    }
 }

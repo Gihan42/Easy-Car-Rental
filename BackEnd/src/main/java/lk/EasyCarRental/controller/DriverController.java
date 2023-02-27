@@ -39,12 +39,15 @@ public class DriverController {
         service.updateDriver(dto);
         return new ResponseUtil("ok","updated",null);
     }
-    @GetMapping(params = "Available")
+   /* @GetMapping(params = "Available")
     public ResponseUtil selectAvailableDriver(@RequestParam String Available){
         DriverDto d= service.findDriver(Available);
         System.out.println(d);
         return new ResponseUtil("ok","searchA",service.findDriver(Available));
+    }*/
+    @GetMapping(params = {"available"})
+    public ResponseUtil countAvailableDriver(String available){
+        return new ResponseUtil("ok","available",service.countAvailableDriver(available));
     }
-
 
 }

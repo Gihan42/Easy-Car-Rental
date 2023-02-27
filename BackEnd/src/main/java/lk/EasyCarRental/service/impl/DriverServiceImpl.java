@@ -70,4 +70,11 @@ public class DriverServiceImpl implements DriverService {
         DriverDto dto=mapper.map(driver,DriverDto.class);
         return dto;
     }
+
+    @Override
+    public long countAvailableDriver(String Available) {
+        long r=repo.countDriverByAvailable("Available");
+        System.out.println("available"+r);
+        return r;
+    }
 }

@@ -12,4 +12,7 @@ public interface DriverService {
     void deleteDriver(String driverID);
     void updateDriver(DriverDto dto);
     DriverDto findDriver(String available);
+
+    long countAvailableDriver(String Available);
+
 }

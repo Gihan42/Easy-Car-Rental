@@ -6,4 +6,5 @@ public interface DriverRepo extends JpaRepository<Driver,String>{
 
     Driver findDriverBydriverID(String driverID );
     Driver findDriverByAvailable(String available);
+    long countDriverByAvailable( String Available);
 }

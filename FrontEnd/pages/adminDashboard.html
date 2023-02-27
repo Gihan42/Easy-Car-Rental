@@ -158,7 +158,7 @@
                 <img src="../assest/img/driver.jpg" class="card-img-top" alt="..." style="width: 89% ; height: 20%">
                 <div class="card-body">
                     <h5 class="card-title">Available   Driver</h5>
-                    <h1 class="card-title" style="color: #263e60">20+</h1>
+                    <h1 class="card-title" style="color: #263e60" id="avalableDrivers">20+</h1>
                 </div>
             </div>
         </div>
@@ -178,7 +178,7 @@
                 <img src="../assest/img/booking-flights.jpg" class="card-img-top" alt="..." style="width: 90% ; height: 20%">
                 <div class="card-body">
                     <h5 class="card-title">Booking Active</h5>
-                    <h1 class="card-title" style="color: #263e60">10+</h1>
+                    <h1 class="card-title" style="color: #263e60" id="bookingActive">10+</h1>
                 </div>
             </div>
         </div>
@@ -583,6 +583,8 @@
     // CUSTOMER START
     LoadAllCustomer();
     countCustomer();
+    countAllBooking();
+    countAvailableDriver("Available");
     $('#getAllCustomer').click(function (){
         LoadAllCustomer();
     });
@@ -924,7 +926,7 @@
             method:"get",
             async:false,
             success:function (res){
-                console.log(res)
+                console.log(res.data);
                 $('#availableCars').text(res.data+"+")
             }
         })
@@ -957,6 +959,36 @@
         let value=$('#isavailable').val();
         $('#txtDriverVailable').val(value);
     });
+    function countAvailableDriver(avl){
+        $('#avalableDrivers').text('');
+        console.log("count driver"+avl)
+        //console.log($('#avalableDrivers').text(''));
+        $.ajax({
+            url:baseurl+"driver?available=count" ,
+            method:"get",
+            dataType:"json",
+            async:false,
+            success:function (res){
+                console.log(res.data.length);
+
+                console.log("available"+res.data)
+                $('#avalableDrivers').text(res.data+"+")
+            }
+
+        });
+    }
+    function countAllBooking(){
+        $('#bookingActive').text('');
+        $.ajax({
+            url:baseurl+"booking?option=count" ,
+            method:"get",
+            dataType:"json",
+            async:false,
+            success:function (res){
+                $('#bookingActive').text(res.data+"+")
+            }
+        })
+    }
 </script>
 </body>
 </html>

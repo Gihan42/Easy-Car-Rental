@@ -1,6 +1,8 @@
 package lk.EasyCarRental.service.impl;
 
 import lk.EasyCarRental.config.WebRootConfig;
+import lk.EasyCarRental.dto.BookingDto;
+import lk.EasyCarRental.entity.Booking;
 import lk.EasyCarRental.repo.AdminRepo;
 import lk.EasyCarRental.repo.BookingRepo;
 import org.junit.jupiter.api.Test;
@@ -19,8 +21,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class BookingServiceImplTest {
     @Autowired
     BookingRepo repo;
-  /*  @Test
-    void generateBookingId() {
-        repo.getLastBookId();
-    }*/
+  /* @Test
+    void findBookingByDrivingId(){
+       Booking bookingByDriverId = repo.findBookingByDriverId("6562342355");
+       System.out.println(bookingByDriverId);
+   }*/
 }

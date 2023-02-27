@@ -25,11 +25,11 @@ public class Booking {
 
     private BigDecimal total;
     @ManyToOne
-    private Car vehicleNum;
+    private Car car;
     @ManyToOne
-    private Driver driverID;
+    private Driver driver;
     /*@ManyToOne
     private Admin admin;*/
     @ManyToOne
-    private Customer Nic;
+    private Customer customer;
 }

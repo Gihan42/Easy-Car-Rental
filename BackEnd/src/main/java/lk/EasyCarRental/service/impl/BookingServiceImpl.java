@@ -1,8 +1,13 @@
 package lk.EasyCarRental.service.impl;
 
 import lk.EasyCarRental.dto.BookingDto;
+import lk.EasyCarRental.dto.CarDto;
 import lk.EasyCarRental.dto.CustomerDto;
+import lk.EasyCarRental.dto.DriverDto;
 import lk.EasyCarRental.entity.Booking;
+import lk.EasyCarRental.entity.Car;
+import lk.EasyCarRental.entity.Customer;
+import lk.EasyCarRental.entity.Driver;
 import lk.EasyCarRental.repo.BookingRepo;
 import lk.EasyCarRental.service.BookingService;
 import org.modelmapper.ModelMapper;
@@ -43,6 +48,22 @@ public class BookingServiceImpl implements BookingService {
     public ArrayList<BookingDto> getAllBooking() {
         return mapper.map(repo.findAll(),new TypeToken<ArrayList<BookingDto>>(){}.getType());
 
+    }
+
+    @Override
+    public long countBooking() {
+        long count = repo.count();
+        return count;
+    }
+
+    @Override
+    public BookingDto findBookingByDrivingId(String driverID) {
+        if (!repo.existsById(driverID)){
+            throw new RuntimeException(" has already exists");
+        }
+       Booking booking=  repo.searchBookingByDriver_DriverID(driverID);
+        BookingDto map=mapper.map(booking,BookingDto.class);
+        return map;
     }
 
 

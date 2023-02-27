@@ -1,6 +1,8 @@
 package lk.EasyCarRental.controller;
 
 import lk.EasyCarRental.dto.BookingDto;
+import lk.EasyCarRental.dto.DriverDto;
+import lk.EasyCarRental.entity.Driver;
 import lk.EasyCarRental.service.BookingService;
 import lk.EasyCarRental.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +30,12 @@ public class BookingController {
         service.saveBooking(dto);
         return new ResponseUtil("ok","saved",null);
     }
-
+    @GetMapping(params = {"driverID"})
+    public ResponseUtil getBookingDetails(String driverID){
+        return new ResponseUtil("ok","shedule",service.findBookingByDrivingId(driverID));
+    }
+    @GetMapping(params = {"option"})
+    public ResponseUtil countAllBooking(){
+        return new ResponseUtil("ok","count",service.countBooking());
+    }
 }

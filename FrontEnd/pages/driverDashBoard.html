@@ -142,17 +142,16 @@
                             <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                                 <h4 class="mb-4">We are more than just a company</h4>
                                 <div style="width: 462px;position: relative;right: 73px">
-                                    <table class="table" style="padding: 0;width: 560px">
+                                    <table class="table" style="padding: 0;width: 560px" >
                                         <thead class="table-dark">
                                         <tr>
-                                            <th scope="col">driver ID</th>
-                                            <th scope="col">driver name</th>
-                                            <th scope="col">date</th>
+                                            <th scope="col">Booking Date</th>
+                                            <th scope="col">Due Date</th>
                                             <th scope="col">booking id</th>
                                             <th scope="col">vehicle num</th>
                                         </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="tableDriver">
 
                                         </tbody>
                                     </table>
@@ -316,12 +315,27 @@ function loadDriverDetails(){
                     $('#txtDriverAddress').val(res.data.driveraddress);
                     $('#txtDriverContact').val(res.data.driverContact);
                     $('#txtDriverPassword').val(res.data.password);
+                    loadAllBoking();
 
                 }
             });
         })
     }
+function loadAllBoking(){
 
+        $.ajax({
+            url:baseUrlA + "booking?driver_driverID=" + $('#txtDriverIds').val(),
+            method:"get",
+            async:false,
+            success:function (res){
+                $('#tableDriver').empty();
+                for (let i=0;i<res.data.length;i++){
+                    $('#tableDriver').append(`<tr><td>`+res.data[i].currentDate+`</td><td>`+res.data[i].dueDate +`</td><td>`+res.data[i].bookingID+`</td><td>`+res.data[i].car.vehicleNum +`</td></tr>`);
+                }
+                console.log(res.data)
+            }
+        })
+}
 
 </script>
 </body>
