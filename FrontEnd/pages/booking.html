@@ -190,7 +190,7 @@
                   <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtAmount">
                 </div>
                 <div class="input-group input-group-sm mb-3" style="margin-top: 34px">
-                  <span class="input-group-text" id="inputGroup-sizing-sm11">Damage</span>
+                  <span class="input-group-text" id="inputGroup-sizing-sm11">Total</span>
                   <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtDamage">
                 </div>
                 <div class="form-check" style="margin-top: 40px">
@@ -261,6 +261,7 @@
   let baseurl="http://localhost:8080/BackEnd_war/"
   loadAllBooking();
   let response="";
+  let textID="";
   $('#btnHome').click(function (){
     window.open('../index.html',"_parent");
   });
@@ -300,23 +301,45 @@
       $('#txtAmount').val(amount);
       $('#txtCustomerName').val(name);
 
+      $('#txtDamage').val(amount-loassDamge);
+
       /*payment process*/
       /*paymentProcess(boo);*/
     })
 
   }
+
+  let count=0;
+  $('#flexSwitchCheckChecked').change(function (){
+
+
+    if (count==0){
+      let am = $('#txtAmount').val()
+      $('#txtDamage').val(am);
+      count=1;
+    }else if (count==1){
+      let am = $('#txtAmount').val()
+      $('#txtDamage').val(am-($('#txtCarLossDamage').val()));
+      count=0;
+    }
+
+  });
+
     $('#btnPayment').click(function (){
 
       findBookingById();
       console.log("boo");
       console.log(response);
+
+
+      let ded = $('#txtDamage').val();
       var paymentOB= {
         bookingID:response.bookingID,
         booking:response,
         rent:response.total,
         account:"67676766767",
         paymentMethod:"card",
-        deduction:20000
+        deduction:ded
       }
       console.log("ob");
       console.log(paymentOB);
@@ -328,7 +351,7 @@
         contentType:"application/json",
         data:JSON.stringify(paymentOB),
         success:function (res) {
-          alert('awa')
+          alert('Payment Success')
           alert(res.message);
         },
         error:function (error) {
@@ -340,10 +363,10 @@
     });
 
 
- function findBookingById(){
+ function findBookingById(id){
    alert("hii")
    $.ajax({
-     url:baseurl+"booking?bookingID=" +$('#txtBookingId').val() ,
+     url:baseurl+"booking?bookingID=" +id ,
      dataType:"json",
      method:"get",
      async:false,
