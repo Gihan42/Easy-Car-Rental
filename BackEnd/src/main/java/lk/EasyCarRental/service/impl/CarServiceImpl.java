@@ -97,32 +97,32 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public ArrayList<CarDto> indCarsByVehicleType(String Premium) {
+    public ArrayList<CarNewDto> indCarsByVehicleType(String Premium) {
         ArrayList<Car> premium = repo.findCarsByVehicleType("Premium");
         for (Car car:premium) {
             System.out.println(car);
         }
-        return mapper.map(repo.findCarsByVehicleType(Premium),new TypeToken<ArrayList<CarDto>>(){}.getType());
+        return mapper.map(repo.findCarsByVehicleType(Premium),new TypeToken<ArrayList<CarNewDto>>(){}.getType());
 
     }
 
     @Override
-    public ArrayList<CarDto> findCarsByGeneralType(String General) {
+    public ArrayList<CarNewDto> findCarsByGeneralType(String General) {
         ArrayList<Car> general = repo.findCarsByVehicleType("General");
         for (Car car:general) {
             System.out.println(car);
         }
-        return mapper.map(repo.findCarsByVehicleType(General),new TypeToken<ArrayList<CarDto>>(){}.getType());
+        return mapper.map(repo.findCarsByVehicleType(General),new TypeToken<ArrayList<CarNewDto>>(){}.getType());
 
     }
 
     @Override
-    public ArrayList<CarDto> findCarsByLuxuryType(String Luxury) {
+    public ArrayList<CarNewDto> findCarsByLuxuryType(String Luxury) {
         ArrayList<Car> general = repo.findCarsByVehicleType("Luxury");
         for (Car car:general) {
             System.out.println(car);
         }
-        return mapper.map(repo.findCarsByVehicleType(Luxury),new TypeToken<ArrayList<CarDto>>(){}.getType());
+        return mapper.map(repo.findCarsByVehicleType(Luxury),new TypeToken<ArrayList<CarNewDto>>(){}.getType());
     }
 
 
