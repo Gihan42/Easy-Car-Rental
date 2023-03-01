@@ -20,8 +20,8 @@ public class Booking {
     private String currentDate;
     private String dueDate;
     private BigDecimal advancePayment;
-    @Lob
-    private byte[] paymentConfirmation;
+/*    @Lob
+    private byte[] paymentConfirmation;*/
 
     private BigDecimal total;
     @ManyToOne

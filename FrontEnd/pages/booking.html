@@ -300,7 +300,6 @@
       $('#txtCarLossDamage').val(loassDamge);
       $('#txtAmount').val(amount);
       $('#txtCustomerName').val(name);
-
       $('#txtDamage').val(amount-loassDamge);
 
       /*payment process*/
@@ -311,8 +310,6 @@
 
   let count=0;
   $('#flexSwitchCheckChecked').change(function (){
-
-
     if (count==0){
       let am = $('#txtAmount').val()
       $('#txtDamage').val(am);
@@ -334,7 +331,7 @@
 
       let ded = $('#txtDamage').val();
       var paymentOB= {
-        bookingID:response.bookingID,
+        bookingID:$('#txtBookingId').val(),
         booking:response,
         rent:response.total,
         account:"67676766767",
@@ -343,7 +340,7 @@
       }
       console.log("ob");
       console.log(paymentOB);
-
+      console.log("payement"+response);
       $.ajax({
         url: baseurl+"payment",
         method: "post",
@@ -363,10 +360,9 @@
     });
 
 
- function findBookingById(id){
-   alert("hii")
+ function findBookingById(){
    $.ajax({
-     url:baseurl+"booking?bookingID=" +id ,
+     url:baseurl+"booking?bookingID=" +$('#txtBookingId').val() ,
      dataType:"json",
      method:"get",
      async:false,
@@ -378,11 +374,11 @@
    });
   }
 
-  $('#btnPayment').click(function (){
+ /* $('#btnPayment').click(function (){
     alert()
-/*
+/!*
     let ret=findBookingById($('#txtBookingId').val());
-*/
+*!/
     console.log("boo");
     console.log(boo);
     var paymentOB= {
@@ -412,7 +408,7 @@
       }
 
     })
-  })
+  })*/
   /*payment process*/
 
 
