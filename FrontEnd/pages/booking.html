@@ -349,7 +349,7 @@
         data:JSON.stringify(paymentOB),
         success:function (res) {
           alert('Payment Success')
-          alert(res.message);
+          console.log(res.message);
         },
         error:function (error) {
           let cause = JSON.parse(error.responseText).message;
@@ -367,7 +367,7 @@
      method:"get",
      async:false,
      success:function (res){
-       alert("kkjkjj");
+      /* alert("kkjkjj");*/
        response=res.data;
        console.log(response)
      }

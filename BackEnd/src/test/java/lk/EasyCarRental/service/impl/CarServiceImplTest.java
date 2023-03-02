@@ -33,7 +33,7 @@ class CarServiceImplTest {
     }
     @Test
     void count(){
-        long aTrue = repo.countCarsByAvailable();
+        long aTrue = repo.countCarsByAvailable("Available");
         System.out.println(aTrue);
     }
     @Test

@@ -988,13 +988,13 @@
                                                                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtlossDamagevaiver">
                                                             </div>
                                                             <div class="input-group input-group-sm mb-3">
-                                                                <span class="input-group-text" id="inputGroup-sizing-sml5">Customer Name </span>
+                                                                <span class="input-group-text" id="inputGroup-sizing-sml5">Customer Nic </span>
                                                                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtCustomerId" name="nic">
                                                             </div>
                                                        </div>
                                                     </div>
                                                 </div>
-                                                <h4>Your Booking Id</h4><h5 id="bookingId">B000</h5>
+                                                <h4>Your Booking Id</h4><h5 id="bookingId">BID-1</h5>
                                             </div>
                                         </div>
                                         </div>
@@ -1171,11 +1171,14 @@ let baseUrlB="http://localhost:8080/BackEnd_war/"
 
 let driverPaymentPerDay="";
 
+
+
 $('#txtAccountNo').val('236579791');
 $('#txtBeneficiaryName').val('Easy Car');
 loadPremiumCars();
 loadGeneralsCars();
 loadLuxuryCars();
+
 function loadPremiumCars(){
     $.ajax({
         url:baseUrlindex+"car?Premium=count",
@@ -1376,6 +1379,7 @@ $('#luxuryTab>div>div>div').click(function (){
     $('#txtPricePerExtraKm').val(PriceperExtraKm);
     $('#txtlossDamagevaiver').val(lossDamage);
     $('#txtCustomerId').val(userName);
+
 });
 $('#btnBooking').click(function (){
     /*searchCus();
@@ -1421,7 +1425,12 @@ $('#btnBooking').click(function (){
         method:"post",
         data:JSON.stringify(bookOB),
         success:function (res) {
-            alert(res.message);
+           // loadallCars();
+                alert(res.message);
+
+
+
+
         }
     })
 
@@ -1525,6 +1534,37 @@ function searchCus(nic) {
             }
         })
     };
+
+
+  /*  function loadallCars(){
+        let carId=$('#txtCarNUm').val();
+        console.log(carId +"ABC")
+        let duedate=$('#DueDate').val();
+
+        $.ajax({
+            url:baseUrlB+"booking?bookingID=" +$('#bookingId').text() ,
+            dataType:"json",
+            method:"get",
+            async:false,
+            success: function (res) {
+              /!*  Cars=res.data;
+                console.log(Cars);*!/
+                console.log(res.data)
+                console.log("carId res "+res.data.car.vehicleNum)
+                console.log(res.data.dueDate);
+                if(duedate==res.data.dueDate && carId==res.data.car.vehicleNum ){
+                    alert('already defined')
+                  /!*console.log(Cars)
+                    console.log('carId'+Cars.car.vehicleNum);
+                    console.log('dueDate'+Cars.dueDate);*!/
+                }
+
+                //}
+
+            }
+        });
+    };*/
+
 
 </script>
 </body>

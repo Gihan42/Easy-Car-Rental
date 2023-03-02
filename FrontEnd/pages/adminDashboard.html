@@ -149,7 +149,7 @@
                 <img src="../assest/img/123.jpg" class="card-img-top" alt="..." style="width: 70%; height: 20%">
                 <div class="card-body">
                     <h5 class="card-title">Available   Cars</h5>
-                    <h1 class="card-title" style="color: #263e60" id="availableCars"></h1>
+                    <h1 class="card-title" style="color: #263e60" id="availableCars">0+</h1>
                 </div>
             </div>
         </div>
@@ -471,8 +471,12 @@
                                         <div class="mb-3">
                                             <input class="form-control" type="file" id="formFile" placeholder="Please insert four picture " name="img">
                                         </div>
+                                        <select class="form-select" aria-label="Default select example" id="isavailableCar"style="margin-bottom: 10px">
+                                            <option value="Available">Available</option>
+                                            <option value="Not Available">Not Available</option>
+                                        </select>
                                         <div class="mb-3">
-                                            <input class="form-control" type="text" id="Available" placeholder="Is Available " name="available">
+                                            <input class="form-control" type="text" id="Caravailable" placeholder="Is Available " name="available">
                                         </div>
 
                                         <div class="mb-3">
@@ -585,6 +589,7 @@
     countCustomer();
     countAllBooking();
     countAvailableDriver("Available");
+    countAvailableCar();
     $('#getAllCustomer').click(function (){
         LoadAllCustomer();
     });
@@ -778,7 +783,7 @@
            dataType:"json",
            contentType:"application/json" ,
             async:false,
-            success:function (){
+            success:function (res){
                 clearDriverTextFeild();
                alert(res.message)
             },
@@ -790,7 +795,7 @@
     // DRIVER END
     //CAR START
     loadAllCar();
-    countAvailableCar();
+    /*countAvailableCar();*/
     $('#save-car').click(function (){
         // let carData=$('#carForms').serialize();
         let carData = new FormData($("#carForms")[0]);
@@ -922,15 +927,16 @@
            }
        })
     });
-    function countAvailableCar(){
+   function countAvailableCar(){
+       $('#availableCars').text('')
         $.ajax({
-            url:baseurlThree+"car?available=count",
+            url:baseurlThree+"car?availableC=count",
             dataType:"json",
             method:"get",
             async:false,
             success:function (res){
                 console.log(res.data);
-                $('#availableCars').text(res.data+"+")
+                $('#availableCars').text(res.data.length+"+")
             }
         })
     };
@@ -961,6 +967,10 @@
     $('#isavailable').click(function (){
         let value=$('#isavailable').val();
         $('#txtDriverVailable').val(value);
+    });
+    $('#isavailableCar').click(function (){
+       let val=$('#isavailableCar') .val();
+       $('#Caravailable').val(val);
     });
     function countAvailableDriver(avl){
         $('#avalableDrivers').text('');

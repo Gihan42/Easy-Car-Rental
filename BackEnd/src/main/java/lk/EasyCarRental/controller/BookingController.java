@@ -40,7 +40,10 @@ public class BookingController {
     }
     @GetMapping(params = {"bookingID"})
     public ResponseUtil findbookings(String bookingID){
-        System.out.println("jjjjjj"+bookingID);
         return new ResponseUtil("ok","find",service.findBookingbookingID(bookingID));
+    }
+    @GetMapping(params = {"vehicleNum"})
+    public ResponseUtil findBookingBYVehicle(String vehicleNum){
+        return new ResponseUtil("ok","findBooking",service.findBookingByvehicleNum(vehicleNum));
     }
 }

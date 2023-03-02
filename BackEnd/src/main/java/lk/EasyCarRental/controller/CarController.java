@@ -45,10 +45,9 @@ public class CarController {
         service.deleteCar(vehicleNum);
         return new ResponseUtil("ok","deleted",null);
     }
-    @GetMapping(params = {"available"})
-    public ResponseUtil availableCarCount(){
-        System.out.println(service.countCarAvailable());
-      return new ResponseUtil("ok","count",  service.countCarAvailable());
+    @GetMapping(params = {"availableC"})
+    public ResponseUtil countAvailableCar(String available){
+        return new ResponseUtil("ok","available",service.countAvailableCars(available));
     }
 
     @GetMapping(params = {"Premium"})

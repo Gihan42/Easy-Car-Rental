@@ -11,8 +11,7 @@ public interface CarRepo extends JpaRepository<Car,String> {
 //    @Query(value = "SELECT  * FROM  Car WHERE vehicleNum=?", nativeQuery = true)
     Car findCarByVehicleNum(String vehicleNum);
 
-    @Query(value = "Count * FROM Car WHERE available=1", nativeQuery = true)
-    long countCarsByAvailable();
+   long countCarsByAvailable(String Available);
     ArrayList<Car> findCarsByVehicleType(String Premium);
 
 

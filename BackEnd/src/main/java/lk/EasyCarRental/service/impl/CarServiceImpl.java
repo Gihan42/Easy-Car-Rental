@@ -90,11 +90,12 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public long countCarAvailable() {
-       int l = (int) repo.countCarsByAvailable();
-        System.out.println("count"+ l);
-        return  l ;
+    public long countAvailableCars(String Available) {
+        long available = repo.countCarsByAvailable("Available");
+        return available;
+
     }
+
 
     @Override
     public ArrayList<CarNewDto> indCarsByVehicleType(String Premium) {

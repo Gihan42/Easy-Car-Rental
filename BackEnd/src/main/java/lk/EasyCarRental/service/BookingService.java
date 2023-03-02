@@ -17,5 +17,5 @@ public interface BookingService {
     long countBooking();
     BookingDto findBookingByDrivingId(String driverID);
     BookingDto findBookingbookingID(String bookingID);
-
+    BookingDto findBookingByvehicleNum(String vehicleNum);
 }

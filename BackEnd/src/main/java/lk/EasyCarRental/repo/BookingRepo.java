@@ -12,5 +12,6 @@ public interface BookingRepo extends JpaRepository<Booking,String> {
     long count();
     Booking searchBookingByDriver_DriverID(String driverID);
     Booking findBookingByBookingID(String bookingID);
+    Booking searchBookingByCar_VehicleNum(String vehicleNum);
 
 }

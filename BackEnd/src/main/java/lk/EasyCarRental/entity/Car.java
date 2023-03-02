@@ -20,7 +20,7 @@ public class Car {
     String Color;
     double carMonthlyprice;
     double carDailyprice;
-    boolean available;
+    String available;
     int carpriceperkmaday;
     int carpricePerKmMonth;
     String carPasanger;

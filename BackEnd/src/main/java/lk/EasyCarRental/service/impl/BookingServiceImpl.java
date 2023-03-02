@@ -61,7 +61,7 @@ public class BookingServiceImpl implements BookingService {
         if (!repo.existsById(driverID)){
             throw new RuntimeException(" has already exists");
         }
-       Booking booking=  repo.searchBookingByDriver_DriverID(driverID);
+        Booking booking=  repo.searchBookingByDriver_DriverID(driverID);
         BookingDto map=mapper.map(booking,BookingDto.class);
         return map;
     }
@@ -73,6 +73,16 @@ public class BookingServiceImpl implements BookingService {
         }
         Booking booking= repo.findBookingByBookingID(bookingID);
         BookingDto map=mapper.map(booking,BookingDto.class);
+        return map;
+    }
+
+    @Override
+    public BookingDto findBookingByvehicleNum(String vehicleNum) {
+        if (!repo.existsById(vehicleNum)){
+            throw new RuntimeException(" has already exists");
+        }
+        Booking book=repo.searchBookingByCar_VehicleNum(vehicleNum);
+        BookingDto map=mapper.map(book,BookingDto.class);
         return map;
     }
 
