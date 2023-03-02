@@ -15,7 +15,7 @@ public interface CarService {
     void updateCar(CarDto dto);
     void deleteCar(String vehicleNum);
     long countAvailableCars(String Available);
-    ArrayList<CarNewDto> indCarsByVehicleType(String Premium);
-    ArrayList<CarNewDto> findCarsByGeneralType(String General);
-    ArrayList<CarNewDto>   findCarsByLuxuryType(String Luxury);
+    ArrayList<CarNewDto> indCarsByVehicleType(String Premium ,String Available);
+    ArrayList<CarNewDto> findCarsByGeneralType(String General,String Available);
+    ArrayList<CarNewDto>   findCarsByLuxuryType(String Luxury,String Available);
 }

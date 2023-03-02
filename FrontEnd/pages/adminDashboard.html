@@ -123,7 +123,7 @@
             </ul>
             <form class="d-flex" role="search" style="position: relative;top: 5px">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button type="button" class="btn btn-success">Search</button>
+                <button type="button" class="btn btn-success" id="addCart">Booking</button>
             </form>
         </div>
     </div>
@@ -853,7 +853,7 @@
                 $('#carTable').empty()
                 console.log(res)
                 for (let i =0;i < res.data.length;i++){
-                    $('#carTable').append(`<tr><td> `+res.data[i].vehicleNum+`</td><td>` + res.data[i].vehicleNum +`</td><td>` + res.data[i].vehicleModel + `</td><td>` + res.data[i].color + `</td><td>` + res.data[i].carMonthlyprice + `</td><td>` + res.data[i].carDailyprice + `</td><td>` + res.data[i].available + `</td><td>` + res.data[i].carpricePerKm + `</td><td>`  + res.data[i].carpricePerKmMonth + `</td><td>` + res.data[i].carPasanger + `</td><td>` + res.data[i].carFuelType +  `</td><td>` + res.data[i].vehicleType + `</td><td>` + res.data[i].pricePerExtraKm +  `</td><td>` + res.data[i].lossDamageWaiver +  `</td></tr>`);
+                    $('#carTable').append(`<tr><td> `+res.data[i].vehicleNum+`</td><td>` + res.data[i].vehicleModel +`</td><td>` + res.data[i].color + `</td><td>` + res.data[i].carMonthlyprice + `</td><td>` + res.data[i].carDailyprice + `</td><td>` + res.data[i].available + `</td><td>` + res.data[i].carpricePerKm + `</td><td>` + res.data[i].carpricePerKmMonth + `</td><td>`  + res.data[i].carPasanger + `</td><td>` + res.data[i].carFuelType + `</td><td>` + res.data[i].vehicleType +  `</td><td>` + res.data[i].pricePerExtraKm +  `</td><td>` + res.data[i].lossDamageWaiver +  `</td></tr>`);
                 }
 
             }
@@ -936,7 +936,7 @@
             async:false,
             success:function (res){
                 console.log(res.data);
-                $('#availableCars').text(res.data.length+"+")
+                $('#availableCars').text(res.data+"+")
             }
         })
     };
@@ -1002,6 +1002,9 @@
             }
         })
     }
+    $('#addCart').click(function () {
+         location.href = "booking.html";
+    });
 </script>
 </body>
 </html>

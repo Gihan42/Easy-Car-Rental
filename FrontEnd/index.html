@@ -661,7 +661,7 @@
                     <!--edit-->
                 </li>
                 <li class="nav-item">
-                    <button type="button" class="btn btn-danger" id="addCart">Booking</button>
+                    <button type="button" class="btn btn-danger" id="addCart">+Add Cart</button>
             </li>
             </ul>
         </div>
@@ -1178,7 +1178,7 @@ $('#txtBeneficiaryName').val('Easy Car');
 loadPremiumCars();
 loadGeneralsCars();
 loadLuxuryCars();
-
+let av="Available"
 function loadPremiumCars(){
     $.ajax({
         url:baseUrlindex+"car?Premium=count",
@@ -1186,20 +1186,18 @@ function loadPremiumCars(){
         async:false,
         success:function (res){
             $('#premiumTab').empty();
-            for(let i =0;i < res.data.length;i++){
-                let card=`<div class="col" style="padding: 10px  "id="colGrid" ><div class="card" style="width: 18rem; height: 24rem" id="carCard"> <div class="card-body" data-bs-target="#customerLogin" data-bs-toggle="modal" id="btnSelectP" style="text-align: left"><img src="assest/car${res.data[i].img}" class="card-img-top"  style="height: 8rem;width: 14rem"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left" id="lblPVehiclenum"><span>`+ res.data[i].vehicleNum+`</span> </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Month</b> = </label> <label style="text-align: left">`+ res.data[i].carMonthlyprice +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price Per Day</b> = </label> <label style="text-align: left">`+ res.data[i].carDailyprice+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Car Loss Damage Waiver</b> = </label><label> `+res.data[i].lossDamageWaiver +`</label><a  class="btn btn-primary" data-bs-target="#loadBookingTab" data-bs-toggle="modal" type="button" id="btnSelectP">Booking Car</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                for(let i =0;i < res.data.length;i++){
+                    let card=`<div class="col" style="padding: 10px  "id="colGrid" ><div class="card" style="width: 18rem; height: 24rem" id="carCard"> <div class="card-body" data-bs-target="#customerLogin" data-bs-toggle="modal" id="btnSelectP" style="text-align: left"><img src="assest/car${res.data[i].img}" class="card-img-top"  style="height: 8rem;width: 14rem"><h5 class="card-title">` + res.data[i].vehicleModel + `</h5><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Vehicle Number</b> = </label><label style="text-align: left" id="lblPVehiclenum"><span>`+ res.data[i].vehicleNum+`</span> </label>    <label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Month</b> = </label> <label style="text-align: left">`+ res.data[i].carMonthlyprice +` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price Per Day</b> = </label> <label style="text-align: left">`+ res.data[i].carDailyprice+` </label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Price per Extra Km(Rs)</b> = </label> <label style="text-align: left">`+res.data[i].pricePerExtraKm +`</label><label style="text-align: left ;padding-right: 5px;color: #AE303D"><b>Car Loss Damage Waiver</b> = </label><label> `+res.data[i].lossDamageWaiver +`</label><a  class="btn btn-primary" data-bs-target="#loadBookingTab" data-bs-toggle="modal" type="button" id="btnSelectP">Booking Car</a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                         </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
                                 <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
                             </svg></div></div></div>`
-                $('#premiumTab').append(card)
+                    $('#premiumTab').append(card)
+            }
                 console.log(res.data[i].vehicleNum +"premium")
 
             }
-
-        }
-
     })
 }
 function loadGeneralsCars(){
@@ -1480,9 +1478,7 @@ function searchCus(nic) {
         return response;
     };
 
-    $('#addCart').click(function () {
-        location.href = "pages/booking.html";
-    });
+
 
     $('#flexRadioDefault1').click(function () {
         $('#txtDays').val(1)

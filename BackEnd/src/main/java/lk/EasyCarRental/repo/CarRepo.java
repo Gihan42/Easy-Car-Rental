@@ -12,7 +12,7 @@ public interface CarRepo extends JpaRepository<Car,String> {
     Car findCarByVehicleNum(String vehicleNum);
 
    long countCarsByAvailable(String Available);
-    ArrayList<Car> findCarsByVehicleType(String Premium);
+    ArrayList<Car> findCarsByVehicleTypeAndAvailable(String Premium,String Available);
 
 
 }

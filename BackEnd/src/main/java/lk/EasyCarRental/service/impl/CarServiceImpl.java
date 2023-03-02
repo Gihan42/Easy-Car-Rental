@@ -98,32 +98,34 @@ public class CarServiceImpl implements CarService {
 
 
     @Override
-    public ArrayList<CarNewDto> indCarsByVehicleType(String Premium) {
-        ArrayList<Car> premium = repo.findCarsByVehicleType("Premium");
+    public ArrayList<CarNewDto> indCarsByVehicleType(String Premium,String Available) {
+        ArrayList<Car> premium = repo.findCarsByVehicleTypeAndAvailable("Premium","Available");
         for (Car car:premium) {
             System.out.println(car);
         }
-        return mapper.map(repo.findCarsByVehicleType(Premium),new TypeToken<ArrayList<CarNewDto>>(){}.getType());
+        return mapper.map(repo.findCarsByVehicleTypeAndAvailable(Premium,Available),new TypeToken<ArrayList<CarNewDto>>(){}.getType());
+
+    }
+
+
+
+    @Override
+    public ArrayList<CarNewDto> findCarsByGeneralType(String General,String Available) {
+        ArrayList<Car> general = repo.findCarsByVehicleTypeAndAvailable("General","Available");
+        for (Car car:general) {
+            System.out.println(car);
+        }
+        return mapper.map(repo.findCarsByVehicleTypeAndAvailable(General,Available),new TypeToken<ArrayList<CarNewDto>>(){}.getType());
 
     }
 
     @Override
-    public ArrayList<CarNewDto> findCarsByGeneralType(String General) {
-        ArrayList<Car> general = repo.findCarsByVehicleType("General");
+    public ArrayList<CarNewDto> findCarsByLuxuryType(String Luxury,String Available) {
+        ArrayList<Car> general = repo.findCarsByVehicleTypeAndAvailable("Luxury","Available");
         for (Car car:general) {
             System.out.println(car);
         }
-        return mapper.map(repo.findCarsByVehicleType(General),new TypeToken<ArrayList<CarNewDto>>(){}.getType());
-
-    }
-
-    @Override
-    public ArrayList<CarNewDto> findCarsByLuxuryType(String Luxury) {
-        ArrayList<Car> general = repo.findCarsByVehicleType("Luxury");
-        for (Car car:general) {
-            System.out.println(car);
-        }
-        return mapper.map(repo.findCarsByVehicleType(Luxury),new TypeToken<ArrayList<CarNewDto>>(){}.getType());
+        return mapper.map(repo.findCarsByVehicleTypeAndAvailable(Luxury,Available),new TypeToken<ArrayList<CarNewDto>>(){}.getType());
     }
 
 

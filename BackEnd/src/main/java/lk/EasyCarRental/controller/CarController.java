@@ -53,16 +53,16 @@ public class CarController {
     @GetMapping(params = {"Premium"})
     public ResponseUtil getPremiumCar(){
         System.out.println("no");
-        return new ResponseUtil("ok","PremiumCars",service.indCarsByVehicleType("Premium"));
+        return new ResponseUtil("ok","PremiumCars",service.indCarsByVehicleType("Premium","Available"));
     }
     @GetMapping(params = {"General"})
     public ResponseUtil getGenaralCars(){
-        return new ResponseUtil("ok","PremiumCars",service.findCarsByGeneralType("General"));
+        return new ResponseUtil("ok","PremiumCars",service.findCarsByGeneralType("General","Available"));
 
     }
     @GetMapping(params = {"Luxury"})
     public ResponseUtil getLuxuryCars(){
-        return new ResponseUtil("ok","PremiumCars",service.findCarsByLuxuryType("Luxury"));
+        return new ResponseUtil("ok","PremiumCars",service.findCarsByLuxuryType("Luxury","Available"));
 
     }
 

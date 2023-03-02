@@ -103,7 +103,7 @@
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button type="button" class="btn btn-success">Search</button>
+        <button type="button" class="btn btn-success" id="admin">Admin</button>
       </form>
     </div>
   </div>
@@ -374,42 +374,9 @@
    });
   }
 
- /* $('#btnPayment').click(function (){
-    alert()
-/!*
-    let ret=findBookingById($('#txtBookingId').val());
-*!/
-    console.log("boo");
-    console.log(boo);
-    var paymentOB= {
-      bookingID:book.bookingID,
-      booking:book,
-      rent:book.rent,
-      account:67676766767,
-      paymentMethod:"card",
-      deduction:20000
-    }
-    console.log("ob");
-    console.log(paymentOB);
-
-    $.ajax({
-      url: baseurl+"payment",
-      method: "post",
-      dataType:"json",
-      contentType:"application/json",
-      data:JSON.stringify(paymentOB),
-      success:function (res) {
-        alert()
-        alert(res.message);
-      },
-      error:function (error) {
-        let cause = JSON.parse(error.responseText).message;
-        alert(cause);
-      }
-
-    })
-  })*/
-  /*payment process*/
+$('#admin').click(function (){
+  location.href = "adminDashboard.html";
+})
 
 
 

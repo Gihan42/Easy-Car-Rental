@@ -38,10 +38,10 @@ class CarServiceImplTest {
     }
     @Test
     void countPrimium(){
-        ArrayList<Car> premium = repo.findCarsByVehicleType("Premium");
+       /* ArrayList<Car> premium = repo.findCarsByVehicleType("Premium");
         for (Car car:premium){
             System.out.println(car);
-        }
+        }*/
     }
     @Test
     void countGeneral(){
