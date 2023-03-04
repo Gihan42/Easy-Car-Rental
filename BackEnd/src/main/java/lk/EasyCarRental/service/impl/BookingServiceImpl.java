@@ -9,6 +9,7 @@ import lk.EasyCarRental.entity.Car;
 import lk.EasyCarRental.entity.Customer;
 import lk.EasyCarRental.entity.Driver;
 import lk.EasyCarRental.repo.BookingRepo;
+import lk.EasyCarRental.repo.CarRepo;
 import lk.EasyCarRental.service.BookingService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 @Transactional
 @Service
@@ -26,15 +28,26 @@ public class BookingServiceImpl implements BookingService {
     @Autowired
     private ModelMapper mapper;
 
+    @Autowired
+    CarRepo carRepo;
+
+    @Transactional
     @Override
     public void saveBooking(BookingDto dto) {
         if (repo.existsById(dto.getBookingID())){
             throw new RuntimeException("booking has already exists");
         }
-        String s = generateBookingId();
-        dto.setBookingID(s);
-        Booking booking=mapper.map(dto,Booking.class);
-        repo.save(booking);
+
+        Car car = carRepo.findCarByVehicleNum(dto.getCar().getVehicleNum());
+        if (Objects.equals(car.getAvailable(), "Available")){
+            String s = generateBookingId();
+            dto.setBookingID(s);
+            Booking booking=mapper.map(dto,Booking.class);
+            repo.save(booking);
+
+            car.setAvailable("Not Available");
+            carRepo.save(car);
+        }
     }
 
     @Override
