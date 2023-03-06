@@ -2,8 +2,10 @@ package lk.EasyCarRental.service.impl;
 
 import lk.EasyCarRental.dto.PaymentDto;
 import lk.EasyCarRental.entity.Car;
+import lk.EasyCarRental.entity.Driver;
 import lk.EasyCarRental.entity.Payment;
 import lk.EasyCarRental.repo.CarRepo;
+import lk.EasyCarRental.repo.DriverRepo;
 import lk.EasyCarRental.repo.PaymentRepo;
 import lk.EasyCarRental.service.PaymentService;
 import org.modelmapper.ModelMapper;
@@ -23,6 +25,9 @@ public class PaymentServiceImpl implements PaymentService {
     @Autowired
     CarRepo carRepo;
 
+    @Autowired
+    DriverRepo driverRepo;
+
     @Override
     public void savePayment(PaymentDto dto) {
         if (repo.existsById(dto.getBookingID())){
@@ -33,8 +38,12 @@ public class PaymentServiceImpl implements PaymentService {
         repo.save(payment);
 
         Car car = carRepo.findCarByVehicleNum(payment.getBooking().getCar().getVehicleNum());
+        Driver driver=driverRepo.findDriverBydriverID(payment.getBooking().getDriver().getDriverID());
+
         car.setAvailable("Available");
+        driver.setAvailable("Available");
         carRepo.save(car);
+        driverRepo.save(driver);
     }
 
     @Override

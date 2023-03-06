@@ -10,6 +10,7 @@ import lk.EasyCarRental.entity.Customer;
 import lk.EasyCarRental.entity.Driver;
 import lk.EasyCarRental.repo.BookingRepo;
 import lk.EasyCarRental.repo.CarRepo;
+import lk.EasyCarRental.repo.DriverRepo;
 import lk.EasyCarRental.service.BookingService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -31,6 +32,9 @@ public class BookingServiceImpl implements BookingService {
     @Autowired
     CarRepo carRepo;
 
+    @Autowired
+    DriverRepo driverRepo;
+
     @Transactional
     @Override
     public void saveBooking(BookingDto dto) {
@@ -39,14 +43,17 @@ public class BookingServiceImpl implements BookingService {
         }
 
         Car car = carRepo.findCarByVehicleNum(dto.getCar().getVehicleNum());
-        if (Objects.equals(car.getAvailable(), "Available")){
+        Driver driver=driverRepo.findDriverBydriverID(dto.getDriver().getDriverID());
+        if (Objects.equals(car.getAvailable(), "Available") || Objects.equals(driver.getAvailable(),"Available")){
             String s = generateBookingId();
             dto.setBookingID(s);
             Booking booking=mapper.map(dto,Booking.class);
             repo.save(booking);
 
             car.setAvailable("Not Available");
+            driver.setAvailable("Not Available");
             carRepo.save(car);
+            driverRepo.save(driver);
         }
     }
 

@@ -1026,7 +1026,7 @@
                                                                         </div>
                                                                         <div class="input-group input-group-sm mb-3">
                                                                             <span class="input-group-text" >D & T</span>
-                                                                            <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="" id="BookingDate" name="">
+                                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="" id="BookingDate" name="" readonly>
                                                                             <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="" id="DueDate" name="date">
 
                                                                         </div>
@@ -1044,7 +1044,7 @@
                                                                         </div>
                                                                         <div class="input-group input-group-sm mb-3">
                                                                             <span class="input-group-text" >Days</span>
-                                                                            <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtDays" name="date">
+                                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtDays" name="date">
                                                                         </div>
                                                                         <div class="form-check form-switch">
                                                                             <input class="form-check-input" type="checkbox" role="switch" id="chcHireDriver"  >
@@ -1180,6 +1180,13 @@ $('#txtBeneficiaryName').val('Easy Car');
 loadPremiumCars();
 loadGeneralsCars();
 loadLuxuryCars();
+$(document).ready(function() {
+    let now = new Date();
+    let today = (now.getMonth() + 1)  + '/' + now.getDate() + '/' + now.getFullYear();
+    console.log(today);
+    $('#BookingDate').val(today);
+});
+
 function loadPremiumCars(){
     $.ajax({
         url:baseUrlindex+"car?Premium=count",
@@ -1484,7 +1491,7 @@ $('#btnBooking').click(function (){
     });
     $('#chcHireDriver').change(function () {
 
-        let checkDriver = findDriverByAvailable("Not Available");
+        let checkDriver = findDriverByAvailable("Available");
         console.log("gffgffg");
         console.log(checkDriver[0].driverID);
         $('#txtDrivers').val(checkDriver[0].driverID);
@@ -1525,7 +1532,8 @@ $('#btnBooking').click(function (){
     };
 
 
-  /*  function loadallCars(){
+
+/*  function loadallCars(){
         let carId=$('#txtCarNUm').val();
         console.log(carId +"ABC")
         let duedate=$('#DueDate').val();
@@ -1553,7 +1561,6 @@ $('#btnBooking').click(function (){
             }
         });
     };*/
-
 /*function updateAvailable() {
     let carJson={
         available:nav
